@@ -30,6 +30,7 @@
     <property name="hbm2ddl.auto">update</property>
     <mapping class="com.eezon.models.user_details"/>
     <mapping class="com.eezon.models.professor_requests"/>
+    <mapping class="com.eezon.models.course_details"/>
     
   </session-factory>
 </hibernate-configuration>

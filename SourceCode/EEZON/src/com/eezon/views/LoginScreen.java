@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.eezon.models.user_details;
+import com.eezon.models.User;
 
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
@@ -65,7 +65,7 @@ public class LoginScreen {
 				session.beginTransaction();
 				session.getTransaction().commit();
 				
-				user_details getUser = session.get(com.eezon.models.user_details.class, txtUserName.getText());
+				User getUser = session.get(com.eezon.models.User.class, txtUserName.getText());
 				
 				if(getUser != null){
 					System.out.println("User's Password:"+ getUser.getPassword());

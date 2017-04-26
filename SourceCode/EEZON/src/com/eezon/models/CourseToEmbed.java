@@ -1,12 +1,10 @@
 package com.eezon.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.Embeddable;
 
-@Entity
-public class course_details {
+@Embeddable
+public class CourseToEmbed {
 
-	@Id
 	private String courseName;
 	private String year;
 	private	String semester;

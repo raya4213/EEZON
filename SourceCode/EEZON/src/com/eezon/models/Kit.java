@@ -7,17 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class kit_details {
+public class Kit {
 	
 	@Id
 	private String kitType;
 	@Embedded
-	private Course kitCourse;
+	private CourseToEmbed kitCourse;
 	private String kitSerialNum;
 	private Date kitCheckInDate;
 	private Date kitCheckOutDate;
 	private String studentEmailKit;
-	private String studentnameForKit;
+	private String studentNameForKit;
 	private double kitPenalty;
 	
 	public String getKitType() {
@@ -28,11 +28,11 @@ public class kit_details {
 		this.kitType = kitType;
 	}
 	
-	public Course getKitCourse() {
+	public CourseToEmbed getKitCourse() {
 		return kitCourse;
 	}
 	
-	public void setKitCourse(Course kitCourse) {
+	public void setKitCourse(CourseToEmbed kitCourse) {
 		this.kitCourse = kitCourse;
 	}
 	
@@ -68,12 +68,12 @@ public class kit_details {
 		this.studentEmailKit = studentEmailKit;
 	}
 	
-	public String getStudentnameForKit() {
-		return studentnameForKit;
+	public String getStudentNameForKit() {
+		return studentNameForKit;
 	}
 	
-	public void setStudentnameForKit(String studentnameForKit) {
-		this.studentnameForKit = studentnameForKit;
+	public void setStudentNameForKit(String studentnameForKit) {
+		this.studentNameForKit = studentnameForKit;
 	}
 	
 	public double getKitPenalty() {

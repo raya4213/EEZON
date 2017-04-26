@@ -1,11 +1,12 @@
 package com.eezon.models;
 
-import javax.persistence.Embeddable;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-@Embeddable
+@Entity
 public class Course {
 
+	@Id
 	private String courseName;
 	private String year;
 	private	String semester;

@@ -31,6 +31,7 @@
     <mapping class="com.eezon.models.user_details"/>
     <mapping class="com.eezon.models.professor_requests"/>
     <mapping class="com.eezon.models.course_details"/>
+    <mapping class="com.eezon.models.Course"/>
     <mapping class="com.eezon.models.kit_details"/>
     
   </session-factory>

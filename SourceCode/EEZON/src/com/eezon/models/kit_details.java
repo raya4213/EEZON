@@ -2,6 +2,7 @@ package com.eezon.models;
 
 import java.util.Date;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,7 +11,8 @@ public class kit_details {
 	
 	@Id
 	private String kitType;
-	private course_details kitCourse;
+	@Embedded
+	private Course kitCourse;
 	private String kitSerialNum;
 	private Date kitCheckInDate;
 	private Date kitCheckOutDate;
@@ -26,11 +28,11 @@ public class kit_details {
 		this.kitType = kitType;
 	}
 	
-	public course_details getKitCourse() {
+	public Course getKitCourse() {
 		return kitCourse;
 	}
 	
-	public void setKitCourse(course_details kitCourse) {
+	public void setKitCourse(Course kitCourse) {
 		this.kitCourse = kitCourse;
 	}
 	

@@ -4,13 +4,11 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Text;
 
 public class ViewCinCoutScreen {
-
-	protected Shell shlView;
-	private Text tableList;
+	private Text textSelection;
 
 	/**
 	 * Launch the application.
@@ -30,43 +28,34 @@ public class ViewCinCoutScreen {
 	 */
 	public void open() {
 		Display display = Display.getDefault();
-		createContents();
-		shlView.open();
-		shlView.layout();
-		while (!shlView.isDisposed()) {
+		Shell shlEezon = new Shell();
+		shlEezon.setSize(957, 554);
+		shlEezon.setText("EEZON - View my Check IN / Check OUT - Student");
+		
+		Button btnHome = new Button(shlEezon, SWT.NONE);
+		btnHome.setBounds(76, 23, 105, 35);
+		btnHome.setText("HOME");
+		
+		Button btnBack = new Button(shlEezon, SWT.NONE);
+		btnBack.setBounds(224, 23, 105, 35);
+		btnBack.setText("BACK");
+		
+		Combo cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
+		cmbSelectCourse.setBounds(376, 124, 104, 33);
+		
+		Combo cmbSelectStudent = new Combo(shlEezon, SWT.NONE);
+		cmbSelectStudent.setBounds(376, 229, 104, 33);
+		
+		textSelection = new Text(shlEezon, SWT.BORDER);
+		textSelection.setBounds(259, 315, 348, 65);
+
+		shlEezon.open();
+		shlEezon.layout();
+		while (!shlEezon.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
-	}
-
-	/**
-	 * Create contents of the window.
-	 */
-	protected void createContents() {
-		shlView = new Shell();
-		shlView.setToolTipText("Enter Email ID");
-		shlView.setSize(873, 490);
-		shlView.setText("EEZON - View my CheckIN/CheckOUT - Student");
-		
-		Button btnHome = new Button(shlView, SWT.NONE);
-		btnHome.setBounds(40, 31, 105, 35);
-		btnHome.setText("HOME");
-		
-		Button btnBack = new Button(shlView, SWT.NONE);
-		btnBack.setBounds(191, 31, 105, 35);
-		btnBack.setText("BACK");
-		
-		Combo cmbSelectCourse = new Combo(shlView, SWT.NONE);
-		cmbSelectCourse.setToolTipText("Select Course");
-		cmbSelectCourse.setBounds(284, 119, 250, 33);
-		
-		Combo cmbSelectStudent = new Combo(shlView, SWT.NONE);
-		cmbSelectStudent.setBounds(284, 202, 250, 33);
-		
-		tableList = new Text(shlView, SWT.BORDER);
-		tableList.setBounds(269, 274, 294, 56);
-
 	}
 
 }

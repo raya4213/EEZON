@@ -9,16 +9,16 @@ public abstract class Request {
 
 	@Id
 	@GeneratedValue
-	private String reqId;
+	private int reqId;
 	private String reqType;
 	private String reqStatus;
 	private String reqFrom;
 	
-	public String getReqId() {
+	public int getReqId() {
 		return reqId;
 	}
 	
-	public void setReqId(String reqId) {
+	public void setReqId(int reqId) {
 		this.reqId = reqId;
 	}
 	

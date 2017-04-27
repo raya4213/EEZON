@@ -65,7 +65,7 @@ public class LoginScreen {
 				session.beginTransaction();
 				session.getTransaction().commit();
 				
-				User getUser = session.get(com.eezon.models.User.class, txtUserName.getText());
+				/*User getUser = session.get(com.eezon.models.User.class, txtUserName.getText());
 				
 				if(getUser != null){
 					System.out.println("User's Password:"+ getUser.getPassword());
@@ -78,14 +78,14 @@ public class LoginScreen {
 						
 						HomeScreen.updateIncomingShell(shell, params);
 						HomeScreen homeScreen = new HomeScreen();
-						homeScreen.open();*/
+						homeScreen.open();////////////////////
 					}else{
 						//lblStatus.setText("Invalid Username/Password");
 						System.out.println("Invalid Username/Password");
 					}
 				}else{
 					System.out.println("Username not present");
-				}
+				}*/
 				
 				session.close();
 				sessionFactory.close();

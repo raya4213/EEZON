@@ -1,12 +1,15 @@
 package com.eezon.models;
 
+import java.util.ArrayList;
+
 import javax.persistence.Embedded;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
 
 @MappedSuperclass
 public abstract class User {
-	
+
 	@Id
 	private String email;
 	private String password;
@@ -14,8 +17,13 @@ public abstract class User {
 	private String userRole;
 	private int unsuccessfulLogins;
 	
-	@Embedded
-	private CourseToEmbed courses;
+	//@Embedded
+	//private CourseToEmbed courses;
+	
+	private String courses;
+	
+	@Transient
+	private ArrayList<CourseToEmbed> coursesList;
 
 	public String getEmail() {
 		return email;
@@ -56,13 +64,30 @@ public abstract class User {
 	public void setUnsuccessfulLogins(int unsuccessfulLogins) {
 		this.unsuccessfulLogins = unsuccessfulLogins;
 	}
+	
+	public String getCourses() {
+		return courses;
+	}
 
-	public CourseToEmbed getCourses() {
+	public void setCourses(String courses) {
+		this.courses = courses;
+	}
+
+	public ArrayList<CourseToEmbed> getCoursesList() {
+		return coursesList;
+	}
+
+	public void setCoursesList(ArrayList<CourseToEmbed> coursesList) {
+		this.coursesList = coursesList;
+	}
+
+	
+	/*public CourseToEmbed getCourses() {
 		return courses;
 	}
 
 	public void setCourses(CourseToEmbed courses) {
 		this.courses = courses;
-	}
+	}*/
 	
 }

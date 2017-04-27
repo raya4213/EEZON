@@ -34,6 +34,12 @@
     <mapping class="com.eezon.models.Kit"/>
     <mapping class="com.eezon.models.CheckInExtensionRequest"/>
     <mapping class="com.eezon.models.UnavailableItemRequest"/>
+    <mapping class="com.eezon.models.Admin"/>
+    <mapping class="com.eezon.models.Professor"/>
+    <mapping class="com.eezon.models.TA"/>
+    <mapping class="com.eezon.models.Student"/>
+    
+    
     
   </session-factory>
 </hibernate-configuration>

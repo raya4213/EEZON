@@ -8,8 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.eezon.models.User;
-
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseAdapter;
@@ -67,6 +65,7 @@ public class LoginView {
 				
 				/*User getUser = session.get(com.eezon.models.User.class, txtUserName.getText());
 				
+				
 				if(getUser != null){
 					System.out.println("User's Password:"+ getUser.getPassword());
 					if(txtPasswd.getText().equals(getUser.getPassword())){
@@ -78,7 +77,7 @@ public class LoginView {
 						
 						HomeScreen.updateIncomingShell(shell, params);
 						HomeScreen homeScreen = new HomeScreen();
-						homeScreen.open();////////////////////
+						homeScreen.open();///////////////////
 					}else{
 						//lblStatus.setText("Invalid Username/Password");
 						System.out.println("Invalid Username/Password");

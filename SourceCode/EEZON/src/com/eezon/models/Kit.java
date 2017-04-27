@@ -1,18 +1,30 @@
 package com.eezon.models;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+
+
 @Entity
 public class Kit {
 	
-	@Id
+	//@Id
 	private String kitType;
 	@Embedded
 	private CourseToEmbed kitCourse;
+	
+	@Id
 	private String kitSerialNum;
 	private Date kitCheckInDate;
 	private Date kitCheckOutDate;
@@ -83,5 +95,83 @@ public class Kit {
 	public void setKitPenalty(double kitPenalty) {
 		this.kitPenalty = kitPenalty;
 	}
+	
+	public ArrayList<Kit> getCourseSpecificKitDetails(Course course){
+		ArrayList<Kit> kitsFound = new ArrayList<Kit>();
+		
+		return kitsFound;
+	}
+	
+	public ArrayList<Kit> getStudentSpecificKitDetails(String email){
+		
+		ArrayList<Kit> kitsFound = new ArrayList<Kit>();
+		
+		String hql = "FROM Kit K WHERE K.studentEmailKit = '"+email+"'";
+
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.getTransaction().commit();
+		Query query = session.createQuery(hql);
+		List list = query.list();
+		System.out.println("QuerySize::"+query.list().size());
+		
+		Iterator listIterator = list.iterator();
+		while(listIterator.hasNext()){
+			Kit kitFound = (Kit)listIterator.next();
+			kitsFound.add(kitFound);
+		}
+		
+		return kitsFound;
+	}
+	
+	public ArrayList<Kit> getStudentSpecificKitDetailsWithPenalty(String email){
+		
+		ArrayList<Kit> kitsFound = new ArrayList<Kit>();
+		
+		String hql = "FROM Kit K WHERE K.studentEmailKit = '"+email+"' AND K.kitPenalty > 0.0";
+
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.getTransaction().commit();
+		Query query = session.createQuery(hql);
+		List list = query.list();
+		System.out.println("QuerySize::"+query.list().size());
+		
+		Iterator listIterator = list.iterator();
+		while(listIterator.hasNext()){
+			Kit kitFound = (Kit)listIterator.next();
+			kitsFound.add(kitFound);
+		}
+		
+		return kitsFound;
+	}
+	
+	public Kit getKitDetailsForSerialNum(String serialNum){
+
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.getTransaction().commit();
+		
+		Kit kitFound = session.get(com.eezon.models.Kit.class, serialNum); 
+		
+		return kitFound;
+	}
+	
+	public Boolean updateKitDetails(Kit kitToUpdate){
+
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		session.update(kitToUpdate); 
+		session.getTransaction().commit();
+
+		
+		return true;
+	}
+		
 	
 }

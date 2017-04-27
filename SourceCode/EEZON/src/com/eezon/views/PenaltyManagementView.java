@@ -3,98 +3,355 @@ package com.eezon.views;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
+
+
+
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Text;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.Label;
 
 public class PenaltyManagementView {
-	private Text txtEmailId;
-	private Table tblViewPenalties;
-
+	 
+	 Button btnHome;
+	 Button btnBack;
+	 Group grpByViewOverride;
+	 Button radView;
+	 Button radOverride;
+	 Group grpByCourseEmail;
+	 Button btnByCourse;
+	 Button btnByEmail;
+	 Group grpByCourse;
+	 Combo cmbSelectSem;
+	 Combo cmbSelectYear;
+	 Combo cmbSelectCourse;
+	 Group grpByEmail;
+	 Text txtEmailId;
+	 Table tblViewPenalties;
+	 Button btnOverride;
+	 Button btnView;
+	 
+	 Display display;
+	 Shell shlPenaltyManagement;
+	 TableColumn tblColumn;
+	
 	/**
 	 * Launch the application.
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
 			PenaltyManagementView window = new PenaltyManagementView();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	/**
 	 * Open the window.
 	 */
-	public void open() {
-		Display display = Display.getDefault();
-		Shell shell = new Shell();
-		shell.setSize(678, 495);
-		shell.setText("SWT Application");
+	public PenaltyManagementView() {
 		
-		Button btnHome = new Button(shell, SWT.NONE);
+		display = Display.getDefault();
+		shlPenaltyManagement = new Shell();
+		shlPenaltyManagement.setSize(690, 621);
+		shlPenaltyManagement.setText("Penalty Management");
+		
+		btnHome = new Button(shlPenaltyManagement, SWT.NONE);
 		btnHome.setText("Home");
 		btnHome.setBounds(10, 10, 75, 25);
+		btnHome.setData("btnHome");
 		
-		Button btnBack = new Button(shell, SWT.NONE);
+	    btnBack = new Button(shlPenaltyManagement, SWT.NONE);
 		btnBack.setBounds(577, 10, 75, 25);
 		btnBack.setText("Back");
+		btnHome.setData("btnBack");
 		
-		Button radView = new Button(shell, SWT.RADIO);
-		radView.setBounds(305, 14, 90, 16);
+		grpByViewOverride = new Group(shlPenaltyManagement, SWT.NONE);
+		grpByViewOverride.setBounds(305, 10, 96, 56);
+		
+		radView = new Button(grpByViewOverride, SWT.RADIO);
+		radView.setBounds(3, 15, 90, 16);
 		radView.setText("View");
+		radView.setData("radView");
+		//radView.addMouseListener(mouseListener);
 		
-		Button radOverride = new Button(shell, SWT.RADIO);
+		radOverride = new Button(grpByViewOverride, SWT.RADIO);
+		radOverride.setBounds(3, 37, 90, 16);
 		radOverride.setText("Override");
-		radOverride.setBounds(305, 36, 90, 16);
+		radOverride.setData("radOverride");
 		
-		Button btnByCourse = new Button(shell, SWT.RADIO);
+		grpByCourseEmail = new Group(shlPenaltyManagement, SWT.NONE);
+		grpByCourseEmail.setBounds(302, 81, 96, 56);
+		
+		btnByCourse = new Button(grpByCourseEmail, SWT.RADIO);
+		btnByCourse.setBounds(3, 15, 90, 16);
 		btnByCourse.setText("By Course");
-		btnByCourse.setBounds(305, 96, 90, 16);
+		btnByCourse.setData("btnByCourse");
 		
-		Button btnByEmail = new Button(shell, SWT.RADIO);
+		btnByEmail = new Button(grpByCourseEmail, SWT.RADIO);
+		btnByEmail.setBounds(3, 37, 90, 16);
 		btnByEmail.setText("By Email");
-		btnByEmail.setBounds(305, 118, 90, 16);
+		btnByEmail.setData("btnByEmail");
 		
-		Combo cmbSelectSem = new Combo(shell, SWT.NONE);
-		cmbSelectSem.setBounds(212, 153, 268, 23);
+		grpByCourse = new Group(shlPenaltyManagement, SWT.NONE);
+		grpByCourse.setBounds(215, 143, 274, 124);
+		
+		cmbSelectSem = new Combo(grpByCourse, SWT.NONE);
+		cmbSelectSem.setItems(new String[] {"Fall", "Spring", "Summer"});
+		cmbSelectSem.setBounds(3, 15, 268, 23);
 		cmbSelectSem.setText("Select Sem");
 		
-		Combo cmbSelectYear = new Combo(shell, SWT.NONE);
-		cmbSelectYear.setBounds(212, 190, 268, 23);
+		cmbSelectYear = new Combo(grpByCourse, SWT.NONE);
+		cmbSelectYear.setItems(new String[] {"2015", "2016", "2017"});
+		cmbSelectYear.setBounds(3, 55, 268, 23);
 		cmbSelectYear.setText("Select Year");
 		
-		Combo cmbSelectCourse = new Combo(shell, SWT.NONE);
-		cmbSelectCourse.setBounds(212, 235, 268, 23);
+		cmbSelectCourse = new Combo(grpByCourse, SWT.NONE);
+		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
+		cmbSelectCourse.setBounds(3, 93, 268, 23);
 		cmbSelectCourse.setText("Select Course");
 		
-		txtEmailId = new Text(shell, SWT.BORDER);
+		grpByEmail = new Group(shlPenaltyManagement, SWT.NONE);
+		grpByEmail.setBounds(215, 273, 274, 39);
+		
+		txtEmailId = new Text(grpByEmail, SWT.BORDER);
+		txtEmailId.setBounds(3, 15, 268, 21);
 		txtEmailId.setText("Email Id");
-		txtEmailId.setBounds(212, 283, 268, 21);
 		
-		Button btnView = new Button(shell, SWT.NONE);
-		btnView.setBounds(305, 326, 75, 25);
+		btnView = new Button(shlPenaltyManagement, SWT.NONE);
+		/*btnView.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent e) {
+				String hql = "FROM Kit K WHERE K.studentEmailKit = '"+txtEmailId.getText()+"'";
+
+				SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+				Session session = sessionFactory.openSession();
+				session.beginTransaction();
+				session.getTransaction().commit();
+				Query query = session.createQuery(hql);
+				System.out.println("QuerySize::"+query.list().size());
+			}
+		});*/
+		btnView.setBounds(305, 318, 75, 25);
 		btnView.setText("View");
+		btnView.setData("btnView");
 		
-		Button btnOverride = new Button(shell, SWT.NONE);
+		btnOverride = new Button(shlPenaltyManagement, SWT.NONE);
+		btnOverride.setBounds(305, 477, 75, 25);
 		btnOverride.setText("Override");
-		btnOverride.setBounds(305, 423, 75, 25);
+		btnOverride.setData("btnOverride");
 		
-		tblViewPenalties = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		tblViewPenalties.setBounds(212, 361, 268, 45);
+		tblViewPenalties = new Table(shlPenaltyManagement, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
+		tblViewPenalties.setBounds(33, 361, 616, 95);
 		tblViewPenalties.setHeaderVisible(true);
 		tblViewPenalties.setLinesVisible(true);
+		
+		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
+		tblColumn.setWidth(70);
+		tblColumn.setText("SerialNum");
+		
+		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
+		tblColumn.setWidth(79);
+		tblColumn.setText("CheckInDate");
+		
+		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
+		tblColumn.setWidth(89);
+		tblColumn.setText("CheckOutDate");
+		
+		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
+		tblColumn.setWidth(83);
+		tblColumn.setText("CourseName");
+		
+		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
+		tblColumn.setWidth(65);
+		tblColumn.setText("KitPenalty");
+		
+		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
+		tblColumn.setWidth(51);
+		tblColumn.setText("KitType");
+		
+		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
+		tblColumn.setWidth(86);
+		tblColumn.setText("StudentEmail");
+		
+		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
+		tblColumn.setWidth(86);
+		tblColumn.setText("StudentName");
 
-		shell.open();
-		shell.layout();
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
 	}
+
+	public Button getBtnHome() {
+		return btnHome;
+	}
+
+	public void setBtnHome(Button btnHome) {
+		this.btnHome = btnHome;
+	}
+
+	public Button getBtnBack() {
+		return btnBack;
+	}
+
+	public void setBtnBack(Button btnBack) {
+		this.btnBack = btnBack;
+	}
+
+	public Group getGrpByViewOverride() {
+		return grpByViewOverride;
+	}
+
+	public void setGrpByViewOverride(Group grpByViewOverride) {
+		this.grpByViewOverride = grpByViewOverride;
+	}
+
+	public Button getRadView() {
+		return radView;
+	}
+
+	public void setRadView(Button radView) {
+		this.radView = radView;
+	}
+
+	public Button getRadOverride() {
+		return radOverride;
+	}
+
+	public void setRadOverride(Button radOverride) {
+		this.radOverride = radOverride;
+	}
+
+	public Group getGrpByCourseEmail() {
+		return grpByCourseEmail;
+	}
+
+	public void setGrpByCourseEmail(Group grpByCourseEmail) {
+		this.grpByCourseEmail = grpByCourseEmail;
+	}
+
+	public Button getBtnByCourse() {
+		return btnByCourse;
+	}
+
+	public void setBtnByCourse(Button btnByCourse) {
+		this.btnByCourse = btnByCourse;
+	}
+
+	public Button getBtnByEmail() {
+		return btnByEmail;
+	}
+
+	public void setBtnByEmail(Button btnByEmail) {
+		this.btnByEmail = btnByEmail;
+	}
+
+	public Group getGrpByCourse() {
+		return grpByCourse;
+	}
+
+	public void setGrpByCourse(Group grpByCourse) {
+		this.grpByCourse = grpByCourse;
+	}
+
+	public Combo getCmbSelectSem() {
+		return cmbSelectSem;
+	}
+
+	public void setCmbSelectSem(Combo cmbSelectSem) {
+		this.cmbSelectSem = cmbSelectSem;
+	}
+
+	public Combo getCmbSelectYear() {
+		return cmbSelectYear;
+	}
+
+	public void setCmbSelectYear(Combo cmbSelectYear) {
+		this.cmbSelectYear = cmbSelectYear;
+	}
+
+	public Combo getCmbSelectCourse() {
+		return cmbSelectCourse;
+	}
+
+	public void setCmbSelectCourse(Combo cmbSelectCourse) {
+		this.cmbSelectCourse = cmbSelectCourse;
+	}
+
+	public Group getGrpByEmail() {
+		return grpByEmail;
+	}
+
+	public void setGrpByEmail(Group grpByEmail) {
+		this.grpByEmail = grpByEmail;
+	}
+
+	public Text getTxtEmailId() {
+		return txtEmailId;
+	}
+
+	public void setTxtEmailId(Text txtEmailId) {
+		this.txtEmailId = txtEmailId;
+	}
+
+	public Table getTblViewPenalties() {
+		return tblViewPenalties;
+	}
+
+	public void setTblViewPenalties(Table tblViewPenalties) {
+		this.tblViewPenalties = tblViewPenalties;
+	}
+
+	public Button getBtnOverride() {
+		return btnOverride;
+	}
+
+	public void setBtnOverride(Button btnOverride) {
+		this.btnOverride = btnOverride;
+	}
+
+	public Button getBtnView() {
+		return btnView;
+	}
+
+	public void setBtnView(Button btnView) {
+		this.btnView = btnView;
+	}
+
+	public Display getDisplay() {
+		return display;
+	}
+
+	public void setDisplay(Display display) {
+		this.display = display;
+	}
+
+	public Shell getShlPenaltyManagement() {
+		return shlPenaltyManagement;
+	}
+
+	public void setShlPenaltyManagement(Shell shlPenaltyManagement) {
+		this.shlPenaltyManagement = shlPenaltyManagement;
+	}
+
+	public TableColumn getTblColumn() {
+		return tblColumn;
+	}
+
+	public void setTblColumn(TableColumn tblColumn) {
+		this.tblColumn = tblColumn;
+	}
+
 }

@@ -8,7 +8,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 
-public class UpdateCinCoutScreen {
+public class UpdateCheckInCheckOutView {
 	private Text text;
 	private Table tblCinCoutDetails;
 
@@ -18,7 +18,7 @@ public class UpdateCinCoutScreen {
 	 */
 	public static void main(String[] args) {
 		try {
-			UpdateCinCoutScreen window = new UpdateCinCoutScreen();
+			UpdateCheckInCheckOutView window = new UpdateCheckInCheckOutView();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();

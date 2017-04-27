@@ -7,7 +7,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Text;
 
-public class ViewCinCoutScreen {
+public class ViewMyCheckInCheckOut {
 	private Text textSelection;
 
 	/**
@@ -16,7 +16,7 @@ public class ViewCinCoutScreen {
 	 */
 	public static void main(String[] args) {
 		try {
-			ViewCinCoutScreen window = new ViewCinCoutScreen();
+			ViewMyCheckInCheckOut window = new ViewMyCheckInCheckOut();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();

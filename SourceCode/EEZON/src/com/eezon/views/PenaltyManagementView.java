@@ -10,7 +10,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Table;
 
-public class PenaltyManagement {
+public class PenaltyManagementView {
 	private Text txtEmailId;
 	private Table tblViewPenalties;
 
@@ -20,7 +20,7 @@ public class PenaltyManagement {
 	 */
 	public static void main(String[] args) {
 		try {
-			PenaltyManagement window = new PenaltyManagement();
+			PenaltyManagementView window = new PenaltyManagementView();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();

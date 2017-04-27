@@ -6,7 +6,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 
-public class RequestCheckInExtensionScreen {
+public class CheckInExtensionReqView {
 	private Combo cmbSelectTimeFrame;
 	private Table table;
 
@@ -16,7 +16,7 @@ public class RequestCheckInExtensionScreen {
 	 */
 	public static void main(String[] args) {
 		try {
-			RequestCheckInExtensionScreen window = new RequestCheckInExtensionScreen();
+			CheckInExtensionReqView window = new CheckInExtensionReqView();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();

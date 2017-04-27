@@ -7,7 +7,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Combo;
 
-public class RequestUnavailableItemScreen {
+public class UnavailableItemReqView {
 	private Text text;
 	private Text EnterName;
 	private Text EnterLink;
@@ -19,7 +19,7 @@ public class RequestUnavailableItemScreen {
 	 */
 	public static void main(String[] args) {
 		try {
-			RequestUnavailableItemScreen window = new RequestUnavailableItemScreen();
+			UnavailableItemReqView window = new UnavailableItemReqView();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();

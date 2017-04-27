@@ -16,7 +16,7 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Image;
 
-public class LoginScreen {
+public class LoginView {
 
 	/**
 	 * Launch the application.
@@ -24,7 +24,7 @@ public class LoginScreen {
 	 */
 	public static void main(String[] args) {
 		try {
-			LoginScreen window = new LoginScreen();
+			LoginView window = new LoginView();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();

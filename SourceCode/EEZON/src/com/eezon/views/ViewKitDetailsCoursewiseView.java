@@ -9,7 +9,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 
-public class ViewKitDetailsScreen {
+public class ViewKitDetailsCoursewiseView {
 	private Table tblViewDetails;
 
 	/**
@@ -18,7 +18,7 @@ public class ViewKitDetailsScreen {
 	 */
 	public static void main(String[] args) {
 		try {
-			ViewKitDetailsScreen window = new ViewKitDetailsScreen();
+			ViewKitDetailsCoursewiseView window = new ViewKitDetailsCoursewiseView();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();

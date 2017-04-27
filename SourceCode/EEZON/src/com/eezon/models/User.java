@@ -1,46 +1,68 @@
 package com.eezon.models;
 
-import javax.persistence.Entity;
+import javax.persistence.Embedded;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-@Entity
-public class User {
+@MappedSuperclass
+public abstract class User {
 	
 	@Id
-	private String emailid;
-	private String name;
-	private String role;
+	private String email;
 	private String password;
+	private String fullName;
+	private String userRole;
+	private int unsuccessfulLogins;
 	
-	public String getEmailid() {
-		return emailid;
+	@Embedded
+	private CourseToEmbed courses;
+
+	public String getEmail() {
+		return email;
 	}
-	
-	public void setEmailid(String emailid) {
-		this.emailid = emailid;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getRole() {
-		return role;
-	}
-	
-	public void setRole(String role) {
-		this.role = role;
-	}
-	
+
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
+
+	public int getUnsuccessfulLogins() {
+		return unsuccessfulLogins;
+	}
+
+	public void setUnsuccessfulLogins(int unsuccessfulLogins) {
+		this.unsuccessfulLogins = unsuccessfulLogins;
+	}
+
+	public CourseToEmbed getCourses() {
+		return courses;
+	}
+
+	public void setCourses(CourseToEmbed courses) {
+		this.courses = courses;
+	}
+	
 }

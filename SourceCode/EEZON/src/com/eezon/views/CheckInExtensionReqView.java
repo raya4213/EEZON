@@ -34,7 +34,7 @@ public class CheckInExtensionReqView {
 	/**
 	 * Open the window.
 	 */
-	public void open() {
+	public CheckInExtensionReqView() {
 		display = Display.getDefault();
 		shlEezon = new Shell();
 		shlEezon.setSize(681, 433);

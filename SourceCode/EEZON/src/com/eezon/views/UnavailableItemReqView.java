@@ -58,10 +58,10 @@ public class UnavailableItemReqView {
 		text.setBounds(242, 103, 596, 75);
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
-		cmbSelectCourse.setBounds(461, 232, 104, 33);
+		cmbSelectCourse.setBounds(461, 232, 215, 28);
 		
 		cmbSelectItemType = new Combo(shlEezon, SWT.NONE);
-		cmbSelectItemType.setBounds(461, 283, 104, 33);
+		cmbSelectItemType.setBounds(461, 283, 215, 28);
 		
 		EnterName = new Text(shlEezon, SWT.BORDER);
 		EnterName.setToolTipText("Enter Name");

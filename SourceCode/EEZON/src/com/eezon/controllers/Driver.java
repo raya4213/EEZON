@@ -4,9 +4,12 @@ public class Driver {
 
 	public static void main(String args[]){
 		
-		PenaltyManagementController penaltyMgtController = new PenaltyManagementController();
-		penaltyMgtController.displayView();
+		/*PenaltyManagementController penaltyMgtController = new PenaltyManagementController();
+		penaltyMgtController.displayView();*/
 		//penaltyMgtController.getPenaltyView().open();
 		//penaltyMgtController.in
+		
+		LoginController loginController = new LoginController();
+		loginController.displayView();
 	}
 }

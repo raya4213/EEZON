@@ -16,43 +16,55 @@ import org.eclipse.swt.graphics.Image;
 
 public class LoginView {
 
+	Display display;
+	Shell shlEezonInventory;
+	Label label;
+	Text txtUserName;
+	Text txtPasswd;
+	Button btnLogin;
+	Button btnForgotPasswd;
+	Button btnSignUp;
+	
 	/**
 	 * Launch the application.
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
 			LoginView window = new LoginView();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
+
+
 
 	/**
 	 * Open the window.
 	 */
-	public void open() {
-		Display display = Display.getDefault();
-		Shell shell = new Shell();
-		shell.setSize(604, 463);
-		shell.setText("SWT Application");
+	public LoginView() {
+		display = Display.getDefault();
+		shlEezonInventory = new Shell();
+		shlEezonInventory.setSize(604, 463);
+		shlEezonInventory.setText("EEZON - Inventory Management System");
 		
-		Label label = new Label(shell, SWT.NONE);
+		label = new Label(shlEezonInventory, SWT.NONE);
 		label.setBounds(98, 31, 378, 166);
+		
 		Image img = new Image(display, "resources/leopardGecko.jpg");
 		label.setImage(img);
 		
-		Text txtUserName = new Text(shell, SWT.BORDER);
+		txtUserName = new Text(shlEezonInventory, SWT.BORDER);
 		txtUserName.setToolTipText("Enter CU Boulder Email");
 		txtUserName.setBounds(183, 211, 231, 21);
 		
-		Text txtPasswd = new Text(shell, SWT.BORDER);
+		txtPasswd = new Text(shlEezonInventory, SWT.BORDER);
 		txtPasswd.setToolTipText("Enter Password");
 		txtPasswd.setBounds(183, 254, 231, 21);
 		txtPasswd.setEchoChar('*');
 		
-		Button btnLogin = new Button(shell, SWT.NONE);
+		btnLogin = new Button(shlEezonInventory, SWT.NONE);
 		btnLogin.addMouseListener(new MouseAdapter() {
 			
 			@Override
@@ -84,7 +96,7 @@ public class LoginView {
 					}
 				}else{
 					System.out.println("Username not present");
-				}*/
+				}///////////////////////////////*/
 				
 				session.close();
 				sessionFactory.close();
@@ -92,21 +104,80 @@ public class LoginView {
 		});
 		btnLogin.setBounds(210, 300, 75, 25);
 		btnLogin.setText("Login");
+		btnLogin.setData("btnLogin");
 		
-		Button btnForgotPasswd = new Button(shell, SWT.NONE);
+		btnForgotPasswd = new Button(shlEezonInventory, SWT.NONE);
 		btnForgotPasswd.setBounds(246, 337, 93, 25);
 		btnForgotPasswd.setText("ForgotPasswd");
+		btnForgotPasswd.setData("btnForgotPasswd");
 
-		Button btnSignUp = new Button(shell, SWT.NONE);
+		btnSignUp = new Button(shlEezonInventory, SWT.NONE);
 		btnSignUp.setBounds(291, 300, 75, 25);
 		btnSignUp.setText("Sign Up");
-		
-		shell.open();
-		shell.layout();
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
+		btnSignUp.setData("btnSignUp");
+	}
+	
+	public Display getDisplay() {
+		return display;
+	}
+
+	public void setDisplay(Display display) {
+		this.display = display;
+	}
+
+	public Shell getShell() {
+		return shlEezonInventory;
+	}
+
+	public void setShell(Shell shell) {
+		this.shlEezonInventory = shell;
+	}
+
+	public Label getLabel() {
+		return label;
+	}
+
+	public void setLabel(Label label) {
+		this.label = label;
+	}
+
+	public Text getTxtUserName() {
+		return txtUserName;
+	}
+
+	public void setTxtUserName(Text txtUserName) {
+		this.txtUserName = txtUserName;
+	}
+
+	public Text getTxtPasswd() {
+		return txtPasswd;
+	}
+
+	public void setTxtPasswd(Text txtPasswd) {
+		this.txtPasswd = txtPasswd;
+	}
+
+	public Button getBtnLogin() {
+		return btnLogin;
+	}
+
+	public void setBtnLogin(Button btnLogin) {
+		this.btnLogin = btnLogin;
+	}
+
+	public Button getBtnForgotPasswd() {
+		return btnForgotPasswd;
+	}
+
+	public void setBtnForgotPasswd(Button btnForgotPasswd) {
+		this.btnForgotPasswd = btnForgotPasswd;
+	}
+
+	public Button getBtnSignUp() {
+		return btnSignUp;
+	}
+
+	public void setBtnSignUp(Button btnSignUp) {
+		this.btnSignUp = btnSignUp;
 	}
 }

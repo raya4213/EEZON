@@ -114,14 +114,6 @@ public class Kit {
 		List list = query.list();
 		System.out.println("QuerySize::"+query.list().size());
 		
-		
-		
-		
-		
-		
-		
-		
-		
 		return kitsFound;
 	}
 	

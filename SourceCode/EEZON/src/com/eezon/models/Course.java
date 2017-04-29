@@ -1,15 +1,22 @@
 package com.eezon.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 @Entity
-public class Course {
+@IdClass(CoursePK.class)
+public class Course implements Serializable{
 
 	@Id
 	private String courseName;
+	@Id
 	private String year;
+	@Id
 	private	String semester;
+	
 	private String description;
 	
 	public String getCourseName() {

@@ -52,13 +52,20 @@ public class LoginController implements MouseListener {
 		switch(btnPressed.getData().toString()){
 			case "btnLogin":
 				System.out.println("Login button Pressed");
-				System.out.println("Username:"+loginView.getTxtUserName().getText());
-				System.out.println("Password:"+loginView.getTxtPasswd().getText());
-				String userRole = User.getUserRole(loginView.getTxtUserName().getText());
+				String userName = loginView.getTxtUserName().getText();
+				String passwd = loginView.getTxtPasswd().getText();
+				String userRole = User.getUserRole(userName);
 				if(!userRole.isEmpty()){
-					userModel = User.getUserDetails(loginView.getTxtUserName().getText(),userRole);
+					userModel = User.getUserDetails(userName,userRole);
 					if(userModel != null){
 						System.out.println("User's Role:"+userModel.getUserRole());
+						if(userModel.getPassword().equalsIgnoreCase(passwd)){
+							System.out.println("Validation Successful");
+							HomeScreenController homeScreenController = new HomeScreenController(userModel);
+							homeScreenController.displayView();
+						}else{
+							System.out.println("Unsuccessful login attempt");
+						}
 					}
 				}else{
 					System.out.println("User email id is not present");

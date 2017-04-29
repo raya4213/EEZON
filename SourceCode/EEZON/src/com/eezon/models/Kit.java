@@ -228,9 +228,40 @@ public class Kit {
 		}
 		
 		return kitsFound;
-
-		
 	}
 		
+	public ArrayList<Kit> getStudentCheckedOutKits(String email, Course course){
+		ArrayList<Kit> kitsFound = new ArrayList<Kit>();
+		
+		//String hql = "FROM Kit K WHERE K.kitType = '"+KitType+"' AND K.courseName='"+course.getCourseName() 
+		//+"' AND K.year='" + course.getYear() + "' AND K.semester='" + course.getSemester() + "'";	
+
+		String hql = "FROM Kit K WHERE K.studentEmailKit = '"+email+"'";
+
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.getTransaction().commit();
+		Query query = session.createQuery(hql);
+		List list = query.list();
+		System.out.println("QuerySize::"+query.list().size());
+		
+		Iterator listIterator = list.iterator();
+		while(listIterator.hasNext()){
+			
+			Kit kitFound = (Kit)listIterator.next();
+			if(kitFound.getKitCourse().getCourseName().equalsIgnoreCase(course.getCourseName()) &&
+					kitFound.getKitCourse().getYear().equalsIgnoreCase(course.getYear()) &&
+					kitFound.getKitCourse().getSemester().equalsIgnoreCase(course.getSemester())){
+				
+				System.out.println(kitFound.getKitCourse().getCourseName());
+				kitsFound.add(kitFound);	
+			}
+			
+		}
+		
+		return kitsFound;		
+		
+	}
 	
 }

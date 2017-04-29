@@ -8,10 +8,10 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 
 public class ViewMyCheckInCheckOut {
-	
-	private Text textSelection;
 	Button btnHome;
 	Button btnBack;
 	Combo cmbSelectCourse;
@@ -19,6 +19,8 @@ public class ViewMyCheckInCheckOut {
 	Display display;
 	Shell shlEezon;
 	Button btnView;
+	private Table tblDetails;
+	TableColumn tblColumn;
 	
 	
 	/**
@@ -47,19 +49,22 @@ public class ViewMyCheckInCheckOut {
 		btnHome = new Button(shlEezon, SWT.NONE);
 		btnHome.setBounds(76, 23, 105, 35);
 		btnHome.setText("HOME");
+		btnHome.setData("btnHome");
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
 		btnBack.setBounds(224, 23, 105, 35);
 		btnBack.setText("BACK");
+		btnBack.setData("btnBack");
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
-		cmbSelectCourse.setBounds(376, 124, 104, 33);
+		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Advanced Computer Architecture", "Internet Of Things"});
+		cmbSelectCourse.setBounds(358, 125, 152, 33);
+		cmbSelectCourse.setText("Select Course");
 		
 		cmbSelectStudent = new Combo(shlEezon, SWT.NONE);
-		cmbSelectStudent.setBounds(376, 229, 104, 33);
-		
-		textSelection = new Text(shlEezon, SWT.BORDER);
-		textSelection.setBounds(259, 315, 348, 65);
+		cmbSelectStudent.setItems(new String[] {"Mine", "All"});
+		cmbSelectStudent.setBounds(358, 230, 152, 33);
+		cmbSelectStudent.setText("Select Student");
 		
 		btnView = new Button(shlEezon, SWT.NONE);
 		btnView.addSelectionListener(new SelectionAdapter() {
@@ -69,17 +74,64 @@ public class ViewMyCheckInCheckOut {
 		});
 		btnView.setBounds(375, 399, 105, 35);
 		btnView.setText("VIEW");
+		btnView.setData("btnView");
+		
+		tblDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
+		tblDetails.setBounds(126, 292, 649, 97);
+		tblDetails.setHeaderVisible(true);
+		tblDetails.setLinesVisible(true);
+		
+		tblColumn = new TableColumn(tblDetails, SWT.NULL);
+		tblColumn.setWidth(70);
+		tblColumn.setText("SerialNum");
+		
+		tblColumn = new TableColumn(tblDetails, SWT.NULL);
+		tblColumn.setWidth(97);
+		tblColumn.setText("CheckInDate");
+		
+		tblColumn = new TableColumn(tblDetails, SWT.NULL);
+		tblColumn.setWidth(104);
+		tblColumn.setText("CheckOutDate");
+		
+		tblColumn = new TableColumn(tblDetails, SWT.NULL);
+		tblColumn.setWidth(83);
+		tblColumn.setText("CourseName");
+		
+		tblColumn = new TableColumn(tblDetails, SWT.NULL);
+		tblColumn.setWidth(65);
+		tblColumn.setText("KitPenalty");
+		
+		tblColumn = new TableColumn(tblDetails, SWT.NULL);
+		tblColumn.setWidth(51);
+		tblColumn.setText("KitType");
+		
+		tblColumn = new TableColumn(tblDetails, SWT.NULL);
+		tblColumn.setWidth(86);
+		tblColumn.setText("StudentEmail");
+		
+		tblColumn = new TableColumn(tblDetails, SWT.NULL);
+		tblColumn.setWidth(86);
+		tblColumn.setText("StudentName");
 
-	}
+	}	
 	
-
-	public Text getTextSelection() {
-		return textSelection;
+	public TableColumn getTblColumn() {
+		return tblColumn;
 	}
 
 
-	public void setTextSelection(Text textSelection) {
-		this.textSelection = textSelection;
+	public void setTblColumn(TableColumn tblColumn) {
+		this.tblColumn = tblColumn;
+	}
+
+
+	public Table getTblDetails() {
+		return tblDetails;
+	}
+
+
+	public void setTblDetails(Table tblDetails) {
+		this.tblDetails = tblDetails;
 	}
 
 
@@ -151,5 +203,4 @@ public class ViewMyCheckInCheckOut {
 	public void setBtnView(Button btnView) {
 		this.btnView = btnView;
 	}
-	
 }

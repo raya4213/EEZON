@@ -9,10 +9,12 @@ import com.eezon.views.HomeScreenView;
 public class HomeScreenController {
 	private HomeScreenView homeScreenView;
 	private User userModel;
+	private Shell prevShell;
 	
-	public HomeScreenController(User userModel){
+	public HomeScreenController(User userModel, Shell prevShell){
 		this.homeScreenView = new HomeScreenView();
 		this.userModel = userModel;
+		this.prevShell = prevShell;
 		hideAllButtons();
 	}
 	
@@ -27,6 +29,7 @@ public class HomeScreenController {
 	}
 	
 	public void displayView(){
+		this.prevShell.setVisible(false);
 		switch(userModel.getUserRole()){
 			case "admin":
 			case "professor":
@@ -79,5 +82,11 @@ public class HomeScreenController {
 		this.userModel = userModel;
 	}
 	
-	
+	public Shell getPrevShell() {
+		return prevShell;
+	}
+
+	public void setPrevShell(Shell prevShell) {
+		this.prevShell = prevShell;
+	}
 }

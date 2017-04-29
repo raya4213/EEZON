@@ -38,6 +38,7 @@ public class HomeScreenView {
 		shlHome = new Shell();
 		shlHome.setSize(450, 300);
 		shlHome.setText("EEZON - HomeScreen");
+		shlHome.setLocation(450, 200);
 		
 		btnRequestsView = new Button(shlHome, SWT.NONE);
 		btnRequestsView.setBounds(59, 70, 75, 25);

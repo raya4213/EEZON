@@ -61,7 +61,7 @@ public class LoginController implements MouseListener {
 						System.out.println("User's Role:"+userModel.getUserRole());
 						if(userModel.getPassword().equalsIgnoreCase(passwd)){
 							System.out.println("Validation Successful");
-							HomeScreenController homeScreenController = new HomeScreenController(userModel);
+							HomeScreenController homeScreenController = new HomeScreenController(userModel, loginView.getShell());
 							homeScreenController.displayView();
 						}else{
 							System.out.println("Unsuccessful login attempt");

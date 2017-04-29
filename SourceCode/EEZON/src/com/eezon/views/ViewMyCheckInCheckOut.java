@@ -57,7 +57,7 @@ public class ViewMyCheckInCheckOut {
 		btnBack.setData("btnBack");
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
-		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Advanced Computer Architecture", "Internet Of Things "});
+		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Advanced Computer Architecture", "Internet Of Things"});
 		cmbSelectCourse.setBounds(358, 125, 152, 33);
 		cmbSelectCourse.setText("Select Course");
 		
@@ -77,7 +77,7 @@ public class ViewMyCheckInCheckOut {
 		btnView.setData("btnView");
 		
 		tblDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
-		tblDetails.setBounds(192, 296, 440, 61);
+		tblDetails.setBounds(126, 292, 649, 97);
 		tblDetails.setHeaderVisible(true);
 		tblDetails.setLinesVisible(true);
 		
@@ -86,11 +86,11 @@ public class ViewMyCheckInCheckOut {
 		tblColumn.setText("SerialNum");
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
-		tblColumn.setWidth(79);
+		tblColumn.setWidth(97);
 		tblColumn.setText("CheckInDate");
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
-		tblColumn.setWidth(89);
+		tblColumn.setWidth(104);
 		tblColumn.setText("CheckOutDate");
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);

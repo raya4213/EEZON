@@ -100,11 +100,15 @@ public class ViewMyCheckInCheckOutController implements MouseListener, Selection
 			case "btnBack":
 				break;
 			case "btnView":
+				System.out.println("Inside btnView onClick");
 				Course course = new Course();
 				course.setCourseName(viewMyCheckInCheckOut.getCmbSelectCourse().getText());
 				course.setYear("2016");
 				course.setSemester("Fall");
 				ArrayList<Kit>kitsFound =  kitModel.getStudentCheckedOutKits("asd", course);
+				
+				viewMyCheckInCheckOut.getTblDetails().removeAll();
+				
 				for(Kit kitFound: kitsFound){
 					
 					TableItem item = new TableItem(viewMyCheckInCheckOut.getTblDetails(), SWT.NULL);

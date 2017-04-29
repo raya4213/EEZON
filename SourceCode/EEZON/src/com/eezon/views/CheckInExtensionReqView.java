@@ -65,7 +65,7 @@ public class CheckInExtensionReqView {
 		btnRequest.setBounds(286, 325, 75, 25);
 		
 		table = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(172, 44, 325, 86);
+		table.setBounds(172, 44, 359, 91);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 

@@ -39,6 +39,8 @@ public class UpdateCheckInCheckOutView {
 //		}
 //	}
 
+	// Getters and setters
+	
 	/**
 	 * Open the window.
 	 */
@@ -102,5 +104,117 @@ public class UpdateCheckInCheckOutView {
 				display.sleep();
 			}
 		}
+	}
+
+	public Text getTxtEmail() {
+		return txtEmail;
+	}
+
+	public void setTxtEmail(Text txtEmail) {
+		this.txtEmail = txtEmail;
+	}
+
+	public Table getTblCinCoutDetails() {
+		return tblCinCoutDetails;
+	}
+
+	public void setTblCinCoutDetails(Table tblCinCoutDetails) {
+		this.tblCinCoutDetails = tblCinCoutDetails;
+	}
+
+	public Button getBtnHome() {
+		return btnHome;
+	}
+
+	public void setBtnHome(Button btnHome) {
+		this.btnHome = btnHome;
+	}
+
+	public Button getBtnBack() {
+		return btnBack;
+	}
+
+	public void setBtnBack(Button btnBack) {
+		this.btnBack = btnBack;
+	}
+
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
+	}
+
+	public Button getBtnCheckIn() {
+		return btnCheckIn;
+	}
+
+	public void setBtnCheckIn(Button btnCheckIn) {
+		this.btnCheckIn = btnCheckIn;
+	}
+
+	public Button getBtnCheckOut() {
+		return btnCheckOut;
+	}
+
+	public void setBtnCheckOut(Button btnCheckOut) {
+		this.btnCheckOut = btnCheckOut;
+	}
+
+	public Combo getCmbSelectCourse() {
+		return cmbSelectCourse;
+	}
+
+	public void setCmbSelectCourse(Combo cmbSelectCourse) {
+		this.cmbSelectCourse = cmbSelectCourse;
+	}
+
+	public Combo getCmbSelectKitType() {
+		return cmbSelectKitType;
+	}
+
+	public void setCmbSelectKitType(Combo cmbSelectKitType) {
+		this.cmbSelectKitType = cmbSelectKitType;
+	}
+
+	public Combo getCmbKitSerialNumber() {
+		return cmbKitSerialNumber;
+	}
+
+	public void setCmbKitSerialNumber(Combo cmbKitSerialNumber) {
+		this.cmbKitSerialNumber = cmbKitSerialNumber;
+	}
+
+	public Button getBtnCheckOut_1() {
+		return btnCheckOut_1;
+	}
+
+	public void setBtnCheckOut_1(Button btnCheckOut_1) {
+		this.btnCheckOut_1 = btnCheckOut_1;
+	}
+
+	public Button getBtnCheckIn_1() {
+		return btnCheckIn_1;
+	}
+
+	public void setBtnCheckIn_1(Button btnCheckIn_1) {
+		this.btnCheckIn_1 = btnCheckIn_1;
+	}
+
+	public Display getDisplay() {
+		return display;
+	}
+
+	public void setDisplay(Display display) {
+		this.display = display;
+	}
+
+	public Shell getShlEezonCheck() {
+		return shlEezonCheck;
+	}
+
+	public void setShlEezonCheck(Shell shlEezonCheck) {
+		this.shlEezonCheck = shlEezonCheck;
 	}
 }

@@ -7,9 +7,10 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.Group;
 
 public class UpdateCheckInCheckOutView {
-	private Text text;
+	private Text txtEmail;
 	private Table tblCinCoutDetails;
 
 	/**
@@ -42,19 +43,24 @@ public class UpdateCheckInCheckOutView {
 		btnBack.setBounds(186, 27, 105, 35);
 		btnBack.setText("BACK");
 		
-		text = new Text(shlEezonCheck, SWT.BORDER);
-		text.setToolTipText("Enter Email ID");
-		text.setBounds(443, 94, 162, 31);
+		txtEmail = new Text(shlEezonCheck, SWT.BORDER);
+		txtEmail.setText("Enter Email ID");
+		txtEmail.setToolTipText("Enter Email ID");
+		txtEmail.setBounds(443, 94, 162, 31);
 		
-		Button btnCheckIn = new Button(shlEezonCheck, SWT.RADIO);
-		btnCheckIn.setBounds(459, 153, 133, 25);
+		Group group = new Group(shlEezonCheck, SWT.NONE);
+		group.setBounds(456, 131, 149, 81);
+		
+		Button btnCheckIn = new Button(group, SWT.RADIO);
+		btnCheckIn.setBounds(10, 23, 133, 25);
 		btnCheckIn.setText("Check IN");
 		
-		Button btnCheckOut = new Button(shlEezonCheck, SWT.RADIO);
-		btnCheckOut.setBounds(459, 184, 133, 25);
+		Button btnCheckOut = new Button(group, SWT.RADIO);
+		btnCheckOut.setBounds(10, 54, 133, 25);
 		btnCheckOut.setText("Check OUT");
 		
 		Combo cmbSelectCourse = new Combo(shlEezonCheck, SWT.NONE);
+		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
 		cmbSelectCourse.setBounds(470, 235, 104, 33);
 		
 		Combo cmbSelectKitType = new Combo(shlEezonCheck, SWT.NONE);

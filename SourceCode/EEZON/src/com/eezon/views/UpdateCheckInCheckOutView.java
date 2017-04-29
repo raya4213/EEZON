@@ -97,13 +97,6 @@ public class UpdateCheckInCheckOutView {
 		btnCheckIn_1.setBounds(469, 521, 105, 35);
 		btnCheckIn_1.setText("Check IN");
 
-		shlEezonCheck.open();
-		shlEezonCheck.layout();
-		while (!shlEezonCheck.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
 	}
 
 	public Text getTxtEmail() {

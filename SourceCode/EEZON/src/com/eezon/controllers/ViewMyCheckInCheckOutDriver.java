@@ -5,6 +5,5 @@ public class ViewMyCheckInCheckOutDriver {
 		ViewMyCheckInCheckOutController viewMyCheckInCheckOutController = new ViewMyCheckInCheckOutController();
 		viewMyCheckInCheckOutController.displayView();
 		System.out.println("In view check in check out");
-		
 	}
 }

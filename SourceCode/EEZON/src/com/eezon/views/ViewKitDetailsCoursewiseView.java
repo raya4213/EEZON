@@ -183,7 +183,7 @@ public class ViewKitDetailsCoursewiseView {
 		cmbSelectYear.setBounds(134, 83, 215, 23);
 		
 		cmbSelectCourse = new Combo(shlEezonView, SWT.NONE);
-		cmbSelectCourse.setItems(new String[] {"Embedded System  Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
+		cmbSelectCourse.setItems(new String[] {"Embedded System    Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
 		cmbSelectCourse.setBounds(134, 187, 215, 23);
 		
 		cmbSelectKitType = new Combo(shlEezonView, SWT.NONE);

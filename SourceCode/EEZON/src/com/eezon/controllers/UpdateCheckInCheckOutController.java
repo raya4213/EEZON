@@ -51,13 +51,13 @@ public class UpdateCheckInCheckOutController implements MouseListener, Selection
 	@Override
 	public void widgetSelected(SelectionEvent paramSelectionEvent) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Other selected");
 	}
 
 	@Override
 	public void widgetDefaultSelected(SelectionEvent paramSelectionEvent) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Default selected");
 	}
 
 	@Override
@@ -69,6 +69,7 @@ public class UpdateCheckInCheckOutController implements MouseListener, Selection
 	@Override
 	public void mouseDown(MouseEvent paramMouseEvent) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 

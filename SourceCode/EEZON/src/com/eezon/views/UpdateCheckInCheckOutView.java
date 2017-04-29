@@ -24,6 +24,7 @@ public class UpdateCheckInCheckOutView {
 	Button btnCheckIn_1;
 	Display display;
 	Shell shlEezonCheck;
+	// Hello world
 
 	/**
 	 * Launch the application.

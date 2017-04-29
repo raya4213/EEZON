@@ -105,9 +105,17 @@ public class ViewMyCheckInCheckOutController implements MouseListener, Selection
 				course.setCourseName(viewMyCheckInCheckOut.getCmbSelectCourse().getText());
 				course.setYear("2016");
 				course.setSemester("Fall");
-				ArrayList<Kit>kitsFound =  kitModel.getStudentCheckedOutKits("asd", course);
 				
+				ArrayList<Kit>kitsFound = new ArrayList<Kit>();
 				viewMyCheckInCheckOut.getTblDetails().removeAll();
+				
+				if (viewMyCheckInCheckOut.getCmbSelectStudent().getText().equalsIgnoreCase("Mine")){
+					kitsFound =  kitModel.getStudentCheckedOutKits("asd", course);
+				}
+				
+				else if (viewMyCheckInCheckOut.getCmbSelectStudent().getText().equalsIgnoreCase("All")){
+					kitsFound =  kitModel.getCourseSpecificKitDetails(course);
+				}
 				
 				for(Kit kitFound: kitsFound){
 					
@@ -121,8 +129,7 @@ public class ViewMyCheckInCheckOutController implements MouseListener, Selection
 			        item.setText(6, kitFound.getStudentEmailKit());
 			        item.setText(7, kitFound.getStudentNameForKit());					
 				}
-				
-				break;
+			break;
 		}
 		
 		

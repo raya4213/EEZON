@@ -133,19 +133,7 @@ public class PenaltyManagementView {
 		txtEmailId.setText("Email Id");
 		
 		btnView = new Button(shlPenaltyManagement, SWT.NONE);
-		/*btnView.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseUp(MouseEvent e) {
-				String hql = "FROM Kit K WHERE K.studentEmailKit = '"+txtEmailId.getText()+"'";
 
-				SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-				Session session = sessionFactory.openSession();
-				session.beginTransaction();
-				session.getTransaction().commit();
-				Query query = session.createQuery(hql);
-				System.out.println("QuerySize::"+query.list().size());
-			}
-		});*/
 		btnView.setBounds(305, 318, 75, 25);
 		btnView.setText("View");
 		btnView.setData("btnView");
@@ -160,6 +148,8 @@ public class PenaltyManagementView {
 		tblViewPenalties.setHeaderVisible(true);
 		tblViewPenalties.setLinesVisible(true);
 		
+		
+		//Creating all the columns inside the table for viewing 
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
 		tblColumn.setWidth(70);
 		tblColumn.setText("SerialNum");

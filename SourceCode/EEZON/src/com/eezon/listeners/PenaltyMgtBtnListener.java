@@ -53,6 +53,7 @@ public class PenaltyMgtBtnListener implements MouseListener {
 				penaltyView.getTblViewPenalties().setVisible(true);
 				penaltyView.getBtnOverride().setVisible(true);
 				
+				//Need to search email id of user 
 				ArrayList<Kit> kitsFound = kitModel.getStudentSpecificKitDetailsWithPenalty("asd");
 				
 				penaltyView.getTblViewPenalties().removeAll();
@@ -112,14 +113,6 @@ public class PenaltyMgtBtnListener implements MouseListener {
 
 					}
 					
-				    /*for(int loopIndex = 0; loopIndex < 24; loopIndex++) {
-				        TableItem item = new TableItem(penaltyView.getTblViewPenalties(), SWT.NULL);
-				        item.setText("Item " + loopIndex);
-				        item.setText(0, "Item " + loopIndex);
-				        item.setText(1, "Yes");
-				        item.setText(2, "No");
-				        item.setText(3, "A table item");
-				     }*/
 					
 				}else{
 					// If By Course flow is selected
@@ -131,9 +124,6 @@ public class PenaltyMgtBtnListener implements MouseListener {
 					penaltyView.getTblViewPenalties().removeAll();
 					
 					ArrayList<Kit> kitsFoundView = kitModel.getCourseSpecificKitDetails(course);
-					
-					
-					penaltyView.getTblViewPenalties().removeAll();
 					
 					for(Kit kitFound : kitsFoundView){
 						TableItem item = new TableItem(penaltyView.getTblViewPenalties(), SWT.NULL);

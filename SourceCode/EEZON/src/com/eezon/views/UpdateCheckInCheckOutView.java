@@ -44,7 +44,7 @@ public class UpdateCheckInCheckOutView {
 	/**
 	 * Open the window.
 	 */
-	public void open() {
+	public UpdateCheckInCheckOutView() {
 		display = Display.getDefault();
 		shlEezonCheck = new Shell();
 		shlEezonCheck.setSize(1132, 684);
@@ -77,12 +77,15 @@ public class UpdateCheckInCheckOutView {
 		cmbSelectCourse = new Combo(shlEezonCheck, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
 		cmbSelectCourse.setBounds(470, 235, 104, 33);
+		cmbSelectCourse.setText("Select Course");
 		
 		cmbSelectKitType = new Combo(shlEezonCheck, SWT.NONE);
 		cmbSelectKitType.setBounds(470, 284, 104, 33);
+		cmbSelectKitType.setText("Select Kit Type");
 		
 		cmbKitSerialNumber = new Combo(shlEezonCheck, SWT.NONE);
 		cmbKitSerialNumber.setBounds(470, 338, 104, 33);
+		cmbKitSerialNumber.setText("Select Kit Serial Number");
 		
 		btnCheckOut_1 = new Button(shlEezonCheck, SWT.NONE);
 		btnCheckOut_1.setBounds(469, 396, 105, 35);

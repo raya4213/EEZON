@@ -22,20 +22,6 @@ public class UnavailableItemReqView {
 	Display display;
 	Shell shlEezon;
 	
-	
-	/**
-	 * Launch the application.
-	 * @param args
-	 */
-	/*public static void main(String[] args) {
-		try {
-			UnavailableItemReqView window = new UnavailableItemReqView();
-			window.open();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}*/
-
 	/**
 	 * Open the window.
 	 */

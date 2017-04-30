@@ -59,24 +59,30 @@ public class UnavailableItemReqView {
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
 		cmbSelectCourse.setBounds(471, 232, 215, 28);
+		cmbSelectCourse.setText("Select Course");
 		
 		cmbSelectItemType = new Combo(shlEezon, SWT.NONE);
 		cmbSelectItemType.setBounds(471, 284, 215, 28);
+		cmbSelectItemType.setText("Select Item Type");
 		
 		EnterName = new Text(shlEezon, SWT.BORDER);
+		EnterName.setText("Enter Name");
 		EnterName.setToolTipText("Enter Name");
 		EnterName.setBounds(468, 348, 105, 31);
 		
 		EnterLink = new Text(shlEezon, SWT.BORDER);
+		EnterLink.setText("Enter Link");
 		EnterLink.setToolTipText("Enter Link");
 		EnterLink.setBounds(468, 396, 105, 31);
 		
 		enterCost = new Text(shlEezon, SWT.BORDER | SWT.MULTI);
+		enterCost.setText("Enter Cost");
 		enterCost.setToolTipText("Enter Cost");
 		enterCost.setBounds(468, 447, 105, 31);
 		
 		comNumOfItems = new Combo(shlEezon, SWT.NONE);
-		comNumOfItems.setBounds(469, 500, 104, 33);
+		comNumOfItems.setBounds(469, 500, 151, 28);
+		comNumOfItems.setText("Number of items");
 		
 		btnRequest = new Button(shlEezon, SWT.NONE);
 		btnRequest.setBounds(468, 561, 105, 35);

@@ -58,28 +58,28 @@ public class UnavailableItemReqView {
 		text.setBounds(242, 103, 596, 75);
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
-		cmbSelectCourse.setBounds(461, 232, 215, 28);
+		cmbSelectCourse.setBounds(471, 232, 215, 28);
 		
 		cmbSelectItemType = new Combo(shlEezon, SWT.NONE);
-		cmbSelectItemType.setBounds(461, 283, 215, 28);
+		cmbSelectItemType.setBounds(471, 284, 215, 28);
 		
 		EnterName = new Text(shlEezon, SWT.BORDER);
 		EnterName.setToolTipText("Enter Name");
-		EnterName.setBounds(468, 348, 80, 31);
+		EnterName.setBounds(468, 348, 105, 31);
 		
 		EnterLink = new Text(shlEezon, SWT.BORDER);
 		EnterLink.setToolTipText("Enter Link");
-		EnterLink.setBounds(468, 396, 80, 31);
+		EnterLink.setBounds(468, 396, 105, 31);
 		
 		enterCost = new Text(shlEezon, SWT.BORDER | SWT.MULTI);
 		enterCost.setToolTipText("Enter Cost");
-		enterCost.setBounds(468, 447, 80, 31);
+		enterCost.setBounds(468, 447, 105, 31);
 		
 		comNumOfItems = new Combo(shlEezon, SWT.NONE);
-		comNumOfItems.setBounds(461, 502, 104, 33);
+		comNumOfItems.setBounds(469, 500, 104, 33);
 		
 		btnRequest = new Button(shlEezon, SWT.NONE);
-		btnRequest.setBounds(461, 563, 105, 35);
+		btnRequest.setBounds(468, 561, 105, 35);
 		btnRequest.setText("REQUEST");
 
 		

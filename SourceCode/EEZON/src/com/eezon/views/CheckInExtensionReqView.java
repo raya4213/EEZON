@@ -19,19 +19,6 @@ public class CheckInExtensionReqView {
 	Shell shlEezon;
 	
 	/**
-	 * Launch the application.
-	 * @param args
-	 */
-	/*public static void main(String[] args) {
-		try {
-			CheckInExtensionReqView window = new CheckInExtensionReqView();
-			window.open();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}*/
-
-	/**
 	 * Open the window.
 	 */
 	public CheckInExtensionReqView() {

@@ -6,8 +6,7 @@ public class UnavailableItemDriver {
 		
 		UnavailableItemReqController unavailableItemReqController= new UnavailableItemReqController();
 		unavailableItemReqController.displayView();
-		//penaltyMgtController.getPenaltyView().open();
-		//penaltyMgtController.in
+		
 	}
 
 }

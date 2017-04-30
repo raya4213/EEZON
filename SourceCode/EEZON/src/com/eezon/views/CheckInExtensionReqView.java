@@ -30,10 +30,12 @@ public class CheckInExtensionReqView {
 		btnHome = new Button(shlEezon, SWT.NONE);
 		btnHome.setText("Home");
 		btnHome.setBounds(10, 10, 75, 25);
+		btnHome.setData("btnHome");
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
 		btnBack.setText("Back");
 		btnBack.setBounds(577, 10, 75, 25);
+		btnBack.setData("btnBack");
 		
 		cmbSelectKit = new Combo(shlEezon, SWT.NONE);
 		cmbSelectKit.setBounds(198, 215, 268, 23);
@@ -50,6 +52,7 @@ public class CheckInExtensionReqView {
 		btnRequest = new Button(shlEezon, SWT.NONE);
 		btnRequest.setText("Request");
 		btnRequest.setBounds(286, 325, 75, 25);
+		btnRequest.setData("btnRequest");
 		
 		table = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
 		table.setBounds(172, 44, 359, 91);

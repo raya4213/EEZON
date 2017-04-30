@@ -8,7 +8,7 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.*;
 
 import com.eezon.models.*;
-import com.eezon.penalty.strategy.PenaltyBtnAction;
+import com.eezon.penalty.strategy.IPenaltyBtnAction;
 import com.eezon.views.PenaltyManagementView;
 
 public class PenaltyManagementController implements MouseListener, SelectionListener {
@@ -142,7 +142,7 @@ public class PenaltyManagementController implements MouseListener, SelectionList
 		Button btnPressed = (Button)arg0.widget;
 		System.out.println("mouseDown" + arg0);
 
-		PenaltyBtnAction btnAction = (PenaltyBtnAction)btnPressed.getData();
+		IPenaltyBtnAction btnAction = (IPenaltyBtnAction)btnPressed.getData();
 		btnAction.doAction(this, penaltyView, kitModel);
 
 	}

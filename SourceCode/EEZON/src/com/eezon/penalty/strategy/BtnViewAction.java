@@ -10,7 +10,7 @@ import com.eezon.models.Course;
 import com.eezon.models.Kit;
 import com.eezon.views.PenaltyManagementView;
 
-public class PenaltyBtnViewAction implements PenaltyBtnAction{
+public class BtnViewAction implements IPenaltyBtnAction{
 
 	@Override
 	public void doAction(PenaltyManagementController controller, PenaltyManagementView penaltyView, Kit kitModel) {

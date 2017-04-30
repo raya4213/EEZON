@@ -16,13 +16,13 @@ import org.hibernate.query.Query;
 
 import com.eezon.models.Kit;
 import com.eezon.observer.KitObserver;
-import com.eezon.penalty.strategy.PenaltyBtnAction;
-import com.eezon.penalty.strategy.PenaltyBtnByCourseAction;
-import com.eezon.penalty.strategy.PenaltyBtnByEmailAction;
-import com.eezon.penalty.strategy.PenaltyBtnOverrideAction;
-import com.eezon.penalty.strategy.PenaltyBtnViewAction;
-import com.eezon.penalty.strategy.PenaltyRadOverrideAction;
-import com.eezon.penalty.strategy.PenaltyRadViewAction;
+import com.eezon.penalty.strategy.IPenaltyBtnAction;
+import com.eezon.penalty.strategy.BtnByCourseAction;
+import com.eezon.penalty.strategy.BtnByEmailAction;
+import com.eezon.penalty.strategy.BtnOverrideAction;
+import com.eezon.penalty.strategy.BtnViewAction;
+import com.eezon.penalty.strategy.RadOverrideAction;
+import com.eezon.penalty.strategy.RadViewAction;
 
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Group;
@@ -98,13 +98,13 @@ public class PenaltyManagementView implements KitObserver{
 		radView = new Button(grpByViewOverride, SWT.RADIO);
 		radView.setBounds(3, 15, 90, 16);
 		radView.setText("View");
-		radView.setData(new PenaltyRadViewAction());
+		radView.setData(new RadViewAction());
 		
 		radOverride = new Button(grpByViewOverride, SWT.RADIO);
 		radOverride.setBounds(3, 37, 90, 16);
 		radOverride.setText("Override");
 		radOverride.setData("radOverride");
-		radOverride.setData(new PenaltyRadOverrideAction());
+		radOverride.setData(new RadOverrideAction());
 		
 		grpByCourseEmail = new Group(shlPenaltyManagement, SWT.NONE);
 		grpByCourseEmail.setBounds(302, 81, 96, 56);
@@ -112,12 +112,12 @@ public class PenaltyManagementView implements KitObserver{
 		btnByCourse = new Button(grpByCourseEmail, SWT.RADIO);
 		btnByCourse.setBounds(3, 15, 90, 16);
 		btnByCourse.setText("By Course");
-		btnByCourse.setData(new PenaltyBtnByCourseAction());
+		btnByCourse.setData(new BtnByCourseAction());
 		
 		btnByEmail = new Button(grpByCourseEmail, SWT.RADIO);
 		btnByEmail.setBounds(3, 37, 90, 16);
 		btnByEmail.setText("By Email");
-		btnByEmail.setData(new PenaltyBtnByEmailAction());
+		btnByEmail.setData(new BtnByEmailAction());
 		
 		grpByCourse = new Group(shlPenaltyManagement, SWT.NONE);
 		grpByCourse.setBounds(215, 143, 274, 124);
@@ -147,12 +147,12 @@ public class PenaltyManagementView implements KitObserver{
 		btnView = new Button(shlPenaltyManagement, SWT.NONE);
 		btnView.setBounds(305, 318, 75, 25);
 		btnView.setText("View");
-		btnView.setData(new PenaltyBtnViewAction());
+		btnView.setData(new BtnViewAction());
 		
 		btnOverride = new Button(shlPenaltyManagement, SWT.NONE);
 		btnOverride.setBounds(305, 477, 75, 25);
 		btnOverride.setText("Override");
-		btnOverride.setData(new PenaltyBtnOverrideAction());
+		btnOverride.setData(new BtnOverrideAction());
 		
 		tblViewPenalties = new Table(shlPenaltyManagement, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
 		tblViewPenalties.setBounds(33, 361, 616, 95);

@@ -4,7 +4,7 @@ import com.eezon.controllers.PenaltyManagementController;
 import com.eezon.models.Kit;
 import com.eezon.views.PenaltyManagementView;
 
-public class PenaltyBtnByEmailAction implements PenaltyBtnAction{
+public class BtnByEmailAction implements IPenaltyBtnAction{
 
 	@Override
 	public void doAction(PenaltyManagementController controller, PenaltyManagementView penaltyView, Kit kitModel) {

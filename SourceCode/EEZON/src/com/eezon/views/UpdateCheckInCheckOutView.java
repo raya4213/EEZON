@@ -9,6 +9,8 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class UpdateCheckInCheckOutView {
 	private Text txtEmail;
@@ -16,13 +18,13 @@ public class UpdateCheckInCheckOutView {
 	Button btnHome;
 	Button btnBack;
 	Group group;
-	Button btnCheckIn;
-	Button btnCheckOut;
+	Button radCheckIn;
+	Button radCheckOut;
 	Combo cmbSelectCourse;
 	Combo cmbSelectKitType;
 	Combo cmbKitSerialNumber;
-	Button btnCheckOut_1;
-	Button btnCheckIn_1;
+	Button btnCheckOut;
+	Button btnCheckIn;
 	Display display;
 	Shell shlEezonCheck;
 	private Group grpByCheckOut;
@@ -96,13 +98,15 @@ public class UpdateCheckInCheckOutView {
 		group = new Group(shlEezonCheck, SWT.NONE);
 		group.setBounds(456, 131, 149, 81);
 		
-		btnCheckIn = new Button(group, SWT.RADIO);
-		btnCheckIn.setBounds(10, 23, 133, 25);
-		btnCheckIn.setText("Check IN");
+		radCheckIn = new Button(group, SWT.RADIO);
+		radCheckIn.setBounds(10, 23, 133, 25);
+		radCheckIn.setText("Check IN");
+		radCheckIn.setData("radCheckIn");
 		
-		btnCheckOut = new Button(group, SWT.RADIO);
-		btnCheckOut.setBounds(10, 54, 133, 25);
-		btnCheckOut.setText("Check OUT");
+		radCheckOut = new Button(group, SWT.RADIO);
+		radCheckOut.setBounds(10, 54, 133, 25);
+		radCheckOut.setText("Check OUT");
+		radCheckOut.setData("radCheckOut");
 		
 		grpByCheckOut = new Group(shlEezonCheck, SWT.NONE);
 		grpByCheckOut.setBounds(409, 221, 234, 224);
@@ -122,9 +126,9 @@ public class UpdateCheckInCheckOutView {
 		cmbKitSerialNumber.setBounds(3, 128, 228, 33);
 		cmbKitSerialNumber.setText("Select Kit Serial Number");
 		
-		btnCheckOut_1 = new Button(grpByCheckOut, SWT.NONE);
-		btnCheckOut_1.setBounds(60, 186, 105, 35);
-		btnCheckOut_1.setText("Check OUT");
+		btnCheckOut = new Button(grpByCheckOut, SWT.NONE);
+		btnCheckOut.setBounds(60, 186, 105, 35);
+		btnCheckOut.setText("Check OUT");
 		
 		grpByCheckIn = new Group(shlEezonCheck, SWT.NONE);
 		grpByCheckIn.setBounds(253, 455, 526, 135);
@@ -134,9 +138,9 @@ public class UpdateCheckInCheckOutView {
 		tblCinCoutDetails.setHeaderVisible(true);
 		tblCinCoutDetails.setLinesVisible(true);
 		
-		btnCheckIn_1 = new Button(grpByCheckIn, SWT.NONE);
-		btnCheckIn_1.setBounds(214, 97, 105, 35);
-		btnCheckIn_1.setText("Check IN");
+		btnCheckIn = new Button(grpByCheckIn, SWT.NONE);
+		btnCheckIn.setBounds(214, 97, 105, 35);
+		btnCheckIn.setText("Check IN");
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
 		tblColumn.setWidth(70);
 		tblColumn.setText("SerialNum");
@@ -169,6 +173,22 @@ public class UpdateCheckInCheckOutView {
 		tblColumn.setWidth(86);
 		tblColumn.setText("StudentName");
 
+	}
+
+	public Button getRadCheckIn() {
+		return radCheckIn;
+	}
+
+	public void setRadCheckIn(Button radCheckIn) {
+		this.radCheckIn = radCheckIn;
+	}
+
+	public Button getRadCheckOut() {
+		return radCheckOut;
+	}
+
+	public void setRadCheckOut(Button radCheckOut) {
+		this.radCheckOut = radCheckOut;
 	}
 
 	public Text getTxtEmail() {
@@ -212,19 +232,19 @@ public class UpdateCheckInCheckOutView {
 	}
 
 	public Button getBtnCheckIn() {
-		return btnCheckIn;
+		return radCheckIn;
 	}
 
 	public void setBtnCheckIn(Button btnCheckIn) {
-		this.btnCheckIn = btnCheckIn;
+		this.radCheckIn = btnCheckIn;
 	}
 
 	public Button getBtnCheckOut() {
-		return btnCheckOut;
+		return radCheckOut;
 	}
 
 	public void setBtnCheckOut(Button btnCheckOut) {
-		this.btnCheckOut = btnCheckOut;
+		this.radCheckOut = btnCheckOut;
 	}
 
 	public Combo getCmbSelectCourse() {
@@ -252,20 +272,13 @@ public class UpdateCheckInCheckOutView {
 	}
 
 	public Button getBtnCheckOut_1() {
-		return btnCheckOut_1;
+		return btnCheckOut;
 	}
 
 	public void setBtnCheckOut_1(Button btnCheckOut_1) {
-		this.btnCheckOut_1 = btnCheckOut_1;
+		this.btnCheckOut = btnCheckOut_1;
 	}
 
-	public Button getBtnCheckIn_1() {
-		return btnCheckIn_1;
-	}
-
-	public void setBtnCheckIn_1(Button btnCheckIn_1) {
-		this.btnCheckIn_1 = btnCheckIn_1;
-	}
 
 	public Display getDisplay() {
 		return display;

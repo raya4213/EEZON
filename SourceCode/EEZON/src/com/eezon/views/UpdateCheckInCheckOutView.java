@@ -79,7 +79,7 @@ public class UpdateCheckInCheckOutView {
 	public UpdateCheckInCheckOutView() {
 		display = Display.getDefault();
 		shlEezonCheck = new Shell();
-		shlEezonCheck.setSize(1132, 684);
+		shlEezonCheck.setSize(1132, 723);
 		shlEezonCheck.setText("EEZON - Check IN/Check OUT");
 		
 		btnHome = new Button(shlEezonCheck, SWT.NONE);
@@ -93,10 +93,10 @@ public class UpdateCheckInCheckOutView {
 		txtEmail = new Text(shlEezonCheck, SWT.BORDER);
 		txtEmail.setText("Enter Email ID");
 		txtEmail.setToolTipText("Enter Email ID");
-		txtEmail.setBounds(443, 94, 162, 31);
+		txtEmail.setBounds(443, 78, 162, 31);
 		
 		group = new Group(shlEezonCheck, SWT.NONE);
-		group.setBounds(456, 131, 149, 81);
+		group.setBounds(456, 115, 149, 81);
 		
 		radCheckIn = new Button(group, SWT.RADIO);
 		radCheckIn.setBounds(10, 23, 133, 25);
@@ -109,7 +109,7 @@ public class UpdateCheckInCheckOutView {
 		radCheckOut.setData("radCheckOut");
 		
 		grpByCheckOut = new Group(shlEezonCheck, SWT.NONE);
-		grpByCheckOut.setBounds(409, 221, 234, 224);
+		grpByCheckOut.setBounds(409, 205, 234, 224);
 		
 		cmbSelectCourse = new Combo(grpByCheckOut, SWT.NONE);
 		cmbSelectCourse.setBounds(34, 25, 162, 33);
@@ -129,48 +129,51 @@ public class UpdateCheckInCheckOutView {
 		btnCheckOut = new Button(grpByCheckOut, SWT.NONE);
 		btnCheckOut.setBounds(60, 186, 105, 35);
 		btnCheckOut.setText("Check OUT");
+		btnCheckOut.setData("btnCheckOut");
 		
 		grpByCheckIn = new Group(shlEezonCheck, SWT.NONE);
-		grpByCheckIn.setBounds(253, 455, 526, 135);
+		grpByCheckIn.setBounds(81, 439, 929, 218);
 		
-		tblCinCoutDetails = new Table(grpByCheckIn, SWT.BORDER | SWT.FULL_SELECTION);
-		tblCinCoutDetails.setBounds(3, 25, 520, 61);
+		tblCinCoutDetails = new Table(grpByCheckIn, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
+		tblCinCoutDetails.setBounds(3, 25, 916, 142);
 		tblCinCoutDetails.setHeaderVisible(true);
 		tblCinCoutDetails.setLinesVisible(true);
 		
 		btnCheckIn = new Button(grpByCheckIn, SWT.NONE);
-		btnCheckIn.setBounds(214, 97, 105, 35);
+		btnCheckIn.setBounds(392, 173, 105, 35);
 		btnCheckIn.setText("Check IN");
+		btnCheckIn.setData("btnCheckIn");
+		
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
-		tblColumn.setWidth(70);
+		tblColumn.setWidth(106);
 		tblColumn.setText("SerialNum");
 		
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
-		tblColumn.setWidth(79);
+		tblColumn.setWidth(114);
 		tblColumn.setText("CheckInDate");
 		
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
-		tblColumn.setWidth(89);
+		tblColumn.setWidth(130);
 		tblColumn.setText("CheckOutDate");
 		
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
-		tblColumn.setWidth(83);
+		tblColumn.setWidth(118);
 		tblColumn.setText("CourseName");
 		
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
-		tblColumn.setWidth(65);
+		tblColumn.setWidth(99);
 		tblColumn.setText("KitPenalty");
 		
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
-		tblColumn.setWidth(51);
+		tblColumn.setWidth(73);
 		tblColumn.setText("KitType");
 		
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(128);
 		tblColumn.setText("StudentEmail");
 		
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(235);
 		tblColumn.setText("StudentName");
 
 	}
@@ -232,19 +235,19 @@ public class UpdateCheckInCheckOutView {
 	}
 
 	public Button getBtnCheckIn() {
-		return radCheckIn;
+		return btnCheckIn;
 	}
 
 	public void setBtnCheckIn(Button btnCheckIn) {
-		this.radCheckIn = btnCheckIn;
+		this.btnCheckIn = btnCheckIn;
 	}
 
 	public Button getBtnCheckOut() {
-		return radCheckOut;
+		return btnCheckOut;
 	}
 
 	public void setBtnCheckOut(Button btnCheckOut) {
-		this.radCheckOut = btnCheckOut;
+		this.btnCheckOut = btnCheckOut;
 	}
 
 	public Combo getCmbSelectCourse() {

@@ -264,4 +264,16 @@ public class Kit {
 		
 	}
 	
+	public boolean checkOut(Kit kitType){
+				
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		session.update(kitType); 
+		session.getTransaction().commit();
+				
+		return true;
+	}
+	
 }

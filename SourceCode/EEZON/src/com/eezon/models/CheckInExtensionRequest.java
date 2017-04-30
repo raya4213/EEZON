@@ -32,7 +32,7 @@ public class CheckInExtensionRequest extends Request{
 	@Override
 	public boolean addRequest(Request req) {
 		// TODO Auto-generated method stub
-		UnavailableItemRequest request = (UnavailableItemRequest)req;
+		CheckInExtensionRequest request = (CheckInExtensionRequest)req;
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();

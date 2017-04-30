@@ -38,14 +38,17 @@ public class CheckInExtensionReqView {
 		btnBack.setData("btnBack");
 		
 		cmbSelectKit = new Combo(shlEezon, SWT.NONE);
+		cmbSelectKit.setItems(new String[] {"10000-Raspberry Pi", "10010-Beaglebone", "10020-Leopard Gecko", "10040-Arduino"});
 		cmbSelectKit.setBounds(198, 215, 268, 23);
 		cmbSelectKit.setText("Select Kit");
 		
 		cmbSelectTimeFrame = new Combo(shlEezon, SWT.NONE);
+		cmbSelectTimeFrame.setItems(new String[] {"15", "30", "60"});
 		cmbSelectTimeFrame.setBounds(198, 267, 268, 23);
-		cmbSelectTimeFrame.setText("Select Time Frame");
+		cmbSelectTimeFrame.setText("Select Time Frame (Days)");
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
+		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Internet of Things", "Real Time Embedded Systems", "Computer Architecture", "Computer Vision"});
 		cmbSelectCourse.setBounds(198, 161, 268, 23);
 		cmbSelectCourse.setText("Select Course");
 		
@@ -59,13 +62,6 @@ public class CheckInExtensionReqView {
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 
-		shlEezon.open();
-		shlEezon.layout();
-		while (!shlEezon.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
 	}
 
 	public Combo getCmbSelectTimeFrame() {

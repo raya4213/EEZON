@@ -34,6 +34,7 @@ public class HomeScreenController implements MouseListener {
 	
 	public void displayView(){
 		this.prevShell.setVisible(false);
+
 		switch(userModel.getUserRole()){
 			case "admin":
 			case "professor":
@@ -43,6 +44,7 @@ public class HomeScreenController implements MouseListener {
 				homeScreenView.getBtnInventory().setVisible(true);
 				homeScreenView.getBtnPenaltyManagement().setVisible(true);
 				homeScreenView.getBtnAddProfTA().setVisible(true);
+				homeScreenView.getBtnAddProfTA().setBounds(30, 115, 188, 25);
 				break;
 			case "ta":
 				homeScreenView.getBtnRequestsView().setVisible(true);
@@ -54,8 +56,11 @@ public class HomeScreenController implements MouseListener {
 				break;
 			case "student":
 				homeScreenView.getBtnRequestsView().setVisible(true);
+				homeScreenView.getBtnRequestsView().setBounds(160, 70, 75, 25);
 				homeScreenView.getBtnMyCINCOUTView().setVisible(true);
+				homeScreenView.getBtnMyCINCOUTView().setBounds(103, 115, 188, 25);
 				homeScreenView.getBtnPenaltyManagement().setVisible(true);
+				homeScreenView.getBtnPenaltyManagement().setBounds(130, 166, 151, 25);
 				break;
 		}
 		

@@ -30,6 +30,7 @@ public class HomeScreenView {
 		}
 	}*/
 
+
 	/**
 	 * Open the window.
 	 */
@@ -41,7 +42,7 @@ public class HomeScreenView {
 		shlHome.setLocation(450, 200);
 		
 		btnRequestsView = new Button(shlHome, SWT.NONE);
-		btnRequestsView.setBounds(59, 70, 75, 25);
+		btnRequestsView.setBounds(69, 70, 75, 25);
 		btnRequestsView.setText("Requests");
 		btnRequestsView.setData("btnRequestsView");
 		
@@ -52,7 +53,7 @@ public class HomeScreenView {
 		
 		btnViewKitDetails = new Button(shlHome, SWT.NONE);
 		btnViewKitDetails.setText("View Kit Details");
-		btnViewKitDetails.setBounds(42, 166, 108, 25);
+		btnViewKitDetails.setBounds(51, 166, 108, 25);
 		btnViewKitDetails.setData("btnViewKitDetails");
 		
 		btnCINCOUTUpdateView = new Button(shlHome, SWT.NONE);
@@ -74,7 +75,6 @@ public class HomeScreenView {
 		btnAddProfTA.setBounds(163, 211, 75, 25);
 		btnAddProfTA.setText("AddProfTA");
 		btnAddProfTA.setData("btnAddProfTA");
-
 	}
 
 	public Display getDisplay() {
@@ -148,6 +148,4 @@ public class HomeScreenView {
 	public void setBtnAddProfTA(Button btnAddProfTA) {
 		this.btnAddProfTA = btnAddProfTA;
 	}
-	
-	
 }

@@ -13,6 +13,15 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+
+import com.eezon.penalty.strategy.PenaltyBtnAction;
+import com.eezon.penalty.strategy.PenaltyBtnByCourseAction;
+import com.eezon.penalty.strategy.PenaltyBtnByEmailAction;
+import com.eezon.penalty.strategy.PenaltyBtnOverrideAction;
+import com.eezon.penalty.strategy.PenaltyBtnViewAction;
+import com.eezon.penalty.strategy.PenaltyRadOverrideAction;
+import com.eezon.penalty.strategy.PenaltyRadViewAction;
+
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.events.MouseAdapter;
@@ -87,13 +96,13 @@ public class PenaltyManagementView {
 		radView = new Button(grpByViewOverride, SWT.RADIO);
 		radView.setBounds(3, 15, 90, 16);
 		radView.setText("View");
-		radView.setData("radView");
-		//radView.addMouseListener(mouseListener);
+		radView.setData(new PenaltyRadViewAction());
 		
 		radOverride = new Button(grpByViewOverride, SWT.RADIO);
 		radOverride.setBounds(3, 37, 90, 16);
 		radOverride.setText("Override");
 		radOverride.setData("radOverride");
+		radOverride.setData(new PenaltyRadOverrideAction());
 		
 		grpByCourseEmail = new Group(shlPenaltyManagement, SWT.NONE);
 		grpByCourseEmail.setBounds(302, 81, 96, 56);
@@ -101,12 +110,12 @@ public class PenaltyManagementView {
 		btnByCourse = new Button(grpByCourseEmail, SWT.RADIO);
 		btnByCourse.setBounds(3, 15, 90, 16);
 		btnByCourse.setText("By Course");
-		btnByCourse.setData("btnByCourse");
+		btnByCourse.setData(new PenaltyBtnByCourseAction());
 		
 		btnByEmail = new Button(grpByCourseEmail, SWT.RADIO);
 		btnByEmail.setBounds(3, 37, 90, 16);
 		btnByEmail.setText("By Email");
-		btnByEmail.setData("btnByEmail");
+		btnByEmail.setData(new PenaltyBtnByEmailAction());
 		
 		grpByCourse = new Group(shlPenaltyManagement, SWT.NONE);
 		grpByCourse.setBounds(215, 143, 274, 124);
@@ -134,21 +143,19 @@ public class PenaltyManagementView {
 		txtEmailId.setText("Email Id");
 		
 		btnView = new Button(shlPenaltyManagement, SWT.NONE);
-
 		btnView.setBounds(305, 318, 75, 25);
 		btnView.setText("View");
-		btnView.setData("btnView");
+		btnView.setData(new PenaltyBtnViewAction());
 		
 		btnOverride = new Button(shlPenaltyManagement, SWT.NONE);
 		btnOverride.setBounds(305, 477, 75, 25);
 		btnOverride.setText("Override");
-		btnOverride.setData("btnOverride");
+		btnOverride.setData(new PenaltyBtnOverrideAction());
 		
 		tblViewPenalties = new Table(shlPenaltyManagement, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
 		tblViewPenalties.setBounds(33, 361, 616, 95);
 		tblViewPenalties.setHeaderVisible(true);
 		tblViewPenalties.setLinesVisible(true);
-		
 		
 		//Creating all the columns inside the table for viewing 
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);

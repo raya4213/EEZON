@@ -72,6 +72,8 @@ public class PenaltyManagementController {
 	
 	public Kit getKitModel() {
 		return kitModel;
+		
+		
 	}
 	
 	public void setKitModel(Kit kitModel) {

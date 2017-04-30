@@ -5,8 +5,7 @@ public static void main(String args[]){
 		
 		CheckInExtensionReqController checkInExtensionReqController= new CheckInExtensionReqController();
 		checkInExtensionReqController.displayView();
-		//penaltyMgtController.getPenaltyView().open();
-		//penaltyMgtController.in
+		
 	}
 
 }

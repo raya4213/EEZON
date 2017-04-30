@@ -15,7 +15,7 @@ public class HomeScreenView {
 	Button btnCINCOUTUpdateView;
 	Button btnInventory;
 	Button btnPenaltyManagement;
-	private Button btnAddProfTA;
+	Button btnAddProfTA;
 	
 	/**
 	 * Launch the application.

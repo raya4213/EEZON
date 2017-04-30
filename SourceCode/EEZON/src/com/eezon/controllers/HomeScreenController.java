@@ -19,6 +19,7 @@ public class HomeScreenController implements MouseListener {
 		this.userModel = userModel;
 		this.prevShell = prevShell;
 		hideAllButtons();
+		initializeListeners();
 	}
 	
 	public void hideAllButtons(){
@@ -112,28 +113,34 @@ public class HomeScreenController implements MouseListener {
 	@Override
 	public void mouseDown(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		Button btnRequestsView;
-		Button btnMyCINCOUTView;
-		Button btnViewKitDetails;
-		Button btnCINCOUTUpdateView;
-		Button btnInventory;
-		Button btnPenaltyManagement;
-		//private Button btnAddProfTA;
 		
 		Button btnPressed = (Button)arg0.widget;
 		System.out.println("mouseDown" + arg0);
 		
-		/*switch(btnPressed.getData().toString()){
+		switch(btnPressed.getData().toString()){
 			case "btnRequestsView":
+				
 				break;
-			case "":
+			case "btnMyCINCOUTView":
+				
 				break;
-			case "":
+			case "btnViewKitDetails":
+				
 				break;
-			case "":
+			case "btnCINCOUTUpdateView":
+				
 				break;
-		}*/
-		
+			case "btnInventory":
+				
+				break;
+			case "btnPenaltyManagement":
+				PenaltyManagementController penaltyMgtController = new PenaltyManagementController(userModel, homeScreenView.getShlHome());
+				penaltyMgtController.displayView();
+				break;
+			case "btnAddProfTA":
+				
+				break;
+		}		
 	}
 
 	@Override

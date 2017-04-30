@@ -17,17 +17,22 @@ public class PenaltyManagementController implements MouseListener, SelectionList
 	private PenaltyManagementView penaltyView;
 	private Course courseModel;
 	private Kit kitModel;
-	
-	public PenaltyManagementController() {
+	private Shell prevShell;
+	private User userModel;
+
+	public PenaltyManagementController(User _userModel, Shell _prevShell) {
 		// TODO Auto-generated constructor stub
 		penaltyView = new PenaltyManagementView();
 		courseModel = new Course();
 		kitModel = new Kit();
-		
+		userModel = _userModel;
+		prevShell = _prevShell;
+		hideAllOptions();
 		initializeListeners();
 	}
 	
 	public void displayView(){
+		this.prevShell.setVisible(false);
 		Display display = penaltyView.getDisplay();
 		Shell shell = penaltyView.getShlPenaltyManagement();
 		shell.open();
@@ -40,8 +45,6 @@ public class PenaltyManagementController implements MouseListener, SelectionList
 	}
 	
 	private void initializeListeners(){
-		
-		hideAllOptions();
 		
 		penaltyView.getRadView().addMouseListener(this);
 		penaltyView.getRadOverride().addMouseListener(this);
@@ -79,6 +82,22 @@ public class PenaltyManagementController implements MouseListener, SelectionList
 	
 	public void setKitModel(Kit kitModel) {
 		this.kitModel = kitModel;
+	}
+	
+	public Shell getPrevShell() {
+		return prevShell;
+	}
+
+	public void setPrevShell(Shell prevShell) {
+		this.prevShell = prevShell;
+	}
+
+	public User getUserModel() {
+		return userModel;
+	}
+
+	public void setUserModel(User userModel) {
+		this.userModel = userModel;
 	}
 
 	@Override

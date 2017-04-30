@@ -69,6 +69,7 @@ public class PenaltyManagementView {
 		shlPenaltyManagement = new Shell();
 		shlPenaltyManagement.setSize(690, 621);
 		shlPenaltyManagement.setText("Penalty Management");
+		shlPenaltyManagement.setLocation(350, 120);
 		
 		btnHome = new Button(shlPenaltyManagement, SWT.NONE);
 		btnHome.setText("Home");

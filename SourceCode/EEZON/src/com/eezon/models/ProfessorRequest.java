@@ -14,4 +14,10 @@ public class ProfessorRequest extends Request{
 	public void setProfSignUpApproval(Boolean profSignUpApproval) {
 		this.profSignUpApproval = profSignUpApproval;
 	}
+
+	@Override
+	public boolean addRequest(Request req) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

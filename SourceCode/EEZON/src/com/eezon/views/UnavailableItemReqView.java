@@ -72,6 +72,7 @@ public class UnavailableItemReqView {
 		enterCost.setBounds(468, 447, 105, 31);
 		
 		comNumOfItems = new Combo(shlEezon, SWT.NONE);
+		comNumOfItems.setItems(new String[] {"1", "2", "3", "4", "5"});
 		comNumOfItems.setBounds(469, 500, 151, 28);
 		comNumOfItems.setText("Number of items");
 		

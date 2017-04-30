@@ -46,4 +46,5 @@ public abstract class Request {
 		this.reqFrom = reqFrom;
 	}
 	
+	public abstract boolean addRequest(Request req);
 }

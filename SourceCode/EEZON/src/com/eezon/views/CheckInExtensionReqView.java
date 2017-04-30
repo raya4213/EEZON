@@ -5,10 +5,11 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 
 public class CheckInExtensionReqView {
 	private Combo cmbSelectTimeFrame;
-	private Table table;
+	private Table tblReqDetails;
 
 	Button btnHome;
 	Button btnBack;
@@ -17,6 +18,7 @@ public class CheckInExtensionReqView {
 	Button btnRequest;
 	Display display;
 	Shell shlEezon;
+	TableColumn tblColumn;
 	
 	/**
 	 * Open the window.
@@ -24,7 +26,7 @@ public class CheckInExtensionReqView {
 	public CheckInExtensionReqView() {
 		display = Display.getDefault();
 		shlEezon = new Shell();
-		shlEezon.setSize(681, 433);
+		shlEezon.setSize(1015, 560);
 		shlEezon.setText("EEZON - Request for Check IN Extension");
 		
 		btnHome = new Button(shlEezon, SWT.NONE);
@@ -39,29 +41,74 @@ public class CheckInExtensionReqView {
 		
 		cmbSelectKit = new Combo(shlEezon, SWT.NONE);
 		cmbSelectKit.setItems(new String[] {"10000-Raspberry Pi", "10010-Beaglebone", "10020-Leopard Gecko", "10040-Arduino"});
-		cmbSelectKit.setBounds(198, 215, 268, 23);
+		cmbSelectKit.setBounds(279, 278, 268, 23);
 		cmbSelectKit.setText("Select Kit");
 		
 		cmbSelectTimeFrame = new Combo(shlEezon, SWT.NONE);
 		cmbSelectTimeFrame.setItems(new String[] {"15", "30", "60"});
-		cmbSelectTimeFrame.setBounds(198, 267, 268, 23);
+		cmbSelectTimeFrame.setBounds(279, 330, 268, 23);
 		cmbSelectTimeFrame.setText("Select Time Frame (Days)");
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Internet of Things", "Real Time Embedded Systems", "Computer Architecture", "Computer Vision"});
-		cmbSelectCourse.setBounds(198, 161, 268, 23);
+		cmbSelectCourse.setBounds(279, 224, 268, 23);
 		cmbSelectCourse.setText("Select Course");
 		
 		btnRequest = new Button(shlEezon, SWT.NONE);
 		btnRequest.setText("Request");
-		btnRequest.setBounds(286, 325, 75, 25);
+		btnRequest.setBounds(351, 383, 91, 30);
 		btnRequest.setData("btnRequest");
 		
-		table = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(172, 44, 359, 91);
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
+		tblReqDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
+		tblReqDetails.setBounds(41, 57, 912, 130);
+		tblReqDetails.setHeaderVisible(true);
+		tblReqDetails.setLinesVisible(true);
+		
+		//Creating all the columns inside the table for viewing 
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(70);
+  		tblColumn.setText("Req Id");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(97);
+  		tblColumn.setText("Req Status");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(104);
+  		tblColumn.setText("KitSerialNum");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(104);
+  		tblColumn.setText("KitType");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(105);
+  		tblColumn.setText("Num of Days");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(179);
+  		tblColumn.setText("CheckOutDate");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(245);
+  		tblColumn.setText("Course Name");
 
+	}
+
+	public Table getTblReqDetails() {
+		return tblReqDetails;
+	}
+
+	public void setTblReqDetails(Table tblReqDetails) {
+		this.tblReqDetails = tblReqDetails;
+	}
+
+	public TableColumn getTblColumn() {
+		return tblColumn;
+	}
+
+	public void setTblColumn(TableColumn tblColumn) {
+		this.tblColumn = tblColumn;
 	}
 
 	public Combo getCmbSelectTimeFrame() {
@@ -73,11 +120,11 @@ public class CheckInExtensionReqView {
 	}
 
 	public Table getTable() {
-		return table;
+		return tblReqDetails;
 	}
 
 	public void setTable(Table table) {
-		this.table = table;
+		this.tblReqDetails = table;
 	}
 
 	public Button getBtnHome() {

@@ -3,6 +3,7 @@ package com.eezon.controllers;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.TableItem;
 
 import com.eezon.models.CheckInExtensionRequest;
 import com.eezon.models.Course;
@@ -13,8 +14,10 @@ import com.eezon.models.UnavailableItem;
 import com.eezon.models.UnavailableItemRequest;
 import com.eezon.views.CheckInExtensionReqView;
 
+import java.util.ArrayList;
 import java.util.Date;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.MouseEvent;
@@ -31,13 +34,31 @@ public class CheckInExtensionReqController implements MouseListener {
 			this.kitModel= new Kit();
 			this.checkInExtensionReqModel= new CheckInExtensionRequest();
 			initializeListeners();
+			updateTblDetails("sharath.vontari@colorado.edu");
 		}
 		
-
 		public void initializeListeners(){
 			checkInExtensionReqView.getBtnRequest().addMouseListener(this);
 			checkInExtensionReqView.getBtnHome().addMouseListener(this);
 			checkInExtensionReqView.getBtnBack().addMouseListener(this);
+		}
+		
+		public void updateTblDetails(String email){
+			//Need to search email id of user 
+			ArrayList<CheckInExtensionRequest> reqsFound = checkInExtensionReqModel.getCheckInExtensionRequests(email);
+			
+			checkInExtensionReqView.getTblReqDetails().removeAll();
+			
+			for(CheckInExtensionRequest reqFound : reqsFound){
+				TableItem item = new TableItem(checkInExtensionReqView.getTblReqDetails(), SWT.NULL);
+		        item.setText(0, reqFound.getReqId()+"");
+		        item.setText(1, reqFound.getReqStatus());
+		        item.setText(2, reqFound.getRequestKit().getKitSerialNum());
+		        item.setText(3, reqFound.getRequestKit().getKitType());
+		        item.setText(4, reqFound.getNumDays()+"");
+		        item.setText(5, reqFound.getRequestKit().getKitCheckOutDate()+"");
+		        item.setText(6, reqFound.getRequestKit().getKitCourse().getCourseName());
+			}
 		}
 		
 		public void displayView(){

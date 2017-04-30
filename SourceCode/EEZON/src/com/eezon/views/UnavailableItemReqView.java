@@ -2,13 +2,14 @@ package com.eezon.views;
 
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Table;
 
 public class UnavailableItemReqView {
-	private Text text;
 	private Text EnterName;
 	private Text EnterLink;
 	private Text enterCost;
@@ -21,6 +22,8 @@ public class UnavailableItemReqView {
 	Button btnRequest;
 	Display display;
 	Shell shlEezon;
+	Table tblReqDetails;
+	TableColumn tblColumn;
 	
 	/**
 	 * Open the window.
@@ -42,9 +45,6 @@ public class UnavailableItemReqView {
 		btnBack.setBounds(209, 36, 105, 35);
 		btnBack.setText("BACK");
 		btnBack.setData("btnBack");
-		
-		text = new Text(shlEezon, SWT.BORDER);
-		text.setBounds(242, 103, 596, 75);
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Real Time Embedded Systems", "Internet of Things", "Advanced Computer Architecture", "Computer Vision"});
@@ -81,18 +81,71 @@ public class UnavailableItemReqView {
 		btnRequest.setText("REQUEST");
 	    btnRequest.setData("btnRequest");
 	    
+	    tblReqDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
+	    tblReqDetails.setBounds(134, 97, 835, 114);
+	    tblReqDetails.setHeaderVisible(true);
+	    tblReqDetails.setLinesVisible(true);
+	    
+	    //Creating all the columns inside the table for viewing 
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(70);
+  		tblColumn.setText("Req Id");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(97);
+  		tblColumn.setText("Req Status");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(165);
+  		tblColumn.setText("UnavailableItem Type");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(154);
+  		tblColumn.setText("Name");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(155);
+  		tblColumn.setText("Num of Components");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(65);
+  		tblColumn.setText("Cost");
+  		
+  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		tblColumn.setWidth(125);
+  		tblColumn.setText("Course Name");
 		
 	}
 
 
-	public Text getText() {
-		return text;
+
+
+	public Table getTblReqDetails() {
+		return tblReqDetails;
 	}
 
 
-	public void setText(Text text) {
-		this.text = text;
+
+
+	public void setTblReqDetails(Table tblReqDetails) {
+		this.tblReqDetails = tblReqDetails;
 	}
+
+
+
+
+	public TableColumn getTblColumn() {
+		return tblColumn;
+	}
+
+
+
+
+	public void setTblColumn(TableColumn tblColumn) {
+		this.tblColumn = tblColumn;
+	}
+
+
 
 
 	public Text getEnterName() {

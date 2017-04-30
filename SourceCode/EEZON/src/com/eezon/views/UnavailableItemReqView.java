@@ -35,19 +35,24 @@ public class UnavailableItemReqView {
 		btnHome = new Button(shlEezon, SWT.NONE);
 		btnHome.setBounds(76, 36, 105, 35);
 		btnHome.setText("HOME");
+		btnHome.setData("btnHome");
+		
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
 		btnBack.setBounds(209, 36, 105, 35);
 		btnBack.setText("BACK");
+		btnBack.setData("btnBack");
 		
 		text = new Text(shlEezon, SWT.BORDER);
 		text.setBounds(242, 103, 596, 75);
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
+		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Real Time Embedded Systems", "Internet of Things", "Advanced Computer Architecture", "Computer Vision"});
 		cmbSelectCourse.setBounds(471, 232, 215, 28);
 		cmbSelectCourse.setText("Select Course");
 		
 		cmbSelectItemType = new Combo(shlEezon, SWT.NONE);
+		cmbSelectItemType.setItems(new String[] {"Dev Kit", "Component"});
 		cmbSelectItemType.setBounds(471, 284, 215, 28);
 		cmbSelectItemType.setText("Select Item Type");
 		
@@ -73,7 +78,8 @@ public class UnavailableItemReqView {
 		btnRequest = new Button(shlEezon, SWT.NONE);
 		btnRequest.setBounds(468, 561, 105, 35);
 		btnRequest.setText("REQUEST");
-
+	    btnRequest.setData("btnRequest");
+	    
 		
 	}
 

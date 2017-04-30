@@ -1,5 +1,9 @@
 package com.eezon.controllers;
 
+
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
@@ -7,7 +11,7 @@ import com.eezon.models.Course;
 import com.eezon.models.UnavailableItemRequest;
 import com.eezon.views.UnavailableItemReqView;
 
-public class UnavailableItemReqController {
+public class UnavailableItemReqController implements MouseListener {
 	private UnavailableItemReqView unavailableItemReqView;
 	private Course courseModel;
 	private UnavailableItemRequest unavailableItemReqModel;
@@ -48,6 +52,34 @@ public class UnavailableItemReqController {
 	}
 	public void setUnavailableItemReqModel(UnavailableItemRequest unavailableItemReqModel) {
 		this.unavailableItemReqModel = unavailableItemReqModel;
+	}
+
+	@Override
+	public void mouseDoubleClick(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseDown(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		Button btnPressed = (Button)arg0.widget;
+		
+		switch(btnPressed.getData().toString()){
+			case "btnRequest":
+				
+				break;
+			case "btnHome":
+				break;
+			case "btnBack":
+				break;
+		}
+	}
+
+	@Override
+	public void mouseUp(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 	 
 }

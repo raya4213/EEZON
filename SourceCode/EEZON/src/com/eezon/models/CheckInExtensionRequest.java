@@ -24,6 +24,12 @@ public class CheckInExtensionRequest extends Request{
 	public void setNumDays(int numDays) {
 		this.numDays = numDays;
 	}
+
+	@Override
+	public boolean addRequest(Request req) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 	

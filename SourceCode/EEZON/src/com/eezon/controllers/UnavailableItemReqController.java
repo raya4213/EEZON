@@ -8,6 +8,8 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
 import com.eezon.models.Course;
+import com.eezon.models.CourseToEmbed;
+import com.eezon.models.UnavailableItem;
 import com.eezon.models.UnavailableItemRequest;
 import com.eezon.views.UnavailableItemReqView;
 
@@ -20,7 +22,13 @@ public class UnavailableItemReqController implements MouseListener {
 		this.unavailableItemReqView= new UnavailableItemReqView();
 		this.courseModel=new Course();
 		this.unavailableItemReqModel=new UnavailableItemRequest();
+		initializeListeners();
+	}
 	
+	public void initializeListeners(){
+		unavailableItemReqView.getBtnRequest().addMouseListener(this);
+		unavailableItemReqView.getBtnHome().addMouseListener(this);
+		unavailableItemReqView.getBtnBack().addMouseListener(this);
 	}
 	
 	public void displayView(){
@@ -67,6 +75,28 @@ public class UnavailableItemReqController implements MouseListener {
 		
 		switch(btnPressed.getData().toString()){
 			case "btnRequest":
+				UnavailableItemRequest req = new UnavailableItemRequest();
+				req.setReqFrom("sharath.vontari@colorado.edu");
+				req.setReqStatus("waiting for approval");
+				req.setReqType("unavailable item");
+				
+				UnavailableItem unavailableItem = new UnavailableItem();
+				unavailableItem.setCost(Double.parseDouble(unavailableItemReqView.getEnterCost().getText()));
+				unavailableItem.setName(unavailableItemReqView.getEnterName().getText());
+				unavailableItem.setLink(unavailableItemReqView.getEnterLink().getText());
+				unavailableItem.setNumComponents(Integer.parseInt(unavailableItemReqView.getComNumOfItems().getText()));
+				
+				CourseToEmbed course = new CourseToEmbed();
+				course.setCourseName(unavailableItemReqView.getCmbSelectCourse().getText());
+				course.setYear("2017");
+				course.setSemester("Spring");
+				
+				unavailableItem.setRequestForCourse(course);
+				unavailableItem.setUnavailableItemType(unavailableItemReqView.getCmbSelectItemType().getText());
+				
+				req.setUnavailableItem(unavailableItem);
+				
+				unavailableItemReqModel.addRequest(req);
 				
 				break;
 			case "btnHome":

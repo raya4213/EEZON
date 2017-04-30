@@ -1,12 +1,15 @@
 package com.eezon.controllers;
 
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
 import com.eezon.models.User;
 import com.eezon.views.HomeScreenView;
 
-public class HomeScreenController {
+public class HomeScreenController implements MouseListener {
 	private HomeScreenView homeScreenView;
 	private User userModel;
 	private Shell prevShell;
@@ -66,6 +69,16 @@ public class HomeScreenController {
 		}
 	}
 
+	public void initializeListeners(){
+		homeScreenView.getBtnAddProfTA().addMouseListener(this);
+		homeScreenView.getBtnCINCOUTUpdateView().addMouseListener(this);
+		homeScreenView.getBtnInventory().addMouseListener(this);
+		homeScreenView.getBtnMyCINCOUTView().addMouseListener(this);
+		homeScreenView.getBtnPenaltyManagement().addMouseListener(this);
+		homeScreenView.getBtnRequestsView().addMouseListener(this);
+		homeScreenView.getBtnViewKitDetails().addMouseListener(this);
+	}
+	
 	public HomeScreenView getHomeScreenView() {
 		return homeScreenView;
 	}
@@ -88,5 +101,44 @@ public class HomeScreenController {
 
 	public void setPrevShell(Shell prevShell) {
 		this.prevShell = prevShell;
+	}
+
+	@Override
+	public void mouseDoubleClick(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseDown(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		Button btnRequestsView;
+		Button btnMyCINCOUTView;
+		Button btnViewKitDetails;
+		Button btnCINCOUTUpdateView;
+		Button btnInventory;
+		Button btnPenaltyManagement;
+		//private Button btnAddProfTA;
+		
+		Button btnPressed = (Button)arg0.widget;
+		System.out.println("mouseDown" + arg0);
+		
+		/*switch(btnPressed.getData().toString()){
+			case "btnRequestsView":
+				break;
+			case "":
+				break;
+			case "":
+				break;
+			case "":
+				break;
+		}*/
+		
+	}
+
+	@Override
+	public void mouseUp(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

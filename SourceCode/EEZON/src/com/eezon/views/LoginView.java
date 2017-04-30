@@ -48,7 +48,7 @@ public class LoginView {
 		shlEezonInventory = new Shell();
 		shlEezonInventory.setSize(604, 463);
 		shlEezonInventory.setText("EEZON - Inventory Management System");
-		shlEezonInventory.setLocation(450, 200);
+		shlEezonInventory.setLocation(350, 150);
 		
 		label = new Label(shlEezonInventory, SWT.NONE);
 		label.setBounds(98, 31, 378, 166);

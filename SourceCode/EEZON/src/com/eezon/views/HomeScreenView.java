@@ -43,30 +43,37 @@ public class HomeScreenView {
 		btnRequestsView = new Button(shlHome, SWT.NONE);
 		btnRequestsView.setBounds(59, 70, 75, 25);
 		btnRequestsView.setText("Requests");
+		btnRequestsView.setData("btnRequestsView");
 		
 		btnMyCINCOUTView = new Button(shlHome, SWT.NONE);
 		btnMyCINCOUTView.setText("View my Check IN / Check OUT");
 		btnMyCINCOUTView.setBounds(10, 115, 188, 25);
+		btnMyCINCOUTView.setData("btnMyCINCOUTView");
 		
 		btnViewKitDetails = new Button(shlHome, SWT.NONE);
 		btnViewKitDetails.setText("View Kit Details");
 		btnViewKitDetails.setBounds(42, 166, 108, 25);
+		btnViewKitDetails.setData("btnViewKitDetails");
 		
 		btnCINCOUTUpdateView = new Button(shlHome, SWT.NONE);
 		btnCINCOUTUpdateView.setText("Check IN / Check OUT");
 		btnCINCOUTUpdateView.setBounds(239, 70, 151, 25);
+		btnCINCOUTUpdateView.setData("btnCINCOUTUpdateView");
 		
 		btnInventory = new Button(shlHome, SWT.NONE);
 		btnInventory.setText("Inventory");
 		btnInventory.setBounds(239, 115, 151, 25);
+		btnInventory.setData("btnInventory");
 		
 		btnPenaltyManagement = new Button(shlHome, SWT.NONE);
 		btnPenaltyManagement.setText("Penalty Management");
 		btnPenaltyManagement.setBounds(239, 166, 151, 25);
+		btnPenaltyManagement.setData("btnPenaltyManagement");
 		
 		btnAddProfTA = new Button(shlHome, SWT.NONE);
 		btnAddProfTA.setBounds(163, 211, 75, 25);
 		btnAddProfTA.setText("AddProfTA");
+		btnAddProfTA.setData("btnAddProfTA");
 
 	}
 

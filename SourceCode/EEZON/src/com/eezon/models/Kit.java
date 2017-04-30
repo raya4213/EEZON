@@ -1,5 +1,6 @@
 package com.eezon.models;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -8,11 +9,14 @@ import java.util.List;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import com.eezon.observer.KitObserver;
 
 
 
@@ -32,6 +36,23 @@ public class Kit {
 	private String studentEmailKit;
 	private String studentNameForKit;
 	private double kitPenalty;
+	
+	@Transient
+	private List<KitObserver> kitObservers = new ArrayList<KitObserver>();
+	
+	public void attach(KitObserver observer){
+		kitObservers.add(observer);
+	}
+	
+	public void detach(KitObserver observer){
+		kitObservers.remove(observer);
+	}
+	
+	public void notifyAllObservers(Kit kitToUpdate){
+		for(KitObserver observer : kitObservers){
+			observer.updateDetailsTable(kitToUpdate);
+		}
+	}
 	
 	public String getKitType() {
 		return kitType;
@@ -195,7 +216,8 @@ public class Kit {
 		
 		session.update(kitToUpdate); 
 		session.getTransaction().commit();
-
+		
+		notifyAllObservers(kitToUpdate);
 		
 		return true;
 	}

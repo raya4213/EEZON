@@ -28,6 +28,7 @@ public class PenaltyManagementController implements MouseListener, SelectionList
 		prevShell = _prevShell;
 		hideAllOptions();
 		initializeListeners();
+		kitModel.attach(penaltyView);
 	}
 	
 	public void displayView(){
@@ -98,6 +99,24 @@ public class PenaltyManagementController implements MouseListener, SelectionList
 	public void setUserModel(User userModel) {
 		this.userModel = userModel;
 	}
+	
+	public void hideAllOptions(){
+		penaltyView.getGrpByCourseEmail().setVisible(false);
+		penaltyView.getGrpByCourse().setVisible(false);
+		penaltyView.getGrpByEmail().setVisible(false);
+		penaltyView.getBtnView().setVisible(false);
+		penaltyView.getTblViewPenalties().setVisible(true);
+		penaltyView.getBtnOverride().setVisible(false);
+		
+		penaltyView.getBtnByCourse().setSelection(false);
+		penaltyView.getBtnByEmail().setSelection(false);
+	}
+	
+	public void hideCourseEmailOptions(){
+		penaltyView.getGrpByCourse().setVisible(false);
+		penaltyView.getGrpByEmail().setVisible(false);
+		penaltyView.getBtnView().setVisible(false);
+	}
 
 	@Override
 	public void widgetDefaultSelected(SelectionEvent arg0) {
@@ -128,24 +147,6 @@ public class PenaltyManagementController implements MouseListener, SelectionList
 
 	}
 	
-	public void hideAllOptions(){
-		penaltyView.getGrpByCourseEmail().setVisible(false);
-		penaltyView.getGrpByCourse().setVisible(false);
-		penaltyView.getGrpByEmail().setVisible(false);
-		penaltyView.getBtnView().setVisible(false);
-		penaltyView.getTblViewPenalties().setVisible(true);
-		penaltyView.getBtnOverride().setVisible(false);
-		
-		penaltyView.getBtnByCourse().setSelection(false);
-		penaltyView.getBtnByEmail().setSelection(false);
-	}
-	
-	public void hideCourseEmailOptions(){
-		penaltyView.getGrpByCourse().setVisible(false);
-		penaltyView.getGrpByEmail().setVisible(false);
-		penaltyView.getBtnView().setVisible(false);
-	}
-
 	@Override
 	public void mouseUp(MouseEvent arg0) {
 		// TODO Auto-generated method stub

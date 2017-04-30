@@ -14,6 +14,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import com.eezon.models.Kit;
+import com.eezon.observer.KitObserver;
 import com.eezon.penalty.strategy.PenaltyBtnAction;
 import com.eezon.penalty.strategy.PenaltyBtnByCourseAction;
 import com.eezon.penalty.strategy.PenaltyBtnByEmailAction;
@@ -32,7 +34,7 @@ import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Label;
 
-public class PenaltyManagementView {
+public class PenaltyManagementView implements KitObserver{
 	 
 	 Button btnHome;
 	 Button btnBack;
@@ -350,6 +352,18 @@ public class PenaltyManagementView {
 
 	public void setTblColumn(TableColumn tblColumn) {
 		this.tblColumn = tblColumn;
+	}
+
+	@Override
+	public void updateDetailsTable(Kit kitToUpdate) {
+		// TODO Auto-generated method stub
+		//this.tblViewPenalties.getIt
+		TableItem tblItems[]= tblViewPenalties.getItems();
+		for(TableItem tblItem:tblItems){
+			if(tblItem.getText(0).equalsIgnoreCase(kitToUpdate.getKitSerialNum())){
+				tblItem.setText(4, kitToUpdate.getKitPenalty()+"");
+			}
+		}
 	}
 
 }

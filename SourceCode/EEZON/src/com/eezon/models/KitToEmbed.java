@@ -14,13 +14,25 @@ public class KitToEmbed {
 	private String kitSerialNum;
 	private Date kitCheckInDate;
 	private Date kitCheckOutDate;
+	private String kitCheckInStatus;
 	private String studentEmailKit;
 	private String studentNameForKit;
 	private double kitPenalty;
+	
 	public String getKitType() {
 		return kitType;
 	}
 	
+	public String getKitCheckInStatus() {
+		return kitCheckInStatus;
+	}
+
+
+	public void setKitCheckInStatus(String kitCheckInStatus) {
+		this.kitCheckInStatus = kitCheckInStatus;
+	}
+
+
 	public void setKitType(String kitType) {
 		this.kitType = kitType;
 	}

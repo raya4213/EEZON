@@ -23,15 +23,16 @@ public class ViewMyCheckInCheckOutController implements MouseListener, Selection
 	private Kit kitModel;
 	private User userModel;
 	private Shell prevShell;
+	private Shell loginShell;
 	
-
 	// Constructor
-	public ViewMyCheckInCheckOutController(User userModel,Shell prevShell) {
+	public ViewMyCheckInCheckOutController(User userModel,Shell prevShell, Shell loginShell) {
 		viewMyCheckInCheckOut = new ViewMyCheckInCheckOut();
 		courseModel = new Course();
 		kitModel = new Kit();
 		this.userModel =userModel;
 		this.prevShell = prevShell;
+		this.loginShell = loginShell;
 		initializeListeners();
 	}
 	
@@ -84,7 +85,30 @@ public class ViewMyCheckInCheckOutController implements MouseListener, Selection
 	public void setKitModel(Kit kitModel) {
 		this.kitModel = kitModel;
 	}
-	
+
+	public User getUserModel() {
+		return userModel;
+	}
+
+	public void setUserModel(User userModel) {
+		this.userModel = userModel;
+	}
+
+	public Shell getPrevShell() {
+		return prevShell;
+	}
+
+	public void setPrevShell(Shell prevShell) {
+		this.prevShell = prevShell;
+	}
+
+	public Shell getLoginShell() {
+		return loginShell;
+	}
+
+	public void setLoginShell(Shell loginShell) {
+		this.loginShell = loginShell;
+	}
 
 	@Override
 	public void mouseDoubleClick(MouseEvent paramMouseEvent) {

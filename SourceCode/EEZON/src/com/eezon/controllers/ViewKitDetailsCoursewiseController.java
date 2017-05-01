@@ -24,14 +24,16 @@ public class ViewKitDetailsCoursewiseController implements MouseListener, Select
 	Kit kitModel;
 	Shell prevShell;
 	User userModel;
+	Shell loginShell;
 
-	public ViewKitDetailsCoursewiseController(User userModel, Shell prevShell) {
+	public ViewKitDetailsCoursewiseController(User userModel, Shell prevShell, Shell loginShell) {
 		viewKitDetailsCoursewiseView = new ViewKitDetailsCoursewiseView();
 		courseModel = new Course(); 
 		kitModel = new Kit();
 		initializeListeners();
 		this.userModel = userModel;
 		this.prevShell = prevShell;
+		this.loginShell = loginShell;
 	}
 	
 	private void initializeListeners(){
@@ -56,6 +58,22 @@ public class ViewKitDetailsCoursewiseController implements MouseListener, Select
 	
 	public ViewKitDetailsCoursewiseView getViewKitDetailsCoursewiseView() {
 		return viewKitDetailsCoursewiseView;
+	}
+
+	public User getUserModel() {
+		return userModel;
+	}
+
+	public void setUserModel(User userModel) {
+		this.userModel = userModel;
+	}
+
+	public Shell getLoginShell() {
+		return loginShell;
+	}
+
+	public void setLoginShell(Shell loginShell) {
+		this.loginShell = loginShell;
 	}
 
 	public void setViewKitDetailsCoursewiseView(ViewKitDetailsCoursewiseView viewKitDetailsCoursewiseView) {

@@ -13,11 +13,13 @@ public class RequestsController implements MouseListener{
 	private RequestsView requestsView;
 	private Shell prevShell;
 	private User userModel;
+	private Shell loginShell;
 	
-	public RequestsController(User userModel,Shell prevShell ){
+	public RequestsController(User userModel,Shell prevShell, Shell loginShell ){
 		this.requestsView = new RequestsView();
 		this.userModel=userModel;
 		this.prevShell=prevShell;
+		this.loginShell = loginShell;
 		initializeListeners();
 	}
 	
@@ -30,6 +32,14 @@ public class RequestsController implements MouseListener{
 		requestsView.getBtnReqUnavailableItem().addMouseListener(this);
 	}
 	
+
+	public Shell getLoginShell() {
+		return loginShell;
+	}
+
+	public void setLoginShell(Shell loginShell) {
+		this.loginShell = loginShell;
+	}
 
 	public RequestsView getRequestsView() {
 		return requestsView;
@@ -81,11 +91,11 @@ public class RequestsController implements MouseListener{
 			case "btnReqCourse":
 				break;
 			case "btnReqUnavailableItem":
-				UnavailableItemReqController unavailableItemReqController= new UnavailableItemReqController(userModel, requestsView.getShlEezon());
+				UnavailableItemReqController unavailableItemReqController= new UnavailableItemReqController(userModel, requestsView.getShlEezon(), loginShell);
 				unavailableItemReqController.displayView();
 				break;
 			case "btnReqCheckinExtension":
-				CheckInExtensionReqController checkInExtensionReqController= new CheckInExtensionReqController(userModel, requestsView.getShlEezon());
+				CheckInExtensionReqController checkInExtensionReqController= new CheckInExtensionReqController(userModel, requestsView.getShlEezon(), loginShell);
 				checkInExtensionReqController.displayView();
 				break;
 			case "btnLogout":

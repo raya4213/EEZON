@@ -12,12 +12,12 @@ import com.eezon.views.HomeScreenView;
 public class HomeScreenController implements MouseListener {
 	private HomeScreenView homeScreenView;
 	private User userModel;
-	private Shell prevShell;
+	private Shell loginShell;
 	
-	public HomeScreenController(User userModel, Shell prevShell){
+	public HomeScreenController(User userModel, Shell loginShell){
 		this.homeScreenView = new HomeScreenView();
 		this.userModel = userModel;
-		this.prevShell = prevShell;
+		this.loginShell = loginShell;
 		hideAllButtons();
 		initializeListeners();
 	}
@@ -33,7 +33,7 @@ public class HomeScreenController implements MouseListener {
 	}
 	
 	public void displayView(){
-		this.prevShell.setVisible(false);
+		this.loginShell.setVisible(false);
 
 		switch(userModel.getUserRole()){
 			case "admin":
@@ -83,8 +83,18 @@ public class HomeScreenController implements MouseListener {
 		homeScreenView.getBtnPenaltyManagement().addMouseListener(this);
 		homeScreenView.getBtnRequestsView().addMouseListener(this);
 		homeScreenView.getBtnViewKitDetails().addMouseListener(this);
+		homeScreenView.getBtnLogout().addMouseListener(this);
 	}
 	
+	
+	public Shell getLoginShell() {
+		return loginShell;
+	}
+
+	public void setLoginShell(Shell loginShell) {
+		this.loginShell = loginShell;
+	}
+
 	public HomeScreenView getHomeScreenView() {
 		return homeScreenView;
 	}
@@ -99,14 +109,6 @@ public class HomeScreenController implements MouseListener {
 
 	public void setUserModel(User userModel) {
 		this.userModel = userModel;
-	}
-	
-	public Shell getPrevShell() {
-		return prevShell;
-	}
-
-	public void setPrevShell(Shell prevShell) {
-		this.prevShell = prevShell;
 	}
 
 	@Override
@@ -124,19 +126,21 @@ public class HomeScreenController implements MouseListener {
 		
 		switch(btnPressed.getData().toString()){
 			case "btnRequestsView":
+				RequestsController requestsController = new RequestsController(userModel,homeScreenView.getShlHome(), loginShell);
+				requestsController.displayView();
 				
 				break;
 			case "btnMyCINCOUTView":
-				ViewMyCheckInCheckOutController viewCheckInCheckOutController = new ViewMyCheckInCheckOutController(userModel,homeScreenView.getShlHome());
+				ViewMyCheckInCheckOutController viewCheckInCheckOutController = new ViewMyCheckInCheckOutController(userModel,homeScreenView.getShlHome(), loginShell);
 				viewCheckInCheckOutController.displayView();
 				break;
 			case "btnViewKitDetails":
-				ViewKitDetailsCoursewiseController viewController = new ViewKitDetailsCoursewiseController(userModel, homeScreenView.getShlHome());
+				ViewKitDetailsCoursewiseController viewController = new ViewKitDetailsCoursewiseController(userModel, homeScreenView.getShlHome(), loginShell);
 				viewController.displayView();
 				
 				break;
 			case "btnCINCOUTUpdateView":
-				UpdateCheckInCheckOutController updateCheckInCheckOutController = new UpdateCheckInCheckOutController(userModel,homeScreenView.getShlHome());
+				UpdateCheckInCheckOutController updateCheckInCheckOutController = new UpdateCheckInCheckOutController(userModel,homeScreenView.getShlHome(), loginShell);
 				updateCheckInCheckOutController.displayView();
 				
 				break;
@@ -144,11 +148,16 @@ public class HomeScreenController implements MouseListener {
 				
 				break;
 			case "btnPenaltyManagement":
-				PenaltyManagementController penaltyMgtController = new PenaltyManagementController(userModel, homeScreenView.getShlHome());
+				PenaltyManagementController penaltyMgtController = new PenaltyManagementController(userModel, homeScreenView.getShlHome(),loginShell);
 				penaltyMgtController.displayView();
 				break;
 			case "btnAddProfTA":
 				
+				break;
+			case "btnLogout":
+				this.loginShell.setVisible(true);
+				homeScreenView.getShlHome().setVisible(false);
+				homeScreenView.getShlHome().dispose();
 				break;
 		}		
 	}

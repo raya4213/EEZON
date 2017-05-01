@@ -26,8 +26,9 @@ public class UnavailableItemReqController implements MouseListener {
 	private UnavailableItemRequest unavailableItemReqModel;
 	private User userModel;
 	private Shell prevShell;
+	private Shell loginShell;
 	
-	public UnavailableItemReqController(User userModel, Shell prevShell){
+	public UnavailableItemReqController(User userModel, Shell prevShell, Shell loginShell){
 		this.unavailableItemReqView= new UnavailableItemReqView();
 		this.courseModel=new Course();
 		this.unavailableItemReqModel=new UnavailableItemRequest();
@@ -36,7 +37,7 @@ public class UnavailableItemReqController implements MouseListener {
 		unavailableItemReqModel.attach(unavailableItemReqView);
 		this.userModel = userModel;
 		this.prevShell = prevShell;
-		
+		this.loginShell = loginShell;
 	}
 	
 	public void initializeListeners(){
@@ -76,6 +77,30 @@ public class UnavailableItemReqController implements MouseListener {
 		}
 	}
 	
+	public User getUserModel() {
+		return userModel;
+	}
+
+	public void setUserModel(User userModel) {
+		this.userModel = userModel;
+	}
+
+	public Shell getPrevShell() {
+		return prevShell;
+	}
+
+	public void setPrevShell(Shell prevShell) {
+		this.prevShell = prevShell;
+	}
+
+	public Shell getLoginShell() {
+		return loginShell;
+	}
+
+	public void setLoginShell(Shell loginShell) {
+		this.loginShell = loginShell;
+	}
+
 	public UnavailableItemReqView getUnavailableItemReqView() {
 		return unavailableItemReqView;
 	}
@@ -108,38 +133,7 @@ public class UnavailableItemReqController implements MouseListener {
 		
 		IUnavailableItemBtnAction btnAction = (IUnavailableItemBtnAction)btnPressed.getData();
 		btnAction.doAction(unavailableItemReqView, unavailableItemReqModel);
-		
-		/*switch(btnPressed.getData().toString()){
-			case "btnRequest":
-				UnavailableItemRequest req = new UnavailableItemRequest();
-				req.setReqFrom("sharath.vontari@colorado.edu");
-				req.setReqStatus("waiting for approval");
-				req.setReqType("unavailable item");
-				
-				UnavailableItem unavailableItem = new UnavailableItem();
-				unavailableItem.setCost(Double.parseDouble(unavailableItemReqView.getEnterCost().getText()));
-				unavailableItem.setName(unavailableItemReqView.getEnterName().getText());
-				unavailableItem.setLink(unavailableItemReqView.getEnterLink().getText());
-				unavailableItem.setNumComponents(Integer.parseInt(unavailableItemReqView.getComNumOfItems().getText()));
-				
-				CourseToEmbed course = new CourseToEmbed();
-				course.setCourseName(unavailableItemReqView.getCmbSelectCourse().getText());
-				course.setYear("2017");
-				course.setSemester("Spring");
-				
-				unavailableItem.setRequestForCourse(course);
-				unavailableItem.setUnavailableItemType(unavailableItemReqView.getCmbSelectItemType().getText());
-				
-				req.setUnavailableItem(unavailableItem);
-				
-				unavailableItemReqModel.addRequest(req);
-				
-				break;
-			case "btnHome":
-				break;
-			case "btnBack":
-				break;
-		}*/
+	
 	}
 
 	@Override

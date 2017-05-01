@@ -8,9 +8,11 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
+import com.eezon.viewkitdetails.stratergy.BtnBackAction;
+import com.eezon.viewkitdetails.stratergy.BtnHomeAction;
+import com.eezon.viewkitdetails.stratergy.BtnLogoutAction;
 import com.eezon.viewkitdetails.stratergy.BtnViewAction;
 import org.eclipse.swt.widgets.Label;
-
 
 
 
@@ -182,10 +184,12 @@ public class ViewKitDetailsCoursewiseView {
 		btnHome = new Button(shlEezonView, SWT.NONE);
 		btnHome.setBounds(10, 10, 75, 25);
 		btnHome.setText("Home");
+		btnHome.setData(new BtnHomeAction());
 		
 		btnBack = new Button(shlEezonView, SWT.NONE);
 		btnBack.setBounds(302, 10, 75, 25);
 		btnBack.setText("Back");
+		btnBack.setData(new BtnBackAction());
 		
 		cmbSelectSem = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectSem.setItems(new String[] {"Fall", "Spring", "Summer"});
@@ -212,7 +216,6 @@ public class ViewKitDetailsCoursewiseView {
 		btnView.setBounds(302, 297, 75, 25);
 		btnView.setText("View");
 		btnView.setData(new BtnViewAction());
-		
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
 		tblColumn.setWidth(70);
@@ -249,6 +252,7 @@ public class ViewKitDetailsCoursewiseView {
 		btnLogout = new Button(shlEezonView, SWT.NONE);
 		btnLogout.setText("LogOut");
 		btnLogout.setBounds(544, 10, 75, 25);
+		btnLogout.setData(new BtnLogoutAction());
 		
 		lblNewLabel = new Label(shlEezonView, SWT.NONE);
 		lblNewLabel.setBounds(177, 84, 55, 15);

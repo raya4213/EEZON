@@ -18,14 +18,16 @@ public class PenaltyManagementController implements MouseListener, SelectionList
 	private Kit kitModel;
 	private Shell prevShell;
 	private User userModel;
+	private Shell loginShell;
 
-	public PenaltyManagementController(User _userModel, Shell _prevShell) {
+	public PenaltyManagementController(User _userModel, Shell _prevShell, Shell _loginShell) {
 		// TODO Auto-generated constructor stub
 		penaltyView = new PenaltyManagementView();
 		courseModel = new Course();
 		kitModel = new Kit();
 		userModel = _userModel;
 		prevShell = _prevShell;
+		loginShell = _loginShell;
 		hideAllOptions();
 		initializeListeners();
 		kitModel.attach(penaltyView);
@@ -54,12 +56,21 @@ public class PenaltyManagementController implements MouseListener, SelectionList
 		penaltyView.getBtnOverride().addMouseListener(this);
 		penaltyView.getBtnHome().addMouseListener(this);
 		penaltyView.getBtnBack().addMouseListener(this);
+		penaltyView.getBtnLogout().addMouseListener(this);
 		
 		penaltyView.getCmbSelectCourse().addSelectionListener(this);
 		penaltyView.getCmbSelectSem().addSelectionListener(this);
 		penaltyView.getCmbSelectYear().addSelectionListener(this);
 	}
 	
+	public Shell getLoginShell() {
+		return loginShell;
+	}
+
+	public void setLoginShell(Shell loginShell) {
+		this.loginShell = loginShell;
+	}
+
 	public PenaltyManagementView getPenaltyView() {
 		return penaltyView;
 	}

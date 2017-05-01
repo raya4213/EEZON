@@ -49,6 +49,7 @@ public class ViewMyCheckInCheckOut {
 		shlEezon = new Shell();
 		shlEezon.setSize(957, 554);
 		shlEezon.setText("EEZON - View my Check IN / Check OUT - Student");
+		shlEezon.setLocation(450,200);
 		
 		btnHome = new Button(shlEezon, SWT.NONE);
 		btnHome.setBounds(76, 23, 105, 35);
@@ -69,13 +70,8 @@ public class ViewMyCheckInCheckOut {
 		cmbSelectStudent.setBounds(358, 189, 152, 33);
 		
 		btnView = new Button(shlEezon, SWT.NONE);
-		btnView.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
 		btnView.setBounds(375, 399, 105, 35);
-		btnView.setText("VIEW");
+		btnView.setText("View");
 		btnView.setData("btnView");
 		
 		tblDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
@@ -118,6 +114,7 @@ public class ViewMyCheckInCheckOut {
 		btnLogout = new Button(shlEezon, SWT.NONE);
 		btnLogout.setText("Logout");
 		btnLogout.setBounds(799, 23, 105, 35);
+		btnLogout.setData("btnLogout");
 		
 		lblNewLabel = new Label(shlEezon, SWT.NONE);
 		lblNewLabel.setBounds(267, 133, 55, 15);

@@ -12,6 +12,9 @@ import com.eezon.models.CheckInExtensionRequest;
 import com.eezon.models.Request;
 import com.eezon.models.UnavailableItemRequest;
 import com.eezon.observer.IReqObserver;
+import com.eezon.requests.strategy.CheckInExtensionBackBtnAction;
+import com.eezon.requests.strategy.CheckInExtensionHomeBtnAction;
+import com.eezon.requests.strategy.CheckInExtensionLogoutBtnAction;
 import com.eezon.requests.strategy.CheckInExtensionReqBtnAction;
 
 public class CheckInExtensionReqView implements IReqObserver{
@@ -37,16 +40,17 @@ public class CheckInExtensionReqView implements IReqObserver{
 		shlEezon = new Shell();
 		shlEezon.setSize(1015, 560);
 		shlEezon.setText("EEZON - Request for Check IN Extension");
+		shlEezon.setLocation(450,200);
 		
 		btnHome = new Button(shlEezon, SWT.NONE);
 		btnHome.setText("Home");
 		btnHome.setBounds(10, 10, 75, 25);
-		btnHome.setData("btnHome");
+		btnHome.setData(new CheckInExtensionHomeBtnAction());
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
 		btnBack.setText("Back");
 		btnBack.setBounds(369, 10, 75, 25);
-		btnBack.setData("btnBack");
+		btnBack.setData(new CheckInExtensionBackBtnAction());
 		
 		cmbSelectKit = new Combo(shlEezon, SWT.NONE);
 		cmbSelectKit.setItems(new String[] {"10000-Raspberry Pi", "10010-Beaglebone", "10020-Leopard Gecko", "10040-Arduino"});
@@ -105,6 +109,7 @@ public class CheckInExtensionReqView implements IReqObserver{
   		btnLogout = new Button(shlEezon, SWT.NONE);
   		btnLogout.setText("Logout");
   		btnLogout.setBounds(878, 10, 75, 25);
+  		btnLogout.setData(new CheckInExtensionLogoutBtnAction());
 
 	}
 	

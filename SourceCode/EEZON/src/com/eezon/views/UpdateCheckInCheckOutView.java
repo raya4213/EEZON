@@ -6,8 +6,11 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 
+import com.eezon.checkincheckout.strategy.BtnBackAction;
 import com.eezon.checkincheckout.strategy.BtnCheckInAction;
 import com.eezon.checkincheckout.strategy.BtnCheckOutAction;
+import com.eezon.checkincheckout.strategy.BtnHomeAction;
+import com.eezon.checkincheckout.strategy.BtnLogoutAction;
 import com.eezon.checkincheckout.strategy.RadCheckInAction;
 import com.eezon.checkincheckout.strategy.RadCheckOutAction;
 import com.eezon.models.Kit;
@@ -94,15 +97,16 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		shlEezonCheck.setSize(1132, 723);
 		shlEezonCheck.setLocation(450,200);
 		shlEezonCheck.setText("EEZON - Check IN/Check OUT");
-		shlEezonCheck.setLocation(450,200);
 		
 		btnHome = new Button(shlEezonCheck, SWT.NONE);
 		btnHome.setBounds(44, 27, 105, 35);
 		btnHome.setText("Home");
+		btnHome.setData(new BtnHomeAction());
 		
 		btnBack = new Button(shlEezonCheck, SWT.NONE);
 		btnBack.setBounds(469, 27, 105, 35);
 		btnBack.setText("Back");
+		btnBack.setData(new BtnBackAction());
 		
 		txtEmail = new Text(shlEezonCheck, SWT.BORDER);
 		txtEmail.setToolTipText("Enter Email ID");
@@ -192,6 +196,7 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		btnLogout = new Button(shlEezonCheck, SWT.NONE);
 		btnLogout.setText("Logout");
 		btnLogout.setBounds(976, 27, 105, 35);
+		btnLogout.setData(new BtnLogoutAction());
 		
 		lblEmailId = new Label(shlEezonCheck, SWT.NONE);
 		lblEmailId.setBounds(357, 81, 55, 15);

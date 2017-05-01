@@ -12,6 +12,9 @@ import com.eezon.models.CheckInExtensionRequest;
 import com.eezon.models.Request;
 import com.eezon.models.UnavailableItemRequest;
 import com.eezon.observer.IReqObserver;
+import com.eezon.requests.strategy.UnavailableItemBackBtnAction;
+import com.eezon.requests.strategy.UnavailableItemHomeBtnAction;
+import com.eezon.requests.strategy.UnavailableItemLogoutBtnAction;
 import com.eezon.requests.strategy.UnavailableItemReqBtnAction;
 
 import org.eclipse.swt.widgets.Combo;
@@ -41,19 +44,6 @@ public class UnavailableItemReqView implements IReqObserver {
 	private Label lblItemCost;
 	private Label lblNumberOfItems;
 	
-	public Button getBtnLogout() {
-		return btnLogout;
-	}
-
-
-
-
-	public void setBtnLogout(Button btnLogout) {
-		this.btnLogout = btnLogout;
-	}
-
-
-
 
 	/**
 	 * Open the window.
@@ -69,13 +59,12 @@ public class UnavailableItemReqView implements IReqObserver {
 		btnHome = new Button(shlEezon, SWT.NONE);
 		btnHome.setBounds(76, 36, 105, 35);
 		btnHome.setText("Home");
-		btnHome.setData("btnHome");
-		
+		btnHome.setData(new UnavailableItemHomeBtnAction());
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
 		btnBack.setBounds(471, 36, 105, 35);
 		btnBack.setText("Back");
-		btnBack.setData("btnBack");
+		btnBack.setData(new UnavailableItemBackBtnAction());
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Real Time Embedded Systems", "Internet of Things", "Advanced Computer Architecture", "Computer Vision"});
@@ -102,6 +91,7 @@ public class UnavailableItemReqView implements IReqObserver {
 		comNumOfItems.setBounds(469, 500, 151, 28);
 		
 		btnRequest = new Button(shlEezon, SWT.NONE);
+		btnRequest.setText("Request");
 		btnRequest.setBounds(468, 561, 105, 35);
 	    btnRequest.setData(new UnavailableItemReqBtnAction());
 	    
@@ -142,6 +132,7 @@ public class UnavailableItemReqView implements IReqObserver {
   		btnLogout = new Button(shlEezon, SWT.NONE);
   		btnLogout.setText("Logout");
   		btnLogout.setBounds(944, 36, 105, 35);
+  		btnLogout.setData(new UnavailableItemLogoutBtnAction());
   		
   		lblCourse = new Label(shlEezon, SWT.NONE);
   		lblCourse.setBounds(385, 240, 55, 15);
@@ -309,7 +300,13 @@ public class UnavailableItemReqView implements IReqObserver {
 		this.shlEezon = shlEezon;
 	}
 
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
 
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
+	}
 
 
 	@Override

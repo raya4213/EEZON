@@ -10,7 +10,6 @@ public class BtnBackAction implements IPenaltyBtnAction {
 	public void doAction(PenaltyManagementController controller, PenaltyManagementView penaltyView, Kit kitModel) {
 		// TODO Auto-generated method stub
 		System.out.println("Back Btn Pressed");
-		penaltyView.getShlPenaltyManagement().setVisible(false);
 		controller.getPrevShell().setVisible(true);
 		penaltyView.getShlPenaltyManagement().dispose();
 	}

@@ -30,8 +30,9 @@ public class CheckInExtensionReqController implements MouseListener {
 		private CheckInExtensionRequest checkInExtensionReqModel;
 		private User userModel;
 		private Shell prevShell;
+		private Shell loginShell;
 		
-		public CheckInExtensionReqController(User userModel, Shell prevShell){
+		public CheckInExtensionReqController(User userModel, Shell prevShell, Shell loginShell){
 			this.checkInExtensionReqView= new CheckInExtensionReqView();
 			this.courseModel= new Course();
 			this.kitModel= new Kit();
@@ -41,6 +42,7 @@ public class CheckInExtensionReqController implements MouseListener {
 			checkInExtensionReqModel.attach(checkInExtensionReqView);
 			this.userModel = userModel;
 			this.prevShell = prevShell;
+			this.loginShell = loginShell;
 		}
 		
 		public void initializeListeners(){
@@ -80,6 +82,14 @@ public class CheckInExtensionReqController implements MouseListener {
 			}
 		}
 
+		public Shell getLoginShell() {
+			return loginShell;
+		}
+
+		public void setLoginShell(Shell loginShell) {
+			this.loginShell = loginShell;
+		}
+
 		public CheckInExtensionReqView getCheckInExtensionReqView() {
 			return checkInExtensionReqView;
 		}
@@ -102,6 +112,22 @@ public class CheckInExtensionReqController implements MouseListener {
 
 		public void setKitModel(Kit kitModel) {
 			this.kitModel = kitModel;
+		}
+
+		public User getUserModel() {
+			return userModel;
+		}
+
+		public void setUserModel(User userModel) {
+			this.userModel = userModel;
+		}
+
+		public Shell getPrevShell() {
+			return prevShell;
+		}
+
+		public void setPrevShell(Shell prevShell) {
+			this.prevShell = prevShell;
 		}
 
 		public CheckInExtensionRequest getCheckInExtensionReqModel() {
@@ -127,44 +153,6 @@ public class CheckInExtensionReqController implements MouseListener {
 			ICheckInExtensionBtnAction btnAction = (ICheckInExtensionBtnAction)btnPressed.getData();
 			btnAction.doAction(checkInExtensionReqView, checkInExtensionReqModel);
 			
-			/*switch(btnPressed.getData().toString()){
-				case "btnRequest":
-					CheckInExtensionRequest req = new CheckInExtensionRequest();
-					req.setReqFrom("sharath.vontari@colorado.edu");
-					req.setReqStatus("waiting for approval");
-					req.setReqType("check in extension");
-					req.setNumDays(Integer.parseInt(checkInExtensionReqView.getCmbSelectTimeFrame().getText()));
-					
-					KitToEmbed kit = new KitToEmbed();
-					kit.setKitSerialNum(checkInExtensionReqView.getCmbSelectKit().getText().split("-")[0]);
-					kit.setKitType(checkInExtensionReqView.getCmbSelectKit().getText().split("-")[1]);
-					
-					long longDate = Date.parse("Mon Apr 10 20:56:02 EDT 2017");
-					
-					Date checkInDate = new Date(longDate);
-					kit.setKitCheckInDate(checkInDate);
-					
-					Date checkOutDate = new Date();
-					kit.setKitCheckOutDate(checkOutDate);
-										
-					CourseToEmbed kitCourse = new CourseToEmbed();
-					kitCourse.setCourseName(checkInExtensionReqView.getCmbSelectCourse().getText());
-					kitCourse.setDescription(checkInExtensionReqView.getCmbSelectCourse().getText());
-					kitCourse.setSemester("Spring");
-					kitCourse.setYear("2017");
-					kit.setKitCourse(kitCourse);
-					kit.setKitPenalty(0.0);
-					kit.setStudentEmailKit("sharat.vontari@colorado.edu");
-					kit.setStudentNameForKit("Sharat Vontari");
-					req.setRequestKit(kit);
-					checkInExtensionReqModel.addRequest(req);
-					
-					break;
-				case "btnHome":
-					break;
-				case "btnBack":
-					break;
-			}*/
 		}
 
 		@Override

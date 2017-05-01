@@ -26,6 +26,7 @@ public class UpdateCheckInCheckOutController implements MouseListener, Selection
 	private Kit kitModel;
 	private User userModel;
 	private Shell prevShell;
+	private Shell loginShell;
 	
 	public UpdateCheckInCheckOutView getUpdateCheckInCheckOutView() {
 		return updateCheckInCheckOutView;
@@ -67,10 +68,19 @@ public class UpdateCheckInCheckOutController implements MouseListener, Selection
 		this.kitModel = kitModel;
 	}
 
-	public UpdateCheckInCheckOutController(User userModel,Shell prevShell){
+	public Shell getLoginShell() {
+		return loginShell;
+	}
+
+	public void setLoginShell(Shell loginShell) {
+		this.loginShell = loginShell;
+	}
+
+	public UpdateCheckInCheckOutController(User userModel,Shell prevShell, Shell loginShell){
 		
 		this.userModel=userModel;
 		this.prevShell=prevShell;
+		this.loginShell=loginShell;
 		
 		updateCheckInCheckOutView = new UpdateCheckInCheckOutView();
 		courseModel = new Course();

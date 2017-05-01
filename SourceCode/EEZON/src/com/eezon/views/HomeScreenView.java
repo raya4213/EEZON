@@ -80,6 +80,7 @@ public class HomeScreenView {
 		btnLogout = new Button(shlHome, SWT.NONE);
 		btnLogout.setText("Logout");
 		btnLogout.setBounds(349, 10, 75, 25);
+		btnLogout.setData("btnLogout");
 	}
 
 	public Button getBtnLogout() {

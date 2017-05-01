@@ -68,7 +68,7 @@ public class LoginView {
 		txtPasswd.setEchoChar('*');
 		
 		btnLogin = new Button(shlEezonInventory, SWT.NONE);
-		btnLogin.addMouseListener(new MouseAdapter() {
+		/*btnLogin.addMouseListener(new MouseAdapter() {
 			
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -99,12 +99,12 @@ public class LoginView {
 					}
 				}else{
 					System.out.println("Username not present");
-				}///////////////////////////////*/
+				}///////////////////////////////
 				
 				session.close();
 				sessionFactory.close();
 			}
-		});
+		});*/
 		btnLogin.setBounds(210, 300, 75, 25);
 		btnLogin.setText("Login");
 		btnLogin.setData("btnLogin");

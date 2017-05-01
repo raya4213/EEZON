@@ -4,14 +4,15 @@ import com.eezon.controllers.PenaltyManagementController;
 import com.eezon.models.Kit;
 import com.eezon.views.PenaltyManagementView;
 
-public class BtnHomeAction implements IPenaltyBtnAction {
+public class BtnLogoutAction implements IPenaltyBtnAction{
 
 	@Override
 	public void doAction(PenaltyManagementController controller, PenaltyManagementView penaltyView, Kit kitModel) {
 		// TODO Auto-generated method stub
-		System.out.println("Home Btn Pressed");
-		controller.getPrevShell().setVisible(true);
+		System.out.println("Logout Btn Pressed");
+		controller.getPrevShell().dispose();
 		penaltyView.getShlPenaltyManagement().dispose();
+		controller.getLoginShell().setVisible(true);
 	}
 
 }

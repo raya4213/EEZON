@@ -16,6 +16,7 @@ import com.eezon.penalty.strategy.BtnBackAction;
 import com.eezon.penalty.strategy.BtnByCourseAction;
 import com.eezon.penalty.strategy.BtnByEmailAction;
 import com.eezon.penalty.strategy.BtnHomeAction;
+import com.eezon.penalty.strategy.BtnLogoutAction;
 import com.eezon.penalty.strategy.BtnOverrideAction;
 import com.eezon.penalty.strategy.BtnViewAction;
 import com.eezon.penalty.strategy.RadOverrideAction;
@@ -192,6 +193,7 @@ public class PenaltyManagementView implements IKitObserver{
 		btnLogout = new Button(shlPenaltyManagement, SWT.NONE);
 		btnLogout.setText("Logout");
 		btnLogout.setBounds(549, 10, 75, 25);
+		btnLogout.setData(new BtnLogoutAction());
 		
 		lblSelectSem = new Label(shlPenaltyManagement, SWT.NONE);
 		lblSelectSem.setBounds(118, 220, 55, 15);

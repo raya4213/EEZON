@@ -122,25 +122,40 @@ public class PenaltyManagementView implements IKitObserver{
 		btnByEmail.setData(new BtnByEmailAction());
 		
 		grpByCourse = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByCourse.setBounds(215, 198, 274, 124);
+		grpByCourse.setBounds(103, 198, 386, 124);
 		
 		cmbSelectSem = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectSem.setItems(new String[] {"Fall", "Spring", "Summer"});
-		cmbSelectSem.setBounds(3, 15, 268, 23);
+		cmbSelectSem.setBounds(109, 15, 264, 23);
+		
+		lblSelectSem = new Label(grpByCourse, SWT.NONE);
+		lblSelectSem.setLocation(10, 18);
+		lblSelectSem.setSize(55, 15);
+		lblSelectSem.setText("Semester");
 		
 		cmbSelectYear = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectYear.setItems(new String[] {"2015", "2016", "2017"});
-		cmbSelectYear.setBounds(3, 55, 268, 23);
+		cmbSelectYear.setBounds(109, 54, 267, 23);
 		
 		cmbSelectCourse = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
-		cmbSelectCourse.setBounds(3, 93, 268, 23);
+		cmbSelectCourse.setBounds(108, 91, 268, 23);
+		
+		lblYear = new Label(grpByCourse, SWT.NONE);
+		lblYear.setLocation(10, 58);
+		lblYear.setSize(55, 15);
+		lblYear.setText("Year");
+		
+		lblCourse = new Label(grpByCourse, SWT.NONE);
+		lblCourse.setLocation(10, 94);
+		lblCourse.setSize(55, 15);
+		lblCourse.setText("Course");
 		
 		grpByEmail = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByEmail.setBounds(215, 328, 274, 39);
+		grpByEmail.setBounds(103, 328, 386, 39);
 		
 		txtEmailId = new Text(grpByEmail, SWT.BORDER);
-		txtEmailId.setBounds(3, 15, 268, 21);
+		txtEmailId.setBounds(111, 10, 265, 21);
 		
 		btnView = new Button(shlPenaltyManagement, SWT.NONE);
 		btnView.setBounds(305, 373, 75, 25);
@@ -195,21 +210,9 @@ public class PenaltyManagementView implements IKitObserver{
 		btnLogout.setBounds(549, 10, 75, 25);
 		btnLogout.setData(new BtnLogoutAction());
 		
-		lblSelectSem = new Label(shlPenaltyManagement, SWT.NONE);
-		lblSelectSem.setBounds(118, 220, 55, 15);
-		lblSelectSem.setText("Semester");
-		
-		lblYear = new Label(shlPenaltyManagement, SWT.NONE);
-		lblYear.setText("Year");
-		lblYear.setBounds(118, 256, 55, 15);
-		
-		lblCourse = new Label(shlPenaltyManagement, SWT.NONE);
-		lblCourse.setText("Course");
-		lblCourse.setBounds(118, 298, 55, 15);
-		
 		lblEmailId = new Label(shlPenaltyManagement, SWT.NONE);
+		lblEmailId.setBounds(116, 347, 55, 15);
 		lblEmailId.setText("Email Id");
-		lblEmailId.setBounds(118, 347, 55, 15);
 
 	}
 

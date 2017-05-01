@@ -55,7 +55,7 @@ public class LoginView {
 		label = new Label(shlEezonInventory, SWT.NONE);
 		label.setBounds(98, 31, 378, 166);
 		
-		Image img = new Image(display, "resources/leopardGecko.jpg");
+		Image img = new Image(display, "leopardGecko.jpg");
 		label.setImage(img);
 		
 		txtUserName = new Text(shlEezonInventory, SWT.BORDER);

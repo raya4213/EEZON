@@ -30,6 +30,7 @@ public class BtnCheckInAction implements ICheckInCheckOutBtnAction{
 				Kit kitSelected = kitModel.getKitDetailsForSerialNum(serialNum);
 				Date currDate = new Date();
 				kitSelected.setKitCheckInDate(currDate);
+				kitSelected.setKitCheckInStatus("Y");
 				kitModel.updateKitDetails(kitSelected);
 				
 			}

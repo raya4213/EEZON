@@ -33,6 +33,7 @@ public class Kit {
 	private String kitSerialNum;
 	private Date kitCheckInDate;
 	private Date kitCheckOutDate;
+	private String kitCheckInStatus;
 	private String studentEmailKit;
 	private String studentNameForKit;
 	private double kitPenalty;
@@ -54,6 +55,22 @@ public class Kit {
 		}
 	}
 	
+	public String getKitCheckInStatus() {
+		return kitCheckInStatus;
+	}
+
+	public void setKitCheckInStatus(String kitCheckInStatus) {
+		this.kitCheckInStatus = kitCheckInStatus;
+	}
+
+	public List<IKitObserver> getKitObservers() {
+		return kitObservers;
+	}
+
+	public void setKitObservers(List<IKitObserver> kitObservers) {
+		this.kitObservers = kitObservers;
+	}
+
 	public String getKitType() {
 		return kitType;
 	}
@@ -155,6 +172,29 @@ public class Kit {
 		ArrayList<Kit> kitsFound = new ArrayList<Kit>();
 		
 		String hql = "FROM Kit K WHERE K.studentEmailKit = '"+email+"'";
+
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.getTransaction().commit();
+		Query query = session.createQuery(hql);
+		List list = query.list();
+		System.out.println("QuerySize::"+query.list().size());
+		
+		Iterator listIterator = list.iterator();
+		while(listIterator.hasNext()){
+			Kit kitFound = (Kit)listIterator.next();
+			kitsFound.add(kitFound);
+		}
+		
+		return kitsFound;
+	}
+	
+	public ArrayList<Kit> getStudentSpecificCheckedOutKitDetails(String email){
+		
+		ArrayList<Kit> kitsFound = new ArrayList<Kit>();
+		
+		String hql = "FROM Kit K WHERE K.studentEmailKit = '"+email+"' AND K.kitCheckInStatus = 'N'";
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();

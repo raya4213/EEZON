@@ -34,11 +34,11 @@ public class CheckInExtensionReqBtnAction implements ICheckInExtensionBtnAction{
 			
 			long longDate = Date.parse("Mon Apr 10 20:56:02 EDT 2017");
 			
-			Date checkInDate = new Date(longDate);
-			kit.setKitCheckInDate(checkInDate);
-			
-			Date checkOutDate = new Date();
+			Date checkOutDate = new Date(longDate);
 			kit.setKitCheckOutDate(checkOutDate);
+			
+			Date checkInDate = new Date();
+			kit.setKitCheckInDate(checkInDate);
 								
 			CourseToEmbed kitCourse = new CourseToEmbed();
 			kitCourse.setCourseName(checkInExtensionReqView.getCmbSelectCourse().getText());

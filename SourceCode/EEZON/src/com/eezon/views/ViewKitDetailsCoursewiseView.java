@@ -8,6 +8,15 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
+import com.eezon.viewkitdetails.stratergy.BtnBackAction;
+import com.eezon.viewkitdetails.stratergy.BtnHomeAction;
+import com.eezon.viewkitdetails.stratergy.BtnLogoutAction;
+import com.eezon.viewkitdetails.stratergy.BtnViewAction;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.wb.swt.SWTResourceManager;
+
+
+
 public class ViewKitDetailsCoursewiseView {
 	private Table tblViewDetails;
 	private Button btnHome;
@@ -20,22 +29,12 @@ public class ViewKitDetailsCoursewiseView {
 	Button btnView;
 	Shell shlEezonView;
 	TableColumn tblColumn;
+	private Button btnLogout;
+	private Label lblNewLabel;
+	private Label lblSemester;
+	private Label lblCourse;
+	private Label lblKittype;
 	
-
-	/**
-	 * Launch the application.
-	 * @param args
-	 
-	public static void main(String[] args) {
-		try {
-			ViewKitDetailsCoursewiseView window = new ViewKitDetailsCoursewiseView();
-			window.open();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	*/
-
 	public Table getTblViewDetails() {
 		return tblViewDetails;
 	}
@@ -163,83 +162,127 @@ public class ViewKitDetailsCoursewiseView {
 	{
 		display = Display.getDefault();
 		shlEezonView = new Shell();
-		shlEezonView.setSize(502, 486);
+		shlEezonView.setSize(888, 545);
 		shlEezonView.setText("EEZON - View Kit Details");
+		shlEezonView.setLocation(450,200);
+		
 		
 		btnHome = new Button(shlEezonView, SWT.NONE);
 		btnHome.setBounds(10, 10, 75, 25);
 		btnHome.setText("Home");
+		btnHome.setData(new BtnHomeAction());
 		
 		btnBack = new Button(shlEezonView, SWT.NONE);
 		btnBack.setBounds(404, 10, 75, 25);
 		btnBack.setText("Back");
+		btnBack.setData(new BtnBackAction());
 		
 		cmbSelectSem = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectSem.setItems(new String[] {"Fall", "Spring", "Summer"});
-		cmbSelectSem.setBounds(134, 132, 215, 23);
+		cmbSelectSem.setBounds(339, 129, 215, 23);
 		
 		cmbSelectYear = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectYear.setItems(new String[] {"2015", "2016", "2017"});
-		cmbSelectYear.setBounds(134, 83, 215, 23);
+		cmbSelectYear.setBounds(339, 80, 215, 23);
 		
 		cmbSelectCourse = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
-		cmbSelectCourse.setBounds(134, 187, 215, 23);
+		cmbSelectCourse.setBounds(339, 180, 215, 23);
 		
 		cmbSelectKitType = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectKitType.setItems(new String[] {"Raspberry II", "Raspberry Pi III", "Beagle Bone", "Leopard Gecko", "SAM B11", "DE1SOC", "JETSON", "MAX 10"});
-		cmbSelectKitType.setBounds(134, 245, 215, 23);
+		cmbSelectKitType.setBounds(339, 233, 215, 23);
 		
 		tblViewDetails = new Table(shlEezonView, SWT.BORDER | SWT.FULL_SELECTION);
-		tblViewDetails.setBounds(83, 349, 330, 67);
+		tblViewDetails.setBounds(30, 349, 812, 127);
 		tblViewDetails.setHeaderVisible(true);
 		tblViewDetails.setLinesVisible(true);
 		
 		btnView = new Button(shlEezonView, SWT.NONE);
-		btnView.setBounds(198, 299, 75, 25);
+		btnView.setBounds(404, 297, 75, 25);
 		btnView.setText("View");
-		btnView.setData("btnView");
-		
+		btnView.setData(new BtnViewAction());
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(70);
+		tblColumn.setWidth(81);
 		tblColumn.setText("SerialNum");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(79);
+		tblColumn.setWidth(101);
 		tblColumn.setText("CheckInDate");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(89);
+		tblColumn.setWidth(109);
 		tblColumn.setText("CheckOutDate");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(83);
+		tblColumn.setWidth(116);
 		tblColumn.setText("CourseName");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(65);
+		tblColumn.setWidth(93);
 		tblColumn.setText("KitPenalty");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(51);
+		tblColumn.setWidth(88);
 		tblColumn.setText("KitType");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(113);
 		tblColumn.setText("StudentEmail");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(276);
 		tblColumn.setText("StudentName");
+		
+		btnLogout = new Button(shlEezonView, SWT.NONE);
+		btnLogout.setText("LogOut");
+		btnLogout.setBounds(767, 10, 75, 25);
+		btnLogout.setData(new BtnLogoutAction());
+		
+		lblNewLabel = new Label(shlEezonView, SWT.NONE);
+		lblNewLabel.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		lblNewLabel.setBounds(239, 79, 55, 25);
+		lblNewLabel.setText("Year");
+		
+		lblSemester = new Label(shlEezonView, SWT.NONE);
+		lblSemester.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		lblSemester.setText("Semester");
+		lblSemester.setBounds(239, 128, 83, 25);
+		
+		lblCourse = new Label(shlEezonView, SWT.NONE);
+		lblCourse.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		lblCourse.setText("Course");
+		lblCourse.setBounds(239, 183, 70, 25);
+		
+		lblKittype = new Label(shlEezonView, SWT.NONE);
+		lblKittype.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		lblKittype.setText("KitType");
+		lblKittype.setBounds(239, 233, 70, 28);
+
+	}
 
 
-		/*shlEezonView.open();
-		shlEezonView.layout();
-		while (!shlEezonView.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}*/
+
+	public TableColumn getTblColumn() {
+		return tblColumn;
+	}
+
+
+
+	public void setTblColumn(TableColumn tblColumn) {
+		this.tblColumn = tblColumn;
+	}
+
+
+
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
+
+
+
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
 	}
 }

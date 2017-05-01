@@ -9,21 +9,30 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Text;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
+
+import com.eezon.models.Kit;
+import com.eezon.observer.IKitObserver;
+import com.eezon.penalty.strategy.BtnBackAction;
+import com.eezon.penalty.strategy.BtnByCourseAction;
+import com.eezon.penalty.strategy.BtnByEmailAction;
+import com.eezon.penalty.strategy.BtnHomeAction;
+import com.eezon.penalty.strategy.BtnLogoutAction;
+import com.eezon.penalty.strategy.BtnOverrideAction;
+import com.eezon.penalty.strategy.BtnViewAction;
+import com.eezon.penalty.strategy.RadOverrideAction;
+import com.eezon.penalty.strategy.RadViewAction;
+
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.MouseListener;
+
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.List;
+
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.wb.swt.SWTResourceManager;
 
-public class PenaltyManagementView {
+
+public class PenaltyManagementView implements IKitObserver{
 	 
 	 Button btnHome;
 	 Button btnBack;
@@ -46,6 +55,11 @@ public class PenaltyManagementView {
 	 Display display;
 	 Shell shlPenaltyManagement;
 	 TableColumn tblColumn;
+	 Button btnLogout;
+	 private Label lblSelectSem;
+	 private Label lblYear;
+	 private Label lblCourse;
+	 private Label lblEmailId;
 	
 	/**
 	 * Launch the application.
@@ -67,130 +81,144 @@ public class PenaltyManagementView {
 		
 		display = Display.getDefault();
 		shlPenaltyManagement = new Shell();
-		shlPenaltyManagement.setSize(690, 621);
+		shlPenaltyManagement.setSize(876, 621);
 		shlPenaltyManagement.setText("Penalty Management");
+		shlPenaltyManagement.setLocation(350, 120);
 		
 		btnHome = new Button(shlPenaltyManagement, SWT.NONE);
 		btnHome.setText("Home");
 		btnHome.setBounds(10, 10, 75, 25);
-		btnHome.setData("btnHome");
+		btnHome.setData(new BtnHomeAction());
 		
 	    btnBack = new Button(shlPenaltyManagement, SWT.NONE);
-		btnBack.setBounds(577, 10, 75, 25);
+		btnBack.setBounds(398, 10, 75, 25);
 		btnBack.setText("Back");
-		btnHome.setData("btnBack");
+		btnBack.setData(new BtnBackAction());
 		
 		grpByViewOverride = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByViewOverride.setBounds(305, 10, 96, 56);
+		grpByViewOverride.setBounds(387, 63, 96, 56);
 		
 		radView = new Button(grpByViewOverride, SWT.RADIO);
 		radView.setBounds(3, 15, 90, 16);
 		radView.setText("View");
-		radView.setData("radView");
-		//radView.addMouseListener(mouseListener);
+		radView.setData(new RadViewAction());
 		
 		radOverride = new Button(grpByViewOverride, SWT.RADIO);
 		radOverride.setBounds(3, 37, 90, 16);
 		radOverride.setText("Override");
 		radOverride.setData("radOverride");
+		radOverride.setData(new RadOverrideAction());
 		
 		grpByCourseEmail = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByCourseEmail.setBounds(302, 81, 96, 56);
+		grpByCourseEmail.setBounds(387, 138, 96, 56);
 		
 		btnByCourse = new Button(grpByCourseEmail, SWT.RADIO);
 		btnByCourse.setBounds(3, 15, 90, 16);
 		btnByCourse.setText("By Course");
-		btnByCourse.setData("btnByCourse");
+		btnByCourse.setData(new BtnByCourseAction());
 		
 		btnByEmail = new Button(grpByCourseEmail, SWT.RADIO);
 		btnByEmail.setBounds(3, 37, 90, 16);
 		btnByEmail.setText("By Email");
-		btnByEmail.setData("btnByEmail");
+		btnByEmail.setData(new BtnByEmailAction());
 		
 		grpByCourse = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByCourse.setBounds(215, 143, 274, 124);
+		grpByCourse.setBounds(233, 200, 386, 124);
 		
 		cmbSelectSem = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectSem.setItems(new String[] {"Fall", "Spring", "Summer"});
-		cmbSelectSem.setBounds(3, 15, 268, 23);
-		cmbSelectSem.setText("Select Sem");
+		cmbSelectSem.setBounds(109, 15, 264, 23);
+		
+		lblSelectSem = new Label(grpByCourse, SWT.NONE);
+		lblSelectSem.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
+		lblSelectSem.setLocation(10, 18);
+		lblSelectSem.setSize(93, 25);
+		lblSelectSem.setText("Semester");
 		
 		cmbSelectYear = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectYear.setItems(new String[] {"2015", "2016", "2017"});
-		cmbSelectYear.setBounds(3, 55, 268, 23);
-		cmbSelectYear.setText("Select Year");
+		cmbSelectYear.setBounds(109, 54, 267, 23);
 		
 		cmbSelectCourse = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
-		cmbSelectCourse.setBounds(3, 93, 268, 23);
-		cmbSelectCourse.setText("Select Course");
+		cmbSelectCourse.setBounds(108, 91, 268, 23);
+		
+		lblYear = new Label(grpByCourse, SWT.NONE);
+		lblYear.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
+		lblYear.setLocation(10, 58);
+		lblYear.setSize(68, 24);
+		lblYear.setText("Year");
+		
+		lblCourse = new Label(grpByCourse, SWT.NONE);
+		lblCourse.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
+		lblCourse.setLocation(10, 94);
+		lblCourse.setSize(68, 25);
+		lblCourse.setText("Course");
 		
 		grpByEmail = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByEmail.setBounds(215, 273, 274, 39);
+		grpByEmail.setBounds(233, 330, 386, 39);
+		
+		lblEmailId = new Label(grpByEmail, SWT.NONE);
+		lblEmailId.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
+		lblEmailId.setLocation(10, 13);
+		lblEmailId.setSize(75, 18);
+		lblEmailId.setText("Email Id");
 		
 		txtEmailId = new Text(grpByEmail, SWT.BORDER);
-		txtEmailId.setBounds(3, 15, 268, 21);
-		txtEmailId.setText("Email Id");
+		txtEmailId.setBounds(111, 10, 265, 21);
 		
 		btnView = new Button(shlPenaltyManagement, SWT.NONE);
-		/*btnView.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseUp(MouseEvent e) {
-				String hql = "FROM Kit K WHERE K.studentEmailKit = '"+txtEmailId.getText()+"'";
-
-				SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-				Session session = sessionFactory.openSession();
-				session.beginTransaction();
-				session.getTransaction().commit();
-				Query query = session.createQuery(hql);
-				System.out.println("QuerySize::"+query.list().size());
-			}
-		});*/
-		btnView.setBounds(305, 318, 75, 25);
+		btnView.setBounds(408, 375, 75, 25);
 		btnView.setText("View");
-		btnView.setData("btnView");
+		btnView.setData(new BtnViewAction());
 		
 		btnOverride = new Button(shlPenaltyManagement, SWT.NONE);
-		btnOverride.setBounds(305, 477, 75, 25);
+		btnOverride.setBounds(408, 527, 75, 25);
 		btnOverride.setText("Override");
-		btnOverride.setData("btnOverride");
+		btnOverride.setData(new BtnOverrideAction());
 		
 		tblViewPenalties = new Table(shlPenaltyManagement, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
-		tblViewPenalties.setBounds(33, 361, 616, 95);
+		tblViewPenalties.setBounds(51, 415, 764, 95);
 		tblViewPenalties.setHeaderVisible(true);
 		tblViewPenalties.setLinesVisible(true);
 		
+		//Creating all the columns inside the table for viewing 
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(70);
+		tblColumn.setWidth(82);
 		tblColumn.setText("SerialNum");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(79);
+		tblColumn.setWidth(98);
 		tblColumn.setText("CheckInDate");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(89);
+		tblColumn.setWidth(117);
 		tblColumn.setText("CheckOutDate");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(83);
+		tblColumn.setWidth(99);
 		tblColumn.setText("CourseName");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(65);
+		tblColumn.setWidth(84);
 		tblColumn.setText("KitPenalty");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(51);
+		tblColumn.setWidth(68);
 		tblColumn.setText("KitType");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(106);
 		tblColumn.setText("StudentEmail");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(103);
 		tblColumn.setText("StudentName");
+		
+		btnLogout = new Button(shlPenaltyManagement, SWT.NONE);
+		btnLogout.setText("Logout");
+		btnLogout.setBounds(754, 10, 75, 25);
+		btnLogout.setData(new BtnLogoutAction());
 
 	}
 
@@ -352,6 +380,26 @@ public class PenaltyManagementView {
 
 	public void setTblColumn(TableColumn tblColumn) {
 		this.tblColumn = tblColumn;
+	}
+
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
+
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
+	}
+
+	@Override
+	public void updateDetailsTable(Kit kitToUpdate) {
+		// TODO Auto-generated method stub
+		//this.tblViewPenalties.getIt
+		TableItem tblItems[]= tblViewPenalties.getItems();
+		for(TableItem tblItem:tblItems){
+			if(tblItem.getText(0).equalsIgnoreCase(kitToUpdate.getKitSerialNum())){
+				tblItem.setText(4, kitToUpdate.getKitPenalty()+"");
+			}
+		}
 	}
 
 }

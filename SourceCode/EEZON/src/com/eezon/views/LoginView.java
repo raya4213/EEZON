@@ -24,6 +24,8 @@ public class LoginView {
 	Button btnLogin;
 	Button btnForgotPasswd;
 	Button btnSignUp;
+	private Label lblEmailId;
+	private Label lblPassword;
 	
 	/**
 	 * Launch the application.
@@ -48,7 +50,7 @@ public class LoginView {
 		shlEezonInventory = new Shell();
 		shlEezonInventory.setSize(604, 463);
 		shlEezonInventory.setText("EEZON - Inventory Management System");
-		shlEezonInventory.setLocation(450, 200);
+		shlEezonInventory.setLocation(350, 150);
 		
 		label = new Label(shlEezonInventory, SWT.NONE);
 		label.setBounds(98, 31, 378, 166);
@@ -66,7 +68,7 @@ public class LoginView {
 		txtPasswd.setEchoChar('*');
 		
 		btnLogin = new Button(shlEezonInventory, SWT.NONE);
-		btnLogin.addMouseListener(new MouseAdapter() {
+		/*btnLogin.addMouseListener(new MouseAdapter() {
 			
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -97,25 +99,33 @@ public class LoginView {
 					}
 				}else{
 					System.out.println("Username not present");
-				}///////////////////////////////*/
+				}///////////////////////////////
 				
 				session.close();
 				sessionFactory.close();
 			}
-		});
+		});*/
 		btnLogin.setBounds(210, 300, 75, 25);
 		btnLogin.setText("Login");
 		btnLogin.setData("btnLogin");
 		
 		btnForgotPasswd = new Button(shlEezonInventory, SWT.NONE);
-		btnForgotPasswd.setBounds(246, 337, 93, 25);
-		btnForgotPasswd.setText("ForgotPasswd");
+		btnForgotPasswd.setBounds(221, 339, 156, 30);
+		btnForgotPasswd.setText("Forgot Password");
 		btnForgotPasswd.setData("btnForgotPasswd");
 
 		btnSignUp = new Button(shlEezonInventory, SWT.NONE);
-		btnSignUp.setBounds(291, 300, 75, 25);
+		btnSignUp.setBounds(314, 300, 75, 25);
 		btnSignUp.setText("Sign Up");
 		btnSignUp.setData("btnSignUp");
+		
+		lblEmailId = new Label(shlEezonInventory, SWT.NONE);
+		lblEmailId.setBounds(82, 211, 55, 21);
+		lblEmailId.setText("Email Id");
+		
+		lblPassword = new Label(shlEezonInventory, SWT.NONE);
+		lblPassword.setText("Password");
+		lblPassword.setBounds(82, 257, 75, 25);
 	}
 	
 	public Display getDisplay() {

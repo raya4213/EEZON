@@ -14,32 +14,40 @@ import org.eclipse.swt.widgets.TableItem;
 
 import com.eezon.models.Course;
 import com.eezon.models.Kit;
+import com.eezon.models.User;
+import com.eezon.viewkitdetails.stratergy.IViewKitDetailsBtnAction;
 import com.eezon.views.ViewKitDetailsCoursewiseView;
 
 public class ViewKitDetailsCoursewiseController implements MouseListener, SelectionListener {
 	ViewKitDetailsCoursewiseView viewKitDetailsCoursewiseView;
 	Course courseModel;
 	Kit kitModel;
-	
-	
-	public ViewKitDetailsCoursewiseController (){
+	Shell prevShell;
+	User userModel;
+	Shell loginShell;
+
+	public ViewKitDetailsCoursewiseController(User userModel, Shell prevShell, Shell loginShell) {
 		viewKitDetailsCoursewiseView = new ViewKitDetailsCoursewiseView();
 		courseModel = new Course(); 
 		kitModel = new Kit();
 		initializeListeners();
+		this.userModel = userModel;
+		this.prevShell = prevShell;
+		this.loginShell = loginShell;
 	}
 	
 	private void initializeListeners(){
 		System.out.println("Inside this function");
 		viewKitDetailsCoursewiseView.getBtnView().addMouseListener(this);
-		/*viewKitDetailsCoursewiseView.getCmbSelectCourse().addSelectionListener(this);
-		viewKitDetailsCoursewiseView.getCmbSelectKitType().addSelectionListener(this);
-		viewKitDetailsCoursewiseView.getCmbSelectSem().addSelectionListener(this);
-		viewKitDetailsCoursewiseView.getCmbSelectYear().addSelectionListener(this);*/
-		
+		viewKitDetailsCoursewiseView.getBtnHome().addMouseListener(this);
+		viewKitDetailsCoursewiseView.getBtnBack().addMouseListener(this);
+		viewKitDetailsCoursewiseView.getBtnLogout().addMouseListener(this);
+	
 	}
 	
 	public void displayView(){
+		this.prevShell.setVisible(false);
+		
 		Display display = viewKitDetailsCoursewiseView.getDisplay();
 		Shell shell = viewKitDetailsCoursewiseView.getShlEezonView();
 		shell.open();
@@ -49,6 +57,54 @@ public class ViewKitDetailsCoursewiseController implements MouseListener, Select
 				display.sleep();
 			}
 		}
+	}
+	
+	public ViewKitDetailsCoursewiseView getViewKitDetailsCoursewiseView() {
+		return viewKitDetailsCoursewiseView;
+	}
+
+	public User getUserModel() {
+		return userModel;
+	}
+
+	public void setUserModel(User userModel) {
+		this.userModel = userModel;
+	}
+
+	public Shell getLoginShell() {
+		return loginShell;
+	}
+
+	public void setLoginShell(Shell loginShell) {
+		this.loginShell = loginShell;
+	}
+
+	public void setViewKitDetailsCoursewiseView(ViewKitDetailsCoursewiseView viewKitDetailsCoursewiseView) {
+		this.viewKitDetailsCoursewiseView = viewKitDetailsCoursewiseView;
+	}
+
+	public Course getCourseModel() {
+		return courseModel;
+	}
+
+	public void setCourseModel(Course courseModel) {
+		this.courseModel = courseModel;
+	}
+
+	public Kit getKitModel() {
+		return kitModel;
+	}
+
+	public void setKitModel(Kit kitModel) {
+		this.kitModel = kitModel;
+	}
+
+	public Shell getPrevShell() {
+		return prevShell;
+	}
+
+	public void setPrevShell(Shell prevShell) {
+		this.prevShell = prevShell;
 	}
 	
 	@Override
@@ -75,35 +131,8 @@ public class ViewKitDetailsCoursewiseController implements MouseListener, Select
 		Button btnPressed = (Button)arg0.widget;
 		System.out.println("mouseDown" + arg0);
 		
-		if(btnPressed.getData().toString().equalsIgnoreCase("btnView")){
-			
-			Course courseView = new Course();
-			courseView.setCourseName(viewKitDetailsCoursewiseView.getCmbSelectCourse().getText());
-			courseView.setSemester(viewKitDetailsCoursewiseView.getCmbSelectSem().getText());
-			courseView.setYear(viewKitDetailsCoursewiseView.getCmbSelectYear().getText());
-			//courseView. (viewKitDetailsCoursewiseView.getCmbSelectYear().getText());
-			viewKitDetailsCoursewiseView.getTblViewDetails().removeAll();
-			ArrayList<Kit> kitsFoundView = kitModel.getKitSerialNums(viewKitDetailsCoursewiseView.getCmbSelectKitType().getText(),courseView);			
-			
-			
-			//viewKitDetailsCoursewiseView.getTblViewDetails().removeAll();
-			
-			for(Kit kitFound : kitsFoundView){
-				//TableItem item = new TableItem(penaltyView.getTblViewPenalties(), SWT.NULL);
-				TableItem item = new TableItem(viewKitDetailsCoursewiseView.getTblViewDetails(), SWT.NULL);
-		        item.setText(0, kitFound.getKitSerialNum());
-		        item.setText(1, kitFound.getKitCheckInDate().toString());
-		        item.setText(2, kitFound.getKitCheckOutDate().toString());
-		        item.setText(3, kitFound.getKitCourse().getCourseName());
-		        item.setText(4, kitFound.getKitPenalty()+"");
-		        item.setText(5, kitFound.getKitType());
-		        item.setText(6, kitFound.getStudentEmailKit());
-		        item.setText(7, kitFound.getStudentNameForKit());
-
-			}
-
-		}
-		
+		IViewKitDetailsBtnAction IViewBtnAction = (IViewKitDetailsBtnAction)btnPressed.getData();
+		IViewBtnAction.doAction(this,viewKitDetailsCoursewiseView, kitModel);
 	}
 
 	@Override

@@ -8,6 +8,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
 public class CheckInExtensionReqView {
+	
 	private Combo cmbSelectTimeFrame;
 	private Table tblReqDetails;
 
@@ -183,3 +184,4 @@ public class CheckInExtensionReqView {
 		this.shlEezon = shlEezon;
 	}
 }
+

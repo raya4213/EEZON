@@ -1,5 +1,4 @@
 package com.eezon.controllers;
-
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -112,7 +111,6 @@ public class CheckInExtensionReqController implements MouseListener {
 			
 		}
 
-
 		@Override
 		public void mouseDown(MouseEvent arg0) {
 			// TODO Auto-generated method stub
@@ -143,15 +141,11 @@ public class CheckInExtensionReqController implements MouseListener {
 					kitCourse.setDescription(checkInExtensionReqView.getCmbSelectCourse().getText());
 					kitCourse.setSemester("Spring");
 					kitCourse.setYear("2017");
-					
 					kit.setKitCourse(kitCourse);
-					
 					kit.setKitPenalty(0.0);
 					kit.setStudentEmailKit("sharat.vontari@colorado.edu");
 					kit.setStudentNameForKit("Sharat Vontari");
-					
 					req.setRequestKit(kit);
-					
 					checkInExtensionReqModel.addRequest(req);
 					
 					break;
@@ -161,8 +155,6 @@ public class CheckInExtensionReqController implements MouseListener {
 					break;
 			}
 		}
-
-		
 
 		@Override
 		public void mouseUp(MouseEvent arg0) {

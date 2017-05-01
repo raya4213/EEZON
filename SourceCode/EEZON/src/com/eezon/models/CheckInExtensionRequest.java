@@ -1,5 +1,4 @@
 package com.eezon.models;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -22,7 +21,7 @@ public class CheckInExtensionRequest extends Request{
 		return requestKit;
 	}
 	
-	public void setRequestKit(KitToEmbed requestKit) {
+	public void setRequestKit(KitToEmbed requestKit){
 		this.requestKit = requestKit;
 	}
 	
@@ -41,10 +40,8 @@ public class CheckInExtensionRequest extends Request{
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		
 		session.save(request); 
 		session.getTransaction().commit();
-		
 		return true;	
 	}
 	

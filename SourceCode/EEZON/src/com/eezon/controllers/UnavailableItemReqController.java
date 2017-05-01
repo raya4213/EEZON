@@ -16,6 +16,7 @@ import com.eezon.models.CourseToEmbed;
 import com.eezon.models.Kit;
 import com.eezon.models.UnavailableItem;
 import com.eezon.models.UnavailableItemRequest;
+import com.eezon.requests.strategy.IUnavailableItemBtnAction;
 import com.eezon.views.UnavailableItemReqView;
 
 public class UnavailableItemReqController implements MouseListener {
@@ -99,7 +100,10 @@ public class UnavailableItemReqController implements MouseListener {
 		// TODO Auto-generated method stub
 		Button btnPressed = (Button)arg0.widget;
 		
-		switch(btnPressed.getData().toString()){
+		IUnavailableItemBtnAction btnAction = (IUnavailableItemBtnAction)btnPressed.getData();
+		btnAction.doAction(unavailableItemReqView, unavailableItemReqModel);
+		
+		/*switch(btnPressed.getData().toString()){
 			case "btnRequest":
 				UnavailableItemRequest req = new UnavailableItemRequest();
 				req.setReqFrom("sharath.vontari@colorado.edu");
@@ -129,7 +133,7 @@ public class UnavailableItemReqController implements MouseListener {
 				break;
 			case "btnBack":
 				break;
-		}
+		}*/
 	}
 
 	@Override

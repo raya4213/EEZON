@@ -11,6 +11,7 @@ import com.eezon.models.Kit;
 import com.eezon.models.KitToEmbed;
 import com.eezon.models.UnavailableItem;
 import com.eezon.models.UnavailableItemRequest;
+import com.eezon.requests.strategy.ICheckInExtensionBtnAction;
 import com.eezon.views.CheckInExtensionReqView;
 
 import java.util.ArrayList;
@@ -117,7 +118,10 @@ public class CheckInExtensionReqController implements MouseListener {
 			// TODO Auto-generated method stub
 			Button btnPressed = (Button)arg0.widget;
 			
-			switch(btnPressed.getData().toString()){
+			ICheckInExtensionBtnAction btnAction = (ICheckInExtensionBtnAction)btnPressed.getData();
+			btnAction.doAction(checkInExtensionReqView, checkInExtensionReqModel);
+			
+			/*switch(btnPressed.getData().toString()){
 				case "btnRequest":
 					CheckInExtensionRequest req = new CheckInExtensionRequest();
 					req.setReqFrom("sharath.vontari@colorado.edu");
@@ -154,7 +158,7 @@ public class CheckInExtensionReqController implements MouseListener {
 					break;
 				case "btnBack":
 					break;
-			}
+			}*/
 		}
 
 		@Override

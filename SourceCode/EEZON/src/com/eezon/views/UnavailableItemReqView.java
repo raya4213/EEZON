@@ -12,6 +12,7 @@ import com.eezon.models.CheckInExtensionRequest;
 import com.eezon.models.Request;
 import com.eezon.models.UnavailableItemRequest;
 import com.eezon.observer.IReqObserver;
+import com.eezon.requests.strategy.UnavailableItemReqBtnAction;
 
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
@@ -86,7 +87,7 @@ public class UnavailableItemReqView implements IReqObserver {
 		btnRequest = new Button(shlEezon, SWT.NONE);
 		btnRequest.setBounds(468, 561, 105, 35);
 		btnRequest.setText("REQUEST");
-	    btnRequest.setData("btnRequest");
+	    btnRequest.setData(new UnavailableItemReqBtnAction());
 	    
 	    tblReqDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
 	    tblReqDetails.setBounds(134, 97, 835, 114);

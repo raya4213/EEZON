@@ -12,6 +12,7 @@ import com.eezon.models.CheckInExtensionRequest;
 import com.eezon.models.Request;
 import com.eezon.models.UnavailableItemRequest;
 import com.eezon.observer.IReqObserver;
+import com.eezon.requests.strategy.CheckInExtensionReqBtnAction;
 
 public class CheckInExtensionReqView implements IReqObserver{
 	
@@ -64,7 +65,7 @@ public class CheckInExtensionReqView implements IReqObserver{
 		btnRequest = new Button(shlEezon, SWT.NONE);
 		btnRequest.setText("Request");
 		btnRequest.setBounds(351, 383, 91, 30);
-		btnRequest.setData("btnRequest");
+		btnRequest.setData(new CheckInExtensionReqBtnAction());
 		
 		tblReqDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
 		tblReqDetails.setBounds(41, 57, 912, 130);

@@ -8,6 +8,11 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
+import com.eezon.viewkitdetails.stratergy.BtnViewAction;
+
+
+
+
 public class ViewKitDetailsCoursewiseView {
 	private Table tblViewDetails;
 	private Button btnHome;
@@ -163,7 +168,7 @@ public class ViewKitDetailsCoursewiseView {
 	{
 		display = Display.getDefault();
 		shlEezonView = new Shell();
-		shlEezonView.setSize(502, 486);
+		shlEezonView.setSize(645, 545);
 		shlEezonView.setText("EEZON - View Kit Details");
 		
 		btnHome = new Button(shlEezonView, SWT.NONE);
@@ -171,34 +176,34 @@ public class ViewKitDetailsCoursewiseView {
 		btnHome.setText("Home");
 		
 		btnBack = new Button(shlEezonView, SWT.NONE);
-		btnBack.setBounds(404, 10, 75, 25);
+		btnBack.setBounds(537, 10, 75, 25);
 		btnBack.setText("Back");
 		
 		cmbSelectSem = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectSem.setItems(new String[] {"Fall", "Spring", "Summer"});
-		cmbSelectSem.setBounds(134, 132, 215, 23);
+		cmbSelectSem.setBounds(238, 130, 215, 23);
 		
 		cmbSelectYear = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectYear.setItems(new String[] {"2015", "2016", "2017"});
-		cmbSelectYear.setBounds(134, 83, 215, 23);
+		cmbSelectYear.setBounds(238, 81, 215, 23);
 		
 		cmbSelectCourse = new Combo(shlEezonView, SWT.NONE);
-		cmbSelectCourse.setItems(new String[] {"Embedded System   Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
-		cmbSelectCourse.setBounds(134, 187, 215, 23);
+		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
+		cmbSelectCourse.setBounds(238, 185, 215, 23);
 		
 		cmbSelectKitType = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectKitType.setItems(new String[] {"Raspberry II", "Raspberry Pi III", "Beagle Bone", "Leopard Gecko", "SAM B11", "DE1SOC", "JETSON", "MAX 10"});
-		cmbSelectKitType.setBounds(134, 245, 215, 23);
+		cmbSelectKitType.setBounds(238, 243, 215, 23);
 		
 		tblViewDetails = new Table(shlEezonView, SWT.BORDER | SWT.FULL_SELECTION);
-		tblViewDetails.setBounds(83, 349, 330, 67);
+		tblViewDetails.setBounds(10, 349, 615, 127);
 		tblViewDetails.setHeaderVisible(true);
 		tblViewDetails.setLinesVisible(true);
 		
 		btnView = new Button(shlEezonView, SWT.NONE);
-		btnView.setBounds(198, 299, 75, 25);
+		btnView.setBounds(302, 297, 75, 25);
 		btnView.setText("View");
-		btnView.setData("btnView");
+		btnView.setData(new BtnViewAction());
 		
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);

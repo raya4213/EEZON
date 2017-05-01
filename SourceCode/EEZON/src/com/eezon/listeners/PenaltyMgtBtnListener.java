@@ -184,7 +184,6 @@ public class PenaltyMgtBtnListener implements MouseListener {
 		penaltyView.getBtnView().setVisible(false);
 		penaltyView.getTblViewPenalties().setVisible(true);
 		penaltyView.getBtnOverride().setVisible(false);
-		
 		penaltyView.getBtnByCourse().setSelection(false);
 		penaltyView.getBtnByEmail().setSelection(false);
 	}

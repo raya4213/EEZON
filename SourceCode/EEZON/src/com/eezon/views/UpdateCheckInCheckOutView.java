@@ -10,15 +10,18 @@ import com.eezon.checkincheckout.strategy.BtnCheckInAction;
 import com.eezon.checkincheckout.strategy.BtnCheckOutAction;
 import com.eezon.checkincheckout.strategy.RadCheckInAction;
 import com.eezon.checkincheckout.strategy.RadCheckOutAction;
+import com.eezon.models.Kit;
+import com.eezon.observer.IKitObserver;
 
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-public class UpdateCheckInCheckOutView {
+public class UpdateCheckInCheckOutView implements IKitObserver{
 	private Text txtEmail;
 	private Table tblCinCoutDetails;
 	Button btnHome;
@@ -303,5 +306,23 @@ public class UpdateCheckInCheckOutView {
 
 	public void setShlEezonCheck(Shell shlEezonCheck) {
 		this.shlEezonCheck = shlEezonCheck;
+	}
+
+	@Override
+	public void updateDetailsTable(Kit kitToUpdate) {
+		// TODO Auto-generated method stub
+		TableItem tblItems[]= tblCinCoutDetails.getItems();
+		for(TableItem tblItem:tblItems){
+			if(tblItem.getText(0).equalsIgnoreCase(kitToUpdate.getKitSerialNum())){
+				//tblItem.setText(0, kitToUpdate.getKitSerialNum());
+				tblItem.setText(1, kitToUpdate.getKitCheckInDate().toString());
+				//tblItem.setText(2, kitToUpdate.getKitCheckOutDate().toString());
+				//tblItem.setText(3, kitToUpdate.getKitCourse().getCourseName());
+				//tblItem.setText(4, kitToUpdate.getKitPenalty()+"");
+				//tblItem.setText(5, kitToUpdate.getKitType());
+				//tblItem.setText(6, kitToUpdate.getStudentEmailKit());
+				//tblItem.setText(7, kitToUpdate.getStudentNameForKit());
+			}
+		}
 	}
 }

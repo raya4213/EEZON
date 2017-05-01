@@ -53,6 +53,7 @@ public class UpdateCheckInCheckOutController implements MouseListener, Selection
 		courseModel = new Course();
 		kitModel = new Kit();
 		initializeListeners();
+		kitModel.attach(updateCheckInCheckOutView);
 	}
 	
 	public void hideAllOptions(){

@@ -14,23 +14,24 @@ public class BtnCheckOutAction implements ICheckInCheckOutBtnAction{
 			UpdateCheckInCheckOutView updateCheckInCheckOutView, Kit kitModel) {
 		// TODO Auto-generated method stub
 		System.out.println("Inside btnView onClick");
-		CourseToEmbed course = new CourseToEmbed();
+		/*CourseToEmbed course = new CourseToEmbed();
 		course.setCourseName(updateCheckInCheckOutView.getCmbSelectCourse().getText());
 		course.setYear("2016");
-		course.setSemester("Fall");
+		course.setSemester("Fall");*/
 		
-		Kit kitType = new Kit();
+		Kit kitType = kitModel.getKitDetailsForSerialNum(updateCheckInCheckOutView.getCmbKitSerialNumber().getText());//new Kit();
 		
-		kitType.setKitType(updateCheckInCheckOutView.getCmbSelectKitType().getText());
+		/*kitType.setKitType(updateCheckInCheckOutView.getCmbSelectKitType().getText());
 		kitType.setKitSerialNum(updateCheckInCheckOutView.getCmbKitSerialNumber().getText());
-		kitType.setStudentEmailKit(updateCheckInCheckOutView.getTxtEmail().getText());
+		kitType.setStudentEmailKit(updateCheckInCheckOutView.getTxtEmail().getText());*/
 		
 		Date date = new Date();
 		kitType.setKitCheckOutDate(date);
-		kitType.setKitCourse(course);
-		kitType.setStudentEmailKit("asd");
 		
-		kitModel.checkOut(kitType);
+		/*kitType.setKitCourse(course);
+		kitType.setStudentEmailKit("asd");*/
+		
+		kitModel.updateKitDetails(kitType);
 		
 	}
 

@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.TableItem;
 
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 
 public class PenaltyManagementView implements IKitObserver{
@@ -80,7 +81,7 @@ public class PenaltyManagementView implements IKitObserver{
 		
 		display = Display.getDefault();
 		shlPenaltyManagement = new Shell();
-		shlPenaltyManagement.setSize(690, 621);
+		shlPenaltyManagement.setSize(876, 621);
 		shlPenaltyManagement.setText("Penalty Management");
 		shlPenaltyManagement.setLocation(350, 120);
 		
@@ -90,12 +91,12 @@ public class PenaltyManagementView implements IKitObserver{
 		btnHome.setData(new BtnHomeAction());
 		
 	    btnBack = new Button(shlPenaltyManagement, SWT.NONE);
-		btnBack.setBounds(305, 10, 75, 25);
+		btnBack.setBounds(398, 10, 75, 25);
 		btnBack.setText("Back");
 		btnBack.setData(new BtnBackAction());
 		
 		grpByViewOverride = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByViewOverride.setBounds(305, 65, 96, 56);
+		grpByViewOverride.setBounds(387, 63, 96, 56);
 		
 		radView = new Button(grpByViewOverride, SWT.RADIO);
 		radView.setBounds(3, 15, 90, 16);
@@ -109,7 +110,7 @@ public class PenaltyManagementView implements IKitObserver{
 		radOverride.setData(new RadOverrideAction());
 		
 		grpByCourseEmail = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByCourseEmail.setBounds(302, 136, 96, 56);
+		grpByCourseEmail.setBounds(387, 138, 96, 56);
 		
 		btnByCourse = new Button(grpByCourseEmail, SWT.RADIO);
 		btnByCourse.setBounds(3, 15, 90, 16);
@@ -122,15 +123,16 @@ public class PenaltyManagementView implements IKitObserver{
 		btnByEmail.setData(new BtnByEmailAction());
 		
 		grpByCourse = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByCourse.setBounds(103, 198, 386, 124);
+		grpByCourse.setBounds(233, 200, 386, 124);
 		
 		cmbSelectSem = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectSem.setItems(new String[] {"Fall", "Spring", "Summer"});
 		cmbSelectSem.setBounds(109, 15, 264, 23);
 		
 		lblSelectSem = new Label(grpByCourse, SWT.NONE);
+		lblSelectSem.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
 		lblSelectSem.setLocation(10, 18);
-		lblSelectSem.setSize(55, 15);
+		lblSelectSem.setSize(93, 25);
 		lblSelectSem.setText("Semester");
 		
 		cmbSelectYear = new Combo(grpByCourse, SWT.NONE);
@@ -142,77 +144,80 @@ public class PenaltyManagementView implements IKitObserver{
 		cmbSelectCourse.setBounds(108, 91, 268, 23);
 		
 		lblYear = new Label(grpByCourse, SWT.NONE);
+		lblYear.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
 		lblYear.setLocation(10, 58);
-		lblYear.setSize(55, 15);
+		lblYear.setSize(68, 24);
 		lblYear.setText("Year");
 		
 		lblCourse = new Label(grpByCourse, SWT.NONE);
+		lblCourse.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
 		lblCourse.setLocation(10, 94);
-		lblCourse.setSize(55, 15);
+		lblCourse.setSize(68, 25);
 		lblCourse.setText("Course");
 		
 		grpByEmail = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByEmail.setBounds(103, 328, 386, 39);
+		grpByEmail.setBounds(233, 330, 386, 39);
 		
 		lblEmailId = new Label(grpByEmail, SWT.NONE);
+		lblEmailId.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
 		lblEmailId.setLocation(10, 13);
-		lblEmailId.setSize(55, 15);
+		lblEmailId.setSize(75, 18);
 		lblEmailId.setText("Email Id");
 		
 		txtEmailId = new Text(grpByEmail, SWT.BORDER);
 		txtEmailId.setBounds(111, 10, 265, 21);
 		
 		btnView = new Button(shlPenaltyManagement, SWT.NONE);
-		btnView.setBounds(305, 373, 75, 25);
+		btnView.setBounds(408, 375, 75, 25);
 		btnView.setText("View");
 		btnView.setData(new BtnViewAction());
 		
 		btnOverride = new Button(shlPenaltyManagement, SWT.NONE);
-		btnOverride.setBounds(305, 532, 75, 25);
+		btnOverride.setBounds(408, 527, 75, 25);
 		btnOverride.setText("Override");
 		btnOverride.setData(new BtnOverrideAction());
 		
 		tblViewPenalties = new Table(shlPenaltyManagement, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
-		tblViewPenalties.setBounds(33, 416, 616, 95);
+		tblViewPenalties.setBounds(51, 415, 764, 95);
 		tblViewPenalties.setHeaderVisible(true);
 		tblViewPenalties.setLinesVisible(true);
 		
 		//Creating all the columns inside the table for viewing 
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(70);
+		tblColumn.setWidth(82);
 		tblColumn.setText("SerialNum");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(79);
+		tblColumn.setWidth(98);
 		tblColumn.setText("CheckInDate");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(89);
+		tblColumn.setWidth(117);
 		tblColumn.setText("CheckOutDate");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(83);
+		tblColumn.setWidth(99);
 		tblColumn.setText("CourseName");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(65);
+		tblColumn.setWidth(84);
 		tblColumn.setText("KitPenalty");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(51);
+		tblColumn.setWidth(68);
 		tblColumn.setText("KitType");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(106);
 		tblColumn.setText("StudentEmail");
 		
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(103);
 		tblColumn.setText("StudentName");
 		
 		btnLogout = new Button(shlPenaltyManagement, SWT.NONE);
 		btnLogout.setText("Logout");
-		btnLogout.setBounds(549, 10, 75, 25);
+		btnLogout.setBounds(754, 10, 75, 25);
 		btnLogout.setData(new BtnLogoutAction());
 
 	}

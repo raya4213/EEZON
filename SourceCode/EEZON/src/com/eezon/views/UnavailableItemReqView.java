@@ -19,6 +19,7 @@ import com.eezon.requests.strategy.UnavailableItemReqBtnAction;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 public class UnavailableItemReqView implements IReqObserver {
 	private Text EnterName;
@@ -51,7 +52,7 @@ public class UnavailableItemReqView implements IReqObserver {
 		shlEezon.setToolTipText("Enter Cost");
 		shlEezon.setSize(1094, 679);
 		shlEezon.setLocation(450,200);
-		shlEezon.setText("EEZON - Request for Unavailable Items - Student  ");
+		shlEezon.setText("EEZON - Request for Unavailable Items  ");
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
 		btnBack.setBounds(39, 36, 105, 35);
@@ -88,7 +89,7 @@ public class UnavailableItemReqView implements IReqObserver {
 	    btnRequest.setData(new UnavailableItemReqBtnAction());
 	    
 	    tblReqDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
-	    tblReqDetails.setBounds(134, 97, 835, 114);
+	    tblReqDetails.setBounds(134, 97, 816, 114);
 	    tblReqDetails.setHeaderVisible(true);
 	    tblReqDetails.setLinesVisible(true);
 	    
@@ -106,7 +107,7 @@ public class UnavailableItemReqView implements IReqObserver {
   		tblColumn.setText("UnavailableItem Type");
   		
   		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
-  		tblColumn.setWidth(154);
+  		tblColumn.setWidth(94);
   		tblColumn.setText("Name");
   		
   		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
@@ -127,28 +128,34 @@ public class UnavailableItemReqView implements IReqObserver {
   		btnLogout.setData(new UnavailableItemLogoutBtnAction());
   		
   		lblCourse = new Label(shlEezon, SWT.NONE);
-  		lblCourse.setBounds(385, 240, 55, 15);
+  		lblCourse.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+  		lblCourse.setBounds(349, 240, 91, 20);
   		lblCourse.setText("Course");
   		
   		lblItemType = new Label(shlEezon, SWT.NONE);
+  		lblItemType.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
   		lblItemType.setText("Item Type");
-  		lblItemType.setBounds(385, 287, 55, 15);
+  		lblItemType.setBounds(349, 287, 91, 25);
   		
   		lblItemName = new Label(shlEezon, SWT.NONE);
+  		lblItemName.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
   		lblItemName.setText("Item Name");
-  		lblItemName.setBounds(385, 351, 68, 15);
+  		lblItemName.setBounds(349, 351, 104, 28);
   		
   		lblItemLink = new Label(shlEezon, SWT.NONE);
+  		lblItemLink.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
   		lblItemLink.setText("Item Link");
-  		lblItemLink.setBounds(385, 399, 68, 15);
+  		lblItemLink.setBounds(349, 399, 104, 28);
   		
   		lblItemCost = new Label(shlEezon, SWT.NONE);
+  		lblItemCost.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
   		lblItemCost.setText("Item Cost");
-  		lblItemCost.setBounds(385, 450, 68, 15);
+  		lblItemCost.setBounds(349, 450, 104, 28);
   		
   		lblNumberOfItems = new Label(shlEezon, SWT.NONE);
+  		lblNumberOfItems.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
   		lblNumberOfItems.setText("Number of \r\nitems");
-  		lblNumberOfItems.setBounds(385, 503, 68, 35);
+  		lblNumberOfItems.setBounds(349, 503, 104, 50);
 		
 	}
 

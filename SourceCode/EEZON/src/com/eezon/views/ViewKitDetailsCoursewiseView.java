@@ -13,6 +13,7 @@ import com.eezon.viewkitdetails.stratergy.BtnHomeAction;
 import com.eezon.viewkitdetails.stratergy.BtnLogoutAction;
 import com.eezon.viewkitdetails.stratergy.BtnViewAction;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 
 
@@ -161,7 +162,7 @@ public class ViewKitDetailsCoursewiseView {
 	{
 		display = Display.getDefault();
 		shlEezonView = new Shell();
-		shlEezonView.setSize(645, 545);
+		shlEezonView.setSize(888, 545);
 		shlEezonView.setText("EEZON - View Kit Details");
 		shlEezonView.setLocation(450,200);
 		
@@ -172,88 +173,92 @@ public class ViewKitDetailsCoursewiseView {
 		btnHome.setData(new BtnHomeAction());
 		
 		btnBack = new Button(shlEezonView, SWT.NONE);
-		btnBack.setBounds(302, 10, 75, 25);
+		btnBack.setBounds(404, 10, 75, 25);
 		btnBack.setText("Back");
 		btnBack.setData(new BtnBackAction());
 		
 		cmbSelectSem = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectSem.setItems(new String[] {"Fall", "Spring", "Summer"});
-		cmbSelectSem.setBounds(238, 130, 215, 23);
+		cmbSelectSem.setBounds(339, 129, 215, 23);
 		
 		cmbSelectYear = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectYear.setItems(new String[] {"2015", "2016", "2017"});
-		cmbSelectYear.setBounds(238, 81, 215, 23);
+		cmbSelectYear.setBounds(339, 80, 215, 23);
 		
 		cmbSelectCourse = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
-		cmbSelectCourse.setBounds(238, 185, 215, 23);
+		cmbSelectCourse.setBounds(339, 180, 215, 23);
 		
 		cmbSelectKitType = new Combo(shlEezonView, SWT.NONE);
 		cmbSelectKitType.setItems(new String[] {"Raspberry II", "Raspberry Pi III", "Beagle Bone", "Leopard Gecko", "SAM B11", "DE1SOC", "JETSON", "MAX 10"});
-		cmbSelectKitType.setBounds(238, 243, 215, 23);
+		cmbSelectKitType.setBounds(339, 233, 215, 23);
 		
 		tblViewDetails = new Table(shlEezonView, SWT.BORDER | SWT.FULL_SELECTION);
-		tblViewDetails.setBounds(10, 349, 615, 127);
+		tblViewDetails.setBounds(30, 349, 812, 127);
 		tblViewDetails.setHeaderVisible(true);
 		tblViewDetails.setLinesVisible(true);
 		
 		btnView = new Button(shlEezonView, SWT.NONE);
-		btnView.setBounds(302, 297, 75, 25);
+		btnView.setBounds(404, 297, 75, 25);
 		btnView.setText("View");
 		btnView.setData(new BtnViewAction());
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(70);
+		tblColumn.setWidth(81);
 		tblColumn.setText("SerialNum");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(79);
+		tblColumn.setWidth(101);
 		tblColumn.setText("CheckInDate");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(89);
+		tblColumn.setWidth(109);
 		tblColumn.setText("CheckOutDate");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(83);
+		tblColumn.setWidth(116);
 		tblColumn.setText("CourseName");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(65);
+		tblColumn.setWidth(93);
 		tblColumn.setText("KitPenalty");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(51);
+		tblColumn.setWidth(88);
 		tblColumn.setText("KitType");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(113);
 		tblColumn.setText("StudentEmail");
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(276);
 		tblColumn.setText("StudentName");
 		
 		btnLogout = new Button(shlEezonView, SWT.NONE);
 		btnLogout.setText("LogOut");
-		btnLogout.setBounds(544, 10, 75, 25);
+		btnLogout.setBounds(767, 10, 75, 25);
 		btnLogout.setData(new BtnLogoutAction());
 		
 		lblNewLabel = new Label(shlEezonView, SWT.NONE);
-		lblNewLabel.setBounds(177, 84, 55, 15);
+		lblNewLabel.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		lblNewLabel.setBounds(239, 79, 55, 25);
 		lblNewLabel.setText("Year");
 		
 		lblSemester = new Label(shlEezonView, SWT.NONE);
+		lblSemester.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblSemester.setText("Semester");
-		lblSemester.setBounds(177, 133, 55, 15);
+		lblSemester.setBounds(239, 128, 83, 25);
 		
 		lblCourse = new Label(shlEezonView, SWT.NONE);
+		lblCourse.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblCourse.setText("Course");
-		lblCourse.setBounds(177, 188, 55, 15);
+		lblCourse.setBounds(239, 183, 70, 25);
 		
 		lblKittype = new Label(shlEezonView, SWT.NONE);
-		lblKittype.setText("KItType");
-		lblKittype.setBounds(177, 251, 55, 15);
+		lblKittype.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		lblKittype.setText("KitType");
+		lblKittype.setBounds(239, 233, 70, 28);
 
 	}
 

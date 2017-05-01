@@ -38,48 +38,48 @@ public class HomeScreenView {
 	public HomeScreenView(){
 	    display = Display.getDefault();
 		shlHome = new Shell();
-		shlHome.setSize(450, 300);
+		shlHome.setSize(580, 321);
 		shlHome.setText("EEZON - HomeScreen");
 		shlHome.setLocation(450, 200);
 		
 		btnRequestsView = new Button(shlHome, SWT.NONE);
-		btnRequestsView.setBounds(69, 70, 75, 25);
+		btnRequestsView.setBounds(64, 70, 75, 25);
 		btnRequestsView.setText("Requests");
 		btnRequestsView.setData("btnRequestsView");
 		
 		btnMyCINCOUTView = new Button(shlHome, SWT.NONE);
 		btnMyCINCOUTView.setText("View my Check IN / Check OUT");
-		btnMyCINCOUTView.setBounds(10, 115, 188, 25);
+		btnMyCINCOUTView.setBounds(64, 115, 223, 25);
 		btnMyCINCOUTView.setData("btnMyCINCOUTView");
 		
 		btnViewKitDetails = new Button(shlHome, SWT.NONE);
 		btnViewKitDetails.setText("View Kit Details");
-		btnViewKitDetails.setBounds(51, 166, 108, 25);
+		btnViewKitDetails.setBounds(64, 166, 108, 25);
 		btnViewKitDetails.setData("btnViewKitDetails");
 		
 		btnCINCOUTUpdateView = new Button(shlHome, SWT.NONE);
 		btnCINCOUTUpdateView.setText("Check IN / Check OUT");
-		btnCINCOUTUpdateView.setBounds(239, 70, 151, 25);
+		btnCINCOUTUpdateView.setBounds(360, 70, 151, 25);
 		btnCINCOUTUpdateView.setData("btnCINCOUTUpdateView");
 		
 		btnInventory = new Button(shlHome, SWT.NONE);
 		btnInventory.setText("Inventory");
-		btnInventory.setBounds(239, 115, 151, 25);
+		btnInventory.setBounds(360, 115, 151, 25);
 		btnInventory.setData("btnInventory");
 		
 		btnPenaltyManagement = new Button(shlHome, SWT.NONE);
 		btnPenaltyManagement.setText("Penalty Management");
-		btnPenaltyManagement.setBounds(239, 166, 151, 25);
+		btnPenaltyManagement.setBounds(360, 166, 151, 25);
 		btnPenaltyManagement.setData("btnPenaltyManagement");
 		
 		btnAddProfTA = new Button(shlHome, SWT.NONE);
-		btnAddProfTA.setBounds(163, 211, 75, 25);
+		btnAddProfTA.setBounds(232, 219, 114, 25);
 		btnAddProfTA.setText("AddProfTA");
 		btnAddProfTA.setData("btnAddProfTA");
 		
 		btnLogout = new Button(shlHome, SWT.NONE);
 		btnLogout.setText("Logout");
-		btnLogout.setBounds(349, 10, 75, 25);
+		btnLogout.setBounds(477, 10, 75, 25);
 		btnLogout.setData("btnLogout");
 	}
 

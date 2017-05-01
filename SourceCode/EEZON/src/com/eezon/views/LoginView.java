@@ -110,22 +110,22 @@ public class LoginView {
 		btnLogin.setData("btnLogin");
 		
 		btnForgotPasswd = new Button(shlEezonInventory, SWT.NONE);
-		btnForgotPasswd.setBounds(246, 337, 93, 25);
-		btnForgotPasswd.setText("ForgotPasswd");
+		btnForgotPasswd.setBounds(221, 339, 156, 30);
+		btnForgotPasswd.setText("Forgot Password");
 		btnForgotPasswd.setData("btnForgotPasswd");
 
 		btnSignUp = new Button(shlEezonInventory, SWT.NONE);
-		btnSignUp.setBounds(291, 300, 75, 25);
+		btnSignUp.setBounds(314, 300, 75, 25);
 		btnSignUp.setText("Sign Up");
 		btnSignUp.setData("btnSignUp");
 		
 		lblEmailId = new Label(shlEezonInventory, SWT.NONE);
-		lblEmailId.setBounds(82, 214, 55, 15);
+		lblEmailId.setBounds(82, 211, 55, 21);
 		lblEmailId.setText("Email Id");
 		
 		lblPassword = new Label(shlEezonInventory, SWT.NONE);
 		lblPassword.setText("Password");
-		lblPassword.setBounds(82, 260, 75, 15);
+		lblPassword.setBounds(82, 257, 75, 25);
 	}
 	
 	public Display getDisplay() {

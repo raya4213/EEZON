@@ -11,6 +11,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 public class ViewMyCheckInCheckOut {
 	Button btnHome;
@@ -48,7 +49,7 @@ public class ViewMyCheckInCheckOut {
 		display = Display.getDefault();
 		shlEezon = new Shell();
 		shlEezon.setSize(957, 554);
-		shlEezon.setText("EEZON - View my Check IN / Check OUT - Student");
+		shlEezon.setText("EEZON - View my Check IN / Check OUT ");
 		shlEezon.setLocation(450,200);
 		
 		btnHome = new Button(shlEezon, SWT.NONE);
@@ -57,30 +58,30 @@ public class ViewMyCheckInCheckOut {
 		btnHome.setData("btnHome");
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
-		btnBack.setBounds(375, 23, 105, 35);
+		btnBack.setBounds(454, 23, 105, 35);
 		btnBack.setText("Back");
 		btnBack.setData("btnBack");
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Advanced Computer Architecture", "Internet Of Things"});
-		cmbSelectCourse.setBounds(358, 125, 152, 33);
+		cmbSelectCourse.setBounds(445, 125, 152, 33);
 		
 		cmbSelectStudent = new Combo(shlEezon, SWT.NONE);
 		cmbSelectStudent.setItems(new String[] {"Mine", "All"});
-		cmbSelectStudent.setBounds(358, 189, 152, 33);
+		cmbSelectStudent.setBounds(445, 189, 152, 33);
 		
 		btnView = new Button(shlEezon, SWT.NONE);
-		btnView.setBounds(375, 399, 105, 35);
+		btnView.setBounds(467, 401, 105, 35);
 		btnView.setText("View");
 		btnView.setData("btnView");
 		
 		tblDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
-		tblDetails.setBounds(126, 292, 649, 97);
+		tblDetails.setBounds(54, 286, 831, 97);
 		tblDetails.setHeaderVisible(true);
 		tblDetails.setLinesVisible(true);
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
-		tblColumn.setWidth(70);
+		tblColumn.setWidth(88);
 		tblColumn.setText("SerialNum");
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
@@ -88,27 +89,27 @@ public class ViewMyCheckInCheckOut {
 		tblColumn.setText("CheckInDate");
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
-		tblColumn.setWidth(104);
+		tblColumn.setWidth(109);
 		tblColumn.setText("CheckOutDate");
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
-		tblColumn.setWidth(83);
+		tblColumn.setWidth(109);
 		tblColumn.setText("CourseName");
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
-		tblColumn.setWidth(65);
+		tblColumn.setWidth(100);
 		tblColumn.setText("KitPenalty");
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
-		tblColumn.setWidth(51);
+		tblColumn.setWidth(72);
 		tblColumn.setText("KitType");
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(122);
 		tblColumn.setText("StudentEmail");
 		
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
-		tblColumn.setWidth(86);
+		tblColumn.setWidth(109);
 		tblColumn.setText("StudentName");
 		
 		btnLogout = new Button(shlEezon, SWT.NONE);
@@ -117,12 +118,15 @@ public class ViewMyCheckInCheckOut {
 		btnLogout.setData("btnLogout");
 		
 		lblNewLabel = new Label(shlEezon, SWT.NONE);
-		lblNewLabel.setBounds(267, 133, 55, 15);
+		lblNewLabel.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		lblNewLabel.setBounds(330, 128, 70, 28);
 		lblNewLabel.setText("Course");
+	
 		
 		lblStudent = new Label(shlEezon, SWT.NONE);
+		lblStudent.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblStudent.setText("Student");
-		lblStudent.setBounds(267, 197, 55, 15);
+		lblStudent.setBounds(330, 192, 77, 28);
 
 	}	
 	

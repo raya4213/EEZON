@@ -24,6 +24,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 public class UpdateCheckInCheckOutView implements IKitObserver{
 	private Text txtEmail;
@@ -104,16 +105,16 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		btnHome.setData(new BtnHomeAction());
 		
 		btnBack = new Button(shlEezonCheck, SWT.NONE);
-		btnBack.setBounds(469, 27, 105, 35);
+		btnBack.setBounds(507, 27, 105, 35);
 		btnBack.setText("Back");
 		btnBack.setData(new BtnBackAction());
 		
 		txtEmail = new Text(shlEezonCheck, SWT.BORDER);
 		txtEmail.setToolTipText("Enter Email ID");
-		txtEmail.setBounds(443, 78, 162, 31);
+		txtEmail.setBounds(481, 78, 162, 31);
 		
 		group = new Group(shlEezonCheck, SWT.NONE);
-		group.setBounds(456, 115, 149, 81);
+		group.setBounds(491, 118, 149, 81);
 		
 		radCheckIn = new Button(group, SWT.RADIO);
 		radCheckIn.setBounds(10, 23, 133, 25);
@@ -121,12 +122,12 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		radCheckIn.setData(new RadCheckInAction());
 		
 		radCheckOut = new Button(group, SWT.RADIO);
-		radCheckOut.setBounds(10, 54, 133, 25);
+		radCheckOut.setBounds(10, 56, 133, 25);
 		radCheckOut.setText("Check OUT");
 		radCheckOut.setData(new RadCheckOutAction());
 		
 		grpByCheckOut = new Group(shlEezonCheck, SWT.NONE);
-		grpByCheckOut.setBounds(409, 205, 234, 224);
+		grpByCheckOut.setBounds(439, 205, 234, 224);
 		
 		cmbSelectCourse = new Combo(grpByCheckOut, SWT.NONE);
 		cmbSelectCourse.setBounds(34, 25, 162, 33);
@@ -149,7 +150,7 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		btnCheckOut.setData(new BtnCheckOutAction());
 		
 		grpByCheckIn = new Group(shlEezonCheck, SWT.NONE);
-		grpByCheckIn.setBounds(81, 439, 929, 218);
+		grpByCheckIn.setBounds(98, 435, 929, 218);
 		
 		tblCinCoutDetails = new Table(grpByCheckIn, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
 		tblCinCoutDetails.setBounds(3, 25, 916, 142);
@@ -157,7 +158,7 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		tblCinCoutDetails.setLinesVisible(true);
 		
 		btnCheckIn = new Button(grpByCheckIn, SWT.NONE);
-		btnCheckIn.setBounds(392, 173, 105, 35);
+		btnCheckIn.setBounds(410, 173, 105, 35);
 		btnCheckIn.setText("Check IN");
 		btnCheckIn.setData(new BtnCheckInAction());
 		
@@ -199,7 +200,8 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		btnLogout.setData(new BtnLogoutAction());
 		
 		lblEmailId = new Label(shlEezonCheck, SWT.NONE);
-		lblEmailId.setBounds(357, 81, 55, 15);
+		lblEmailId.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		lblEmailId.setBounds(375, 81, 76, 28);
 		lblEmailId.setText("Email Id");
 
 	}

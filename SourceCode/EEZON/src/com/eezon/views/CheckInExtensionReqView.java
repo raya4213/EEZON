@@ -35,7 +35,7 @@ public class CheckInExtensionReqView implements IReqObserver{
 	public CheckInExtensionReqView() {
 		display = Display.getDefault();
 		shlEezon = new Shell();
-		shlEezon.setSize(1015, 560);
+		shlEezon.setSize(977, 560);
 		shlEezon.setText("EEZON - Request for Check IN Extension");
 		shlEezon.setLocation(450,200);
 		
@@ -46,26 +46,26 @@ public class CheckInExtensionReqView implements IReqObserver{
 		
 		cmbSelectKit = new Combo(shlEezon, SWT.NONE);
 		cmbSelectKit.setItems(new String[] {"10000-Raspberry Pi", "10010-Beaglebone", "10020-Leopard Gecko", "10040-Arduino"});
-		cmbSelectKit.setBounds(279, 278, 268, 23);
+		cmbSelectKit.setBounds(335, 275, 268, 23);
 		cmbSelectKit.setText("Select Kit");
 		
 		cmbSelectTimeFrame = new Combo(shlEezon, SWT.NONE);
 		cmbSelectTimeFrame.setItems(new String[] {"15", "30", "60"});
-		cmbSelectTimeFrame.setBounds(279, 330, 268, 23);
+		cmbSelectTimeFrame.setBounds(335, 327, 268, 23);
 		cmbSelectTimeFrame.setText("Select Time Frame (Days)");
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Internet of Things", "Real Time Embedded Systems", "Computer Architecture", "Computer Vision"});
-		cmbSelectCourse.setBounds(279, 224, 268, 23);
+		cmbSelectCourse.setBounds(335, 221, 268, 23);
 		cmbSelectCourse.setText("Select Course");
 		
 		btnRequest = new Button(shlEezon, SWT.NONE);
 		btnRequest.setText("Request");
-		btnRequest.setBounds(351, 383, 91, 30);
+		btnRequest.setBounds(407, 380, 91, 30);
 		btnRequest.setData(new CheckInExtensionReqBtnAction());
 		
 		tblReqDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
-		tblReqDetails.setBounds(41, 57, 912, 130);
+		tblReqDetails.setBounds(111, 58, 746, 130);
 		tblReqDetails.setHeaderVisible(true);
 		tblReqDetails.setLinesVisible(true);
 		
@@ -83,7 +83,7 @@ public class CheckInExtensionReqView implements IReqObserver{
   		tblColumn.setText("KitSerialNum");
   		
   		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
-  		tblColumn.setWidth(104);
+  		tblColumn.setWidth(84);
   		tblColumn.setText("KitType");
   		
   		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
@@ -91,11 +91,11 @@ public class CheckInExtensionReqView implements IReqObserver{
   		tblColumn.setText("Num of Days");
   		
   		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
-  		tblColumn.setWidth(179);
+  		tblColumn.setWidth(149);
   		tblColumn.setText("CheckOutDate");
   		
   		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
-  		tblColumn.setWidth(245);
+  		tblColumn.setWidth(147);
   		tblColumn.setText("Course Name");
   		
   		btnLogout = new Button(shlEezon, SWT.NONE);

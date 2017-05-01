@@ -51,18 +51,18 @@ public class RequestsView {
 		btnBack.setData("btnBack");
 		
 		btnReqCourse = new Button(shlEezon, SWT.NONE);
-		btnReqCourse.setBounds(101, 81, 243, 30);
+		btnReqCourse.setBounds(88, 79, 243, 30);
 		btnReqCourse.setText("Request to enroll into Course");
 		btnReqCourse.setData("btnReqCourse");
 		
 		btnReqUnavailableItem = new Button(shlEezon, SWT.NONE);
-		btnReqUnavailableItem.setBounds(101, 131, 243, 30);
+		btnReqUnavailableItem.setBounds(88, 129, 243, 30);
 		btnReqUnavailableItem.setText("Request for Unavailable Item");
 		btnReqUnavailableItem.setData("btnReqUnavailableItem");
 		
 		btnReqCheckinExtension = new Button(shlEezon, SWT.NONE);
 		btnReqCheckinExtension.setText("Request Check IN Extension");
-		btnReqCheckinExtension.setBounds(101, 182, 243, 30);
+		btnReqCheckinExtension.setBounds(88, 180, 243, 30);
 		btnReqCheckinExtension.setData("btnReqCheckinExtension");
 		
 		btnLogout = new Button(shlEezon, SWT.NONE);

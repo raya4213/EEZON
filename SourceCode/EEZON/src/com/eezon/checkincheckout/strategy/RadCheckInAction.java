@@ -17,6 +17,7 @@ public class RadCheckInAction implements ICheckInCheckOutBtnAction{
 		cInCoutcontoller.hideAllOptions();
 		ArrayList<Kit> kitsFound = kitModel.getStudentSpecificCheckedOutKitDetails(updateCheckInCheckOutView.getTxtEmail().getText());
 		
+		updateCheckInCheckOutView.getTblCinCoutDetails().removeAll();
 		updateCheckInCheckOutView.getGrpByCheckIn().setVisible(true);
 
 		for(Kit kitFound: kitsFound){

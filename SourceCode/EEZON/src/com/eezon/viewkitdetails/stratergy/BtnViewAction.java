@@ -13,7 +13,7 @@ import com.eezon.views.ViewKitDetailsCoursewiseView;
 public class BtnViewAction implements IViewKitDetailsBtnAction{
 
 	@Override
-	public void doAction(ViewKitDetailsCoursewiseView viewKitDetailsCoursewiseView,Kit kitModel) {
+	public void doAction(ViewKitDetailsCoursewiseController viewKitDetailsCoursewiseController,ViewKitDetailsCoursewiseView viewKitDetailsCoursewiseView, Kit kitModel) {
 		// TODO Auto-generated method stub
 		
 			

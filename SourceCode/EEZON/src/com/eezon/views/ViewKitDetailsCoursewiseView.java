@@ -34,21 +34,6 @@ public class ViewKitDetailsCoursewiseView {
 	private Label lblCourse;
 	private Label lblKittype;
 	
-
-	/**
-	 * Launch the application.
-	 * @param args
-	 
-	public static void main(String[] args) {
-		try {
-			ViewKitDetailsCoursewiseView window = new ViewKitDetailsCoursewiseView();
-			window.open();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	*/
-
 	public Table getTblViewDetails() {
 		return tblViewDetails;
 	}

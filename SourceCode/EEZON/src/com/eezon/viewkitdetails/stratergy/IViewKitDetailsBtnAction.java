@@ -6,5 +6,5 @@ import com.eezon.views.ViewKitDetailsCoursewiseView;
 
 public interface IViewKitDetailsBtnAction {
 	
-	public void doAction(ViewKitDetailsCoursewiseView viewKitDetailsCoursewiseView,Kit kitModel);
+	public void doAction(ViewKitDetailsCoursewiseController viewKitDetailsCoursewiseController,ViewKitDetailsCoursewiseView viewKitDetailsCoursewiseView,Kit kitModel);
 }

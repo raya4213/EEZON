@@ -8,8 +8,12 @@ public class BtnLogoutAction implements ICheckInCheckOutBtnAction{
 
 	@Override
 	public void doAction(UpdateCheckInCheckOutController cInCoutcontoller,
-			UpdateCheckInCheckOutView updateCheckInCheckOutView, Kit kitModel) {
-		// TODO Auto-generated method stub
+		UpdateCheckInCheckOutView updateCheckInCheckOutView, Kit kitModel) {
+		
+		cInCoutcontoller.getPrevShell().dispose();
+		updateCheckInCheckOutView.getShlEezonCheck().dispose();
+		cInCoutcontoller.getLoginShell().setVisible(true);
+		
 		
 	}
 

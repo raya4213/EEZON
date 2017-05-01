@@ -42,7 +42,6 @@ public class ViewMyCheckInCheckOutController implements MouseListener, Selection
 		viewMyCheckInCheckOut.getBtnBack().addMouseListener(this);
 		viewMyCheckInCheckOut.getBtnHome().addMouseListener(this);
 		viewMyCheckInCheckOut.getBtnView().addMouseListener(this);
-		
 		viewMyCheckInCheckOut.getCmbSelectCourse().addSelectionListener(this);
 		viewMyCheckInCheckOut.getCmbSelectStudent().addSelectionListener(this);
 	}

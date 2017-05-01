@@ -105,6 +105,7 @@ public class UpdateCheckInCheckOutController implements MouseListener, Selection
 		updateCheckInCheckOutView.getCmbSelectCourse().addSelectionListener(this);
 		updateCheckInCheckOutView.getCmbSelectKitType().addSelectionListener(this);
 		updateCheckInCheckOutView.getCmbKitSerialNumber().addSelectionListener(this);
+		updateCheckInCheckOutView.getBtnLogout().addMouseListener(this);
 	}
 	
 	public void displayView(){

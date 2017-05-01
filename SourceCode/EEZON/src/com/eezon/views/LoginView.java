@@ -24,6 +24,8 @@ public class LoginView {
 	Button btnLogin;
 	Button btnForgotPasswd;
 	Button btnSignUp;
+	private Label lblEmailId;
+	private Label lblPassword;
 	
 	/**
 	 * Launch the application.
@@ -116,6 +118,14 @@ public class LoginView {
 		btnSignUp.setBounds(291, 300, 75, 25);
 		btnSignUp.setText("Sign Up");
 		btnSignUp.setData("btnSignUp");
+		
+		lblEmailId = new Label(shlEezonInventory, SWT.NONE);
+		lblEmailId.setBounds(82, 214, 55, 15);
+		lblEmailId.setText("Email Id");
+		
+		lblPassword = new Label(shlEezonInventory, SWT.NONE);
+		lblPassword.setText("Password");
+		lblPassword.setBounds(82, 260, 75, 15);
 	}
 	
 	public Display getDisplay() {

@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Label;
 
 public class UpdateCheckInCheckOutView implements IKitObserver{
 	private Text txtEmail;
@@ -41,6 +42,7 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 	
 	TableColumn tblColumn;
 	private Button btnLogout;
+	private Label lblEmailId;
 	
 	// Hello world
 
@@ -103,7 +105,6 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		btnBack.setText("Back");
 		
 		txtEmail = new Text(shlEezonCheck, SWT.BORDER);
-		txtEmail.setText("Enter Email ID");
 		txtEmail.setToolTipText("Enter Email ID");
 		txtEmail.setBounds(443, 78, 162, 31);
 		
@@ -191,6 +192,10 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		btnLogout = new Button(shlEezonCheck, SWT.NONE);
 		btnLogout.setText("Logout");
 		btnLogout.setBounds(976, 27, 105, 35);
+		
+		lblEmailId = new Label(shlEezonCheck, SWT.NONE);
+		lblEmailId.setBounds(357, 81, 55, 15);
+		lblEmailId.setText("Email Id");
 
 	}
 

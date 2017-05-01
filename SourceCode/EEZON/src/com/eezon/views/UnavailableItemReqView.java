@@ -16,6 +16,7 @@ import com.eezon.requests.strategy.UnavailableItemReqBtnAction;
 
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.Label;
 
 public class UnavailableItemReqView implements IReqObserver {
 	private Text EnterName;
@@ -33,6 +34,12 @@ public class UnavailableItemReqView implements IReqObserver {
 	Table tblReqDetails;
 	TableColumn tblColumn;
 	Button btnLogout;
+	private Label lblCourse;
+	private Label lblItemType;
+	private Label lblItemName;
+	private Label lblItemLink;
+	private Label lblItemCost;
+	private Label lblNumberOfItems;
 	
 	public Button getBtnLogout() {
 		return btnLogout;
@@ -73,36 +80,29 @@ public class UnavailableItemReqView implements IReqObserver {
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Real Time Embedded Systems", "Internet of Things", "Advanced Computer Architecture", "Computer Vision"});
 		cmbSelectCourse.setBounds(471, 232, 215, 28);
-		cmbSelectCourse.setText("Select Course");
 		
 		cmbSelectItemType = new Combo(shlEezon, SWT.NONE);
 		cmbSelectItemType.setItems(new String[] {"Dev Kit", "Component"});
 		cmbSelectItemType.setBounds(471, 284, 215, 28);
-		cmbSelectItemType.setText("Select Item Type");
 		
 		EnterName = new Text(shlEezon, SWT.BORDER);
-		EnterName.setText("Enter Name");
 		EnterName.setToolTipText("Enter Name");
 		EnterName.setBounds(468, 348, 105, 31);
 		
 		EnterLink = new Text(shlEezon, SWT.BORDER);
-		EnterLink.setText("Enter Link");
 		EnterLink.setToolTipText("Enter Link");
 		EnterLink.setBounds(468, 396, 105, 31);
 		
 		enterCost = new Text(shlEezon, SWT.BORDER | SWT.MULTI);
-		enterCost.setText("Enter Cost");
 		enterCost.setToolTipText("Enter Cost");
 		enterCost.setBounds(468, 447, 105, 31);
 		
 		comNumOfItems = new Combo(shlEezon, SWT.NONE);
 		comNumOfItems.setItems(new String[] {"1", "2", "3", "4", "5"});
 		comNumOfItems.setBounds(469, 500, 151, 28);
-		comNumOfItems.setText("Number of items");
 		
 		btnRequest = new Button(shlEezon, SWT.NONE);
 		btnRequest.setBounds(468, 561, 105, 35);
-		btnRequest.setText("Request");
 	    btnRequest.setData(new UnavailableItemReqBtnAction());
 	    
 	    tblReqDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
@@ -142,6 +142,30 @@ public class UnavailableItemReqView implements IReqObserver {
   		btnLogout = new Button(shlEezon, SWT.NONE);
   		btnLogout.setText("Logout");
   		btnLogout.setBounds(944, 36, 105, 35);
+  		
+  		lblCourse = new Label(shlEezon, SWT.NONE);
+  		lblCourse.setBounds(385, 240, 55, 15);
+  		lblCourse.setText("Course");
+  		
+  		lblItemType = new Label(shlEezon, SWT.NONE);
+  		lblItemType.setText("Item Type");
+  		lblItemType.setBounds(385, 287, 55, 15);
+  		
+  		lblItemName = new Label(shlEezon, SWT.NONE);
+  		lblItemName.setText("Item Name");
+  		lblItemName.setBounds(385, 351, 68, 15);
+  		
+  		lblItemLink = new Label(shlEezon, SWT.NONE);
+  		lblItemLink.setText("Item Link");
+  		lblItemLink.setBounds(385, 399, 68, 15);
+  		
+  		lblItemCost = new Label(shlEezon, SWT.NONE);
+  		lblItemCost.setText("Item Cost");
+  		lblItemCost.setBounds(385, 450, 68, 15);
+  		
+  		lblNumberOfItems = new Label(shlEezon, SWT.NONE);
+  		lblNumberOfItems.setText("Number of \r\nitems");
+  		lblNumberOfItems.setBounds(385, 503, 68, 35);
 		
 	}
 

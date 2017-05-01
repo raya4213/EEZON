@@ -9,6 +9,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
 import com.eezon.viewkitdetails.stratergy.BtnViewAction;
+import org.eclipse.swt.widgets.Label;
 
 
 
@@ -26,6 +27,10 @@ public class ViewKitDetailsCoursewiseView {
 	Shell shlEezonView;
 	TableColumn tblColumn;
 	private Button btnLogout;
+	private Label lblNewLabel;
+	private Label lblSemester;
+	private Label lblCourse;
+	private Label lblKittype;
 	
 
 	/**
@@ -244,6 +249,22 @@ public class ViewKitDetailsCoursewiseView {
 		btnLogout = new Button(shlEezonView, SWT.NONE);
 		btnLogout.setText("LogOut");
 		btnLogout.setBounds(544, 10, 75, 25);
+		
+		lblNewLabel = new Label(shlEezonView, SWT.NONE);
+		lblNewLabel.setBounds(177, 84, 55, 15);
+		lblNewLabel.setText("Year");
+		
+		lblSemester = new Label(shlEezonView, SWT.NONE);
+		lblSemester.setText("Semester");
+		lblSemester.setBounds(177, 133, 55, 15);
+		
+		lblCourse = new Label(shlEezonView, SWT.NONE);
+		lblCourse.setText("Course");
+		lblCourse.setBounds(177, 188, 55, 15);
+		
+		lblKittype = new Label(shlEezonView, SWT.NONE);
+		lblKittype.setText("KItType");
+		lblKittype.setBounds(177, 251, 55, 15);
 
 	}
 

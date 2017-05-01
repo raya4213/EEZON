@@ -10,6 +10,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.Label;
 
 public class ViewMyCheckInCheckOut {
 	Button btnHome;
@@ -22,6 +23,8 @@ public class ViewMyCheckInCheckOut {
 	private Table tblDetails;
 	TableColumn tblColumn;
 	private Button btnLogout;
+	private Label lblNewLabel;
+	private Label lblStudent;
 	
 	
 	/**
@@ -60,12 +63,10 @@ public class ViewMyCheckInCheckOut {
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Advanced Computer Architecture", "Internet Of Things"});
 		cmbSelectCourse.setBounds(358, 125, 152, 33);
-		cmbSelectCourse.setText("Select Course");
 		
 		cmbSelectStudent = new Combo(shlEezon, SWT.NONE);
 		cmbSelectStudent.setItems(new String[] {"Mine", "All"});
-		cmbSelectStudent.setBounds(358, 230, 152, 33);
-		cmbSelectStudent.setText("Select Student");
+		cmbSelectStudent.setBounds(358, 189, 152, 33);
 		
 		btnView = new Button(shlEezon, SWT.NONE);
 		btnView.addSelectionListener(new SelectionAdapter() {
@@ -117,6 +118,14 @@ public class ViewMyCheckInCheckOut {
 		btnLogout = new Button(shlEezon, SWT.NONE);
 		btnLogout.setText("Logout");
 		btnLogout.setBounds(799, 23, 105, 35);
+		
+		lblNewLabel = new Label(shlEezon, SWT.NONE);
+		lblNewLabel.setBounds(267, 133, 55, 15);
+		lblNewLabel.setText("Course");
+		
+		lblStudent = new Label(shlEezon, SWT.NONE);
+		lblStudent.setText("Student");
+		lblStudent.setBounds(267, 197, 55, 15);
 
 	}	
 	

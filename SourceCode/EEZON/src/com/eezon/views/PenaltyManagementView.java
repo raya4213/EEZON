@@ -27,6 +27,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.TableItem;
 
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.Label;
 
 
 public class PenaltyManagementView implements IKitObserver{
@@ -53,6 +54,10 @@ public class PenaltyManagementView implements IKitObserver{
 	 Shell shlPenaltyManagement;
 	 TableColumn tblColumn;
 	 Button btnLogout;
+	 private Label lblSelectSem;
+	 private Label lblYear;
+	 private Label lblCourse;
+	 private Label lblEmailId;
 	
 	/**
 	 * Launch the application.
@@ -121,24 +126,20 @@ public class PenaltyManagementView implements IKitObserver{
 		cmbSelectSem = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectSem.setItems(new String[] {"Fall", "Spring", "Summer"});
 		cmbSelectSem.setBounds(3, 15, 268, 23);
-		cmbSelectSem.setText("Select Sem");
 		
 		cmbSelectYear = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectYear.setItems(new String[] {"2015", "2016", "2017"});
 		cmbSelectYear.setBounds(3, 55, 268, 23);
-		cmbSelectYear.setText("Select Year");
 		
 		cmbSelectCourse = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectCourse.setItems(new String[] {"Embedded System Design", "Computer Vision", "Real Time Embedded Systems", "Computer Architecture", "Programmable System on Chip", "Internet of Things", "Low Power Embedded Design Techniques"});
 		cmbSelectCourse.setBounds(3, 93, 268, 23);
-		cmbSelectCourse.setText("Select Course");
 		
 		grpByEmail = new Group(shlPenaltyManagement, SWT.NONE);
 		grpByEmail.setBounds(215, 328, 274, 39);
 		
 		txtEmailId = new Text(grpByEmail, SWT.BORDER);
 		txtEmailId.setBounds(3, 15, 268, 21);
-		txtEmailId.setText("Email Id");
 		
 		btnView = new Button(shlPenaltyManagement, SWT.NONE);
 		btnView.setBounds(305, 373, 75, 25);
@@ -191,6 +192,22 @@ public class PenaltyManagementView implements IKitObserver{
 		btnLogout = new Button(shlPenaltyManagement, SWT.NONE);
 		btnLogout.setText("Logout");
 		btnLogout.setBounds(549, 10, 75, 25);
+		
+		lblSelectSem = new Label(shlPenaltyManagement, SWT.NONE);
+		lblSelectSem.setBounds(118, 220, 55, 15);
+		lblSelectSem.setText("Semester");
+		
+		lblYear = new Label(shlPenaltyManagement, SWT.NONE);
+		lblYear.setText("Year");
+		lblYear.setBounds(118, 256, 55, 15);
+		
+		lblCourse = new Label(shlPenaltyManagement, SWT.NONE);
+		lblCourse.setText("Course");
+		lblCourse.setBounds(118, 298, 55, 15);
+		
+		lblEmailId = new Label(shlPenaltyManagement, SWT.NONE);
+		lblEmailId.setText("Email Id");
+		lblEmailId.setBounds(118, 347, 55, 15);
 
 	}
 

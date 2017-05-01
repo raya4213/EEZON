@@ -85,9 +85,16 @@ public class RequestsController implements MouseListener{
 		
 		switch(btnPressed.getData().toString()){
 			case "btnHome":
-				break;
 			case "btnBack":
+				this.prevShell.setVisible(true);
+				requestsView.getShlEezon().dispose();
 				break;
+			
+			case "btnLogout":
+				this.loginShell.setVisible(true);
+				this.prevShell.dispose();
+				requestsView.getShlEezon().dispose();
+				
 			case "btnReqCourse":
 				break;
 			case "btnReqUnavailableItem":
@@ -98,9 +105,6 @@ public class RequestsController implements MouseListener{
 				CheckInExtensionReqController checkInExtensionReqController= new CheckInExtensionReqController(userModel, requestsView.getShlEezon(), loginShell);
 				checkInExtensionReqController.displayView();
 				break;
-			case "btnLogout":
-				break;
-			
 		}
 	}
 

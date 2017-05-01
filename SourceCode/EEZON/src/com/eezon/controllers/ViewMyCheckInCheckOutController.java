@@ -134,6 +134,7 @@ public class ViewMyCheckInCheckOutController implements MouseListener, Selection
 				this.loginShell.setVisible(true);
 				this.prevShell.dispose();
 				viewMyCheckInCheckOut.getShlEezon().dispose();
+				
 			case "btnView":
 				System.out.println("Inside btnView onClick");
 				Course course = new Course();

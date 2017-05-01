@@ -194,7 +194,7 @@ public class Kit {
 		
 		ArrayList<Kit> kitsFound = new ArrayList<Kit>();
 		
-		String hql = "FROM Kit K WHERE K.studentEmailKit = '"+email+"' AND K.checkInStatus = 'N'";
+		String hql = "FROM Kit K WHERE K.studentEmailKit = '"+email+"' AND K.kitCheckInStatus = 'N'";
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();

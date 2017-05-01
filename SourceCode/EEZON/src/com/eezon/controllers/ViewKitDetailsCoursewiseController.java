@@ -39,6 +39,9 @@ public class ViewKitDetailsCoursewiseController implements MouseListener, Select
 	private void initializeListeners(){
 		System.out.println("Inside this function");
 		viewKitDetailsCoursewiseView.getBtnView().addMouseListener(this);
+		viewKitDetailsCoursewiseView.getBtnHome().addMouseListener(this);
+		viewKitDetailsCoursewiseView.getBtnBack().addMouseListener(this);
+		viewKitDetailsCoursewiseView.getBtnLogout().addMouseListener(this);
 	
 	}
 	
@@ -129,7 +132,7 @@ public class ViewKitDetailsCoursewiseController implements MouseListener, Select
 		System.out.println("mouseDown" + arg0);
 		
 		IViewKitDetailsBtnAction IViewBtnAction = (IViewKitDetailsBtnAction)btnPressed.getData();
-		IViewBtnAction.doAction(viewKitDetailsCoursewiseView, kitModel);
+		IViewBtnAction.doAction(this,viewKitDetailsCoursewiseView, kitModel);
 	}
 
 	@Override

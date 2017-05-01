@@ -35,7 +35,7 @@ public class BtnCheckOutAction implements ICheckInCheckOutBtnAction{
 			
 			Date date = new Date();
 			kitType.setKitCheckOutDate(date);
-			
+			kitType.setKitCheckInStatus("N");
 			/*kitType.setKitCourse(course);
 			kitType.setStudentEmailKit("asd");*/
 			

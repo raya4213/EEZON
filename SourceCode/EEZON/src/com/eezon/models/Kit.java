@@ -190,6 +190,29 @@ public class Kit {
 		return kitsFound;
 	}
 	
+	public ArrayList<Kit> getStudentSpecificCheckedOutKitDetails(String email){
+		
+		ArrayList<Kit> kitsFound = new ArrayList<Kit>();
+		
+		String hql = "FROM Kit K WHERE K.studentEmailKit = '"+email+"' AND K.checkInStatus = 'N'";
+
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.getTransaction().commit();
+		Query query = session.createQuery(hql);
+		List list = query.list();
+		System.out.println("QuerySize::"+query.list().size());
+		
+		Iterator listIterator = list.iterator();
+		while(listIterator.hasNext()){
+			Kit kitFound = (Kit)listIterator.next();
+			kitsFound.add(kitFound);
+		}
+		
+		return kitsFound;
+	}
+	
 	public ArrayList<Kit> getStudentSpecificKitDetailsWithPenalty(String email){
 		
 		ArrayList<Kit> kitsFound = new ArrayList<Kit>();

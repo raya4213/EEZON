@@ -146,7 +146,7 @@ public class ViewMyCheckInCheckOutController implements MouseListener, Selection
 				viewMyCheckInCheckOut.getTblDetails().removeAll();
 				
 				if (viewMyCheckInCheckOut.getCmbSelectStudent().getText().equalsIgnoreCase("Mine")){
-					kitsFound =  kitModel.getStudentCheckedOutKits("asd", course);
+					kitsFound =  kitModel.getStudentCheckedOutKits("rahul.yamasani@colorado.edu", course);
 				}
 				
 				else if (viewMyCheckInCheckOut.getCmbSelectStudent().getText().equalsIgnoreCase("All")){

@@ -2,6 +2,6 @@ package com.eezon.observer;
 
 import com.eezon.models.Kit;
 
-public interface KitObserver {
+public interface IKitObserver {
 	public void updateDetailsTable(Kit kitToUpdate);
 }

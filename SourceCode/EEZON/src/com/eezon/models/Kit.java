@@ -16,7 +16,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.eezon.observer.KitObserver;
+import com.eezon.observer.IKitObserver;
 
 
 
@@ -38,18 +38,18 @@ public class Kit {
 	private double kitPenalty;
 	
 	@Transient
-	private List<KitObserver> kitObservers = new ArrayList<KitObserver>();
+	private List<IKitObserver> kitObservers = new ArrayList<IKitObserver>();
 	
-	public void attach(KitObserver observer){
+	public void attach(IKitObserver observer){
 		kitObservers.add(observer);
 	}
 	
-	public void detach(KitObserver observer){
+	public void detach(IKitObserver observer){
 		kitObservers.remove(observer);
 	}
 	
 	public void notifyAllObservers(Kit kitToUpdate){
-		for(KitObserver observer : kitObservers){
+		for(IKitObserver observer : kitObservers){
 			observer.updateDetailsTable(kitToUpdate);
 		}
 	}
@@ -292,8 +292,7 @@ public class Kit {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		//session.save(kitType);
-		session.update(kitType);
+		session.update(kitType); 
 		session.getTransaction().commit();
 				
 		return true;

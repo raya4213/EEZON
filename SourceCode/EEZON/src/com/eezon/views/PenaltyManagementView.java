@@ -9,14 +9,9 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Text;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
 import com.eezon.models.Kit;
-import com.eezon.observer.KitObserver;
-import com.eezon.penalty.strategy.IPenaltyBtnAction;
+import com.eezon.observer.IKitObserver;
 import com.eezon.penalty.strategy.BtnByCourseAction;
 import com.eezon.penalty.strategy.BtnByEmailAction;
 import com.eezon.penalty.strategy.BtnOverrideAction;
@@ -26,15 +21,13 @@ import com.eezon.penalty.strategy.RadViewAction;
 
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.MouseListener;
-import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.List;
-import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.Label;
 
-public class PenaltyManagementView implements KitObserver{
+import org.eclipse.swt.widgets.TableItem;
+
+import org.eclipse.swt.widgets.TableColumn;
+
+
+public class PenaltyManagementView implements IKitObserver{
 	 
 	 Button btnHome;
 	 Button btnBack;

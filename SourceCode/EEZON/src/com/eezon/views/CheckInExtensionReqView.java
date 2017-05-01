@@ -95,7 +95,7 @@ public class CheckInExtensionReqView {
   		tblColumn.setText("Course Name");
 
 	}
-
+	
 	public Table getTblReqDetails() {
 		return tblReqDetails;
 	}

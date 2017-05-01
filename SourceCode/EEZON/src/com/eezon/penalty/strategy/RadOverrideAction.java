@@ -21,7 +21,7 @@ public class RadOverrideAction implements IPenaltyBtnAction {
 		penaltyView.getBtnOverride().setVisible(true);
 		
 		//Need to search email id of user 
-		ArrayList<Kit> kitsFound = kitModel.getStudentSpecificKitDetailsWithPenalty("asd");
+		ArrayList<Kit> kitsFound = kitModel.getStudentSpecificKitDetailsWithPenalty("sharat.vontari@colorado.edu");
 		
 		penaltyView.getTblViewPenalties().removeAll();
 		

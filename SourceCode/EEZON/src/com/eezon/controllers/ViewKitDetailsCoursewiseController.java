@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.TableItem;
 
 import com.eezon.models.Course;
 import com.eezon.models.Kit;
+import com.eezon.models.User;
 import com.eezon.viewkitdetails.stratergy.IViewKitDetailsBtnAction;
 import com.eezon.views.ViewKitDetailsCoursewiseView;
 
@@ -21,13 +22,16 @@ public class ViewKitDetailsCoursewiseController implements MouseListener, Select
 	ViewKitDetailsCoursewiseView viewKitDetailsCoursewiseView;
 	Course courseModel;
 	Kit kitModel;
-	
-	
-	public ViewKitDetailsCoursewiseController (){
+	Shell prevShell;
+	User userModel;
+
+	public ViewKitDetailsCoursewiseController(User userModel, Shell prevShell) {
 		viewKitDetailsCoursewiseView = new ViewKitDetailsCoursewiseView();
 		courseModel = new Course(); 
 		kitModel = new Kit();
 		initializeListeners();
+		this.userModel = userModel;
+		this.prevShell = prevShell;
 	}
 	
 	private void initializeListeners(){
@@ -37,6 +41,8 @@ public class ViewKitDetailsCoursewiseController implements MouseListener, Select
 	}
 	
 	public void displayView(){
+		this.prevShell.setVisible(false);
+		
 		Display display = viewKitDetailsCoursewiseView.getDisplay();
 		Shell shell = viewKitDetailsCoursewiseView.getShlEezonView();
 		shell.open();
@@ -46,6 +52,38 @@ public class ViewKitDetailsCoursewiseController implements MouseListener, Select
 				display.sleep();
 			}
 		}
+	}
+	
+	public ViewKitDetailsCoursewiseView getViewKitDetailsCoursewiseView() {
+		return viewKitDetailsCoursewiseView;
+	}
+
+	public void setViewKitDetailsCoursewiseView(ViewKitDetailsCoursewiseView viewKitDetailsCoursewiseView) {
+		this.viewKitDetailsCoursewiseView = viewKitDetailsCoursewiseView;
+	}
+
+	public Course getCourseModel() {
+		return courseModel;
+	}
+
+	public void setCourseModel(Course courseModel) {
+		this.courseModel = courseModel;
+	}
+
+	public Kit getKitModel() {
+		return kitModel;
+	}
+
+	public void setKitModel(Kit kitModel) {
+		this.kitModel = kitModel;
+	}
+
+	public Shell getPrevShell() {
+		return prevShell;
+	}
+
+	public void setPrevShell(Shell prevShell) {
+		this.prevShell = prevShell;
 	}
 	
 	@Override

@@ -170,6 +170,8 @@ public class ViewKitDetailsCoursewiseView {
 		shlEezonView = new Shell();
 		shlEezonView.setSize(645, 545);
 		shlEezonView.setText("EEZON - View Kit Details");
+		shlEezonView.setLocation(450,200);
+		
 		
 		btnHome = new Button(shlEezonView, SWT.NONE);
 		btnHome.setBounds(10, 10, 75, 25);
@@ -238,13 +240,5 @@ public class ViewKitDetailsCoursewiseView {
 		tblColumn.setWidth(86);
 		tblColumn.setText("StudentName");
 
-
-		/*shlEezonView.open();
-		shlEezonView.layout();
-		while (!shlEezonView.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}*/
 	}
 }

@@ -130,6 +130,8 @@ public class HomeScreenController implements MouseListener {
 				
 				break;
 			case "btnViewKitDetails":
+				ViewKitDetailsCoursewiseController viewController = new ViewKitDetailsCoursewiseController(userModel, homeScreenView.getShlHome());
+				viewController.displayView();
 				
 				break;
 			case "btnCINCOUTUpdateView":

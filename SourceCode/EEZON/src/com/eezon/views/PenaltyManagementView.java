@@ -154,6 +154,11 @@ public class PenaltyManagementView implements IKitObserver{
 		grpByEmail = new Group(shlPenaltyManagement, SWT.NONE);
 		grpByEmail.setBounds(103, 328, 386, 39);
 		
+		lblEmailId = new Label(grpByEmail, SWT.NONE);
+		lblEmailId.setLocation(10, 13);
+		lblEmailId.setSize(55, 15);
+		lblEmailId.setText("Email Id");
+		
 		txtEmailId = new Text(grpByEmail, SWT.BORDER);
 		txtEmailId.setBounds(111, 10, 265, 21);
 		
@@ -209,10 +214,6 @@ public class PenaltyManagementView implements IKitObserver{
 		btnLogout.setText("Logout");
 		btnLogout.setBounds(549, 10, 75, 25);
 		btnLogout.setData(new BtnLogoutAction());
-		
-		lblEmailId = new Label(shlPenaltyManagement, SWT.NONE);
-		lblEmailId.setBounds(116, 347, 55, 15);
-		lblEmailId.setText("Email Id");
 
 	}
 

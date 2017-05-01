@@ -141,7 +141,8 @@ public class PenaltyManagementController implements MouseListener, SelectionList
 		// TODO Auto-generated method stub
 		Button btnPressed = (Button)arg0.widget;
 		System.out.println("mouseDown" + arg0);
-
+		
+		System.out.println("btnPressed.getData()" + btnPressed.getData());
 		IPenaltyBtnAction btnAction = (IPenaltyBtnAction)btnPressed.getData();
 		btnAction.doAction(this, penaltyView, kitModel);
 

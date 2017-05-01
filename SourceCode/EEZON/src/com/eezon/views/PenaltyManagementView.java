@@ -12,8 +12,10 @@ import org.eclipse.swt.widgets.Text;
 
 import com.eezon.models.Kit;
 import com.eezon.observer.IKitObserver;
+import com.eezon.penalty.strategy.BtnBackAction;
 import com.eezon.penalty.strategy.BtnByCourseAction;
 import com.eezon.penalty.strategy.BtnByEmailAction;
+import com.eezon.penalty.strategy.BtnHomeAction;
 import com.eezon.penalty.strategy.BtnOverrideAction;
 import com.eezon.penalty.strategy.BtnViewAction;
 import com.eezon.penalty.strategy.RadOverrideAction;
@@ -50,6 +52,7 @@ public class PenaltyManagementView implements IKitObserver{
 	 Display display;
 	 Shell shlPenaltyManagement;
 	 TableColumn tblColumn;
+	 Button btnLogout;
 	
 	/**
 	 * Launch the application.
@@ -78,15 +81,15 @@ public class PenaltyManagementView implements IKitObserver{
 		btnHome = new Button(shlPenaltyManagement, SWT.NONE);
 		btnHome.setText("Home");
 		btnHome.setBounds(10, 10, 75, 25);
-		btnHome.setData("btnHome");
+		btnHome.setData(new BtnHomeAction());
 		
 	    btnBack = new Button(shlPenaltyManagement, SWT.NONE);
-		btnBack.setBounds(577, 10, 75, 25);
+		btnBack.setBounds(305, 10, 75, 25);
 		btnBack.setText("Back");
-		btnHome.setData("btnBack");
+		btnBack.setData(new BtnBackAction());
 		
 		grpByViewOverride = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByViewOverride.setBounds(305, 10, 96, 56);
+		grpByViewOverride.setBounds(305, 65, 96, 56);
 		
 		radView = new Button(grpByViewOverride, SWT.RADIO);
 		radView.setBounds(3, 15, 90, 16);
@@ -100,7 +103,7 @@ public class PenaltyManagementView implements IKitObserver{
 		radOverride.setData(new RadOverrideAction());
 		
 		grpByCourseEmail = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByCourseEmail.setBounds(302, 81, 96, 56);
+		grpByCourseEmail.setBounds(302, 136, 96, 56);
 		
 		btnByCourse = new Button(grpByCourseEmail, SWT.RADIO);
 		btnByCourse.setBounds(3, 15, 90, 16);
@@ -113,7 +116,7 @@ public class PenaltyManagementView implements IKitObserver{
 		btnByEmail.setData(new BtnByEmailAction());
 		
 		grpByCourse = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByCourse.setBounds(215, 143, 274, 124);
+		grpByCourse.setBounds(215, 198, 274, 124);
 		
 		cmbSelectSem = new Combo(grpByCourse, SWT.NONE);
 		cmbSelectSem.setItems(new String[] {"Fall", "Spring", "Summer"});
@@ -131,24 +134,24 @@ public class PenaltyManagementView implements IKitObserver{
 		cmbSelectCourse.setText("Select Course");
 		
 		grpByEmail = new Group(shlPenaltyManagement, SWT.NONE);
-		grpByEmail.setBounds(215, 273, 274, 39);
+		grpByEmail.setBounds(215, 328, 274, 39);
 		
 		txtEmailId = new Text(grpByEmail, SWT.BORDER);
 		txtEmailId.setBounds(3, 15, 268, 21);
 		txtEmailId.setText("Email Id");
 		
 		btnView = new Button(shlPenaltyManagement, SWT.NONE);
-		btnView.setBounds(305, 318, 75, 25);
+		btnView.setBounds(305, 373, 75, 25);
 		btnView.setText("View");
 		btnView.setData(new BtnViewAction());
 		
 		btnOverride = new Button(shlPenaltyManagement, SWT.NONE);
-		btnOverride.setBounds(305, 477, 75, 25);
+		btnOverride.setBounds(305, 532, 75, 25);
 		btnOverride.setText("Override");
 		btnOverride.setData(new BtnOverrideAction());
 		
 		tblViewPenalties = new Table(shlPenaltyManagement, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
-		tblViewPenalties.setBounds(33, 361, 616, 95);
+		tblViewPenalties.setBounds(33, 416, 616, 95);
 		tblViewPenalties.setHeaderVisible(true);
 		tblViewPenalties.setLinesVisible(true);
 		
@@ -184,6 +187,10 @@ public class PenaltyManagementView implements IKitObserver{
 		tblColumn = new TableColumn(tblViewPenalties, SWT.NULL);
 		tblColumn.setWidth(86);
 		tblColumn.setText("StudentName");
+		
+		btnLogout = new Button(shlPenaltyManagement, SWT.NONE);
+		btnLogout.setText("Logout");
+		btnLogout.setBounds(549, 10, 75, 25);
 
 	}
 
@@ -345,6 +352,14 @@ public class PenaltyManagementView implements IKitObserver{
 
 	public void setTblColumn(TableColumn tblColumn) {
 		this.tblColumn = tblColumn;
+	}
+
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
+
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
 	}
 
 	@Override

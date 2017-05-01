@@ -61,13 +61,13 @@ public class UnavailableItemReqView implements IReqObserver {
 		
 		btnHome = new Button(shlEezon, SWT.NONE);
 		btnHome.setBounds(76, 36, 105, 35);
-		btnHome.setText("HOME");
+		btnHome.setText("Home");
 		btnHome.setData("btnHome");
 		
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
 		btnBack.setBounds(471, 36, 105, 35);
-		btnBack.setText("BACK");
+		btnBack.setText("Back");
 		btnBack.setData("btnBack");
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
@@ -102,7 +102,7 @@ public class UnavailableItemReqView implements IReqObserver {
 		
 		btnRequest = new Button(shlEezon, SWT.NONE);
 		btnRequest.setBounds(468, 561, 105, 35);
-		btnRequest.setText("REQUEST");
+		btnRequest.setText("Request");
 	    btnRequest.setData(new UnavailableItemReqBtnAction());
 	    
 	    tblReqDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION);
@@ -140,7 +140,7 @@ public class UnavailableItemReqView implements IReqObserver {
   		tblColumn.setText("Course Name");
   		
   		btnLogout = new Button(shlEezon, SWT.NONE);
-  		btnLogout.setText("LOGOUT");
+  		btnLogout.setText("Logout");
   		btnLogout.setBounds(944, 36, 105, 35);
 		
 	}

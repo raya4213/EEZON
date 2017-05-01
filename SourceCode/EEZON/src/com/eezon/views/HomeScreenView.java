@@ -78,7 +78,7 @@ public class HomeScreenView {
 		btnAddProfTA.setData("btnAddProfTA");
 		
 		btnLogout = new Button(shlHome, SWT.NONE);
-		btnLogout.setText("LOGOUT");
+		btnLogout.setText("Logout");
 		btnLogout.setBounds(349, 10, 75, 25);
 	}
 

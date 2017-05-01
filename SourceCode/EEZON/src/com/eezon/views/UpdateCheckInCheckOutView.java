@@ -96,11 +96,11 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		
 		btnHome = new Button(shlEezonCheck, SWT.NONE);
 		btnHome.setBounds(44, 27, 105, 35);
-		btnHome.setText("HOME");
+		btnHome.setText("Home");
 		
 		btnBack = new Button(shlEezonCheck, SWT.NONE);
 		btnBack.setBounds(469, 27, 105, 35);
-		btnBack.setText("BACK");
+		btnBack.setText("Back");
 		
 		txtEmail = new Text(shlEezonCheck, SWT.BORDER);
 		txtEmail.setText("Enter Email ID");
@@ -189,7 +189,7 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		tblColumn.setText("StudentName");
 		
 		btnLogout = new Button(shlEezonCheck, SWT.NONE);
-		btnLogout.setText("LOGOUT");
+		btnLogout.setText("Logout");
 		btnLogout.setBounds(976, 27, 105, 35);
 
 	}

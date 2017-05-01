@@ -27,6 +27,7 @@ public class CheckInExtensionReqView implements IReqObserver{
 	Display display;
 	Shell shlEezon;
 	TableColumn tblColumn;
+	private Button btnLogout;
 	
 	/**
 	 * Open the window.
@@ -44,7 +45,7 @@ public class CheckInExtensionReqView implements IReqObserver{
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
 		btnBack.setText("Back");
-		btnBack.setBounds(577, 10, 75, 25);
+		btnBack.setBounds(369, 10, 75, 25);
 		btnBack.setData("btnBack");
 		
 		cmbSelectKit = new Combo(shlEezon, SWT.NONE);
@@ -100,9 +101,21 @@ public class CheckInExtensionReqView implements IReqObserver{
   		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
   		tblColumn.setWidth(245);
   		tblColumn.setText("Course Name");
+  		
+  		btnLogout = new Button(shlEezon, SWT.NONE);
+  		btnLogout.setText("Logout");
+  		btnLogout.setBounds(878, 10, 75, 25);
 
 	}
 	
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
+
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
+	}
+
 	public Table getTblReqDetails() {
 		return tblReqDetails;
 	}

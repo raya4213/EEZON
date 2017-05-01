@@ -28,6 +28,7 @@ public class UnavailableItemRequest extends Request {
 
 	@Override
 	public boolean addRequest(Request req) {
+		
 		// TODO Auto-generated method stub
 		
 		UnavailableItemRequest request = (UnavailableItemRequest)req;
@@ -37,7 +38,7 @@ public class UnavailableItemRequest extends Request {
 		
 		session.save(request); 
 		session.getTransaction().commit();
-		
+		super.addRequest(req);
 		return true;	
 	}
 	

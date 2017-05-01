@@ -35,6 +35,7 @@ public class CheckInExtensionRequest extends Request{
 
 	@Override
 	public boolean addRequest(Request req) {
+		
 		// TODO Auto-generated method stub
 		CheckInExtensionRequest request = (CheckInExtensionRequest)req;
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -42,6 +43,7 @@ public class CheckInExtensionRequest extends Request{
 		session.beginTransaction();
 		session.save(request); 
 		session.getTransaction().commit();
+		super.addRequest(req);
 		return true;	
 	}
 	

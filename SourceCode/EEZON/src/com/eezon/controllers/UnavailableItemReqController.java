@@ -29,6 +29,8 @@ public class UnavailableItemReqController implements MouseListener {
 		this.unavailableItemReqModel=new UnavailableItemRequest();
 		initializeListeners();
 		updateTblDetails("sharath.vontari@colorado.edu");
+		unavailableItemReqModel.attach(unavailableItemReqView);
+		
 	}
 	
 	public void initializeListeners(){

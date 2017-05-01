@@ -6,8 +6,14 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 
-public class CheckInExtensionReqView {
+import com.eezon.models.CheckInExtensionRequest;
+import com.eezon.models.Request;
+import com.eezon.models.UnavailableItemRequest;
+import com.eezon.observer.IReqObserver;
+
+public class CheckInExtensionReqView implements IReqObserver{
 	
 	private Combo cmbSelectTimeFrame;
 	private Table tblReqDetails;
@@ -182,6 +188,20 @@ public class CheckInExtensionReqView {
 
 	public void setShlEezon(Shell shlEezon) {
 		this.shlEezon = shlEezon;
+	}
+
+	@Override
+	public void updateDetailsTable(Request req) {
+		// TODO Auto-generated method stub
+		CheckInExtensionRequest itemReq = (CheckInExtensionRequest) req;
+		TableItem item = new TableItem(tblReqDetails, 0);
+		item.setText(0, itemReq.getReqId()+"");
+        item.setText(1, itemReq.getReqStatus());
+        item.setText(2, itemReq.getRequestKit().getKitSerialNum());
+        item.setText(3, itemReq.getRequestKit().getKitType());
+        item.setText(4, itemReq.getNumDays()+"");
+        item.setText(5, itemReq.getRequestKit().getKitCheckOutDate()+"");
+        item.setText(6, itemReq.getRequestKit().getKitCourse().getCourseName());
 	}
 }
 

@@ -34,6 +34,7 @@ public class CheckInExtensionReqController implements MouseListener {
 			this.checkInExtensionReqModel= new CheckInExtensionRequest();
 			initializeListeners();
 			updateTblDetails("sharath.vontari@colorado.edu");
+			checkInExtensionReqModel.attach(checkInExtensionReqView);
 		}
 		
 		public void initializeListeners(){

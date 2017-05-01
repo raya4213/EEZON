@@ -3,13 +3,20 @@ package com.eezon.views;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
+
+import com.eezon.models.CheckInExtensionRequest;
+import com.eezon.models.Request;
+import com.eezon.models.UnavailableItemRequest;
+import com.eezon.observer.IReqObserver;
+
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 
-public class UnavailableItemReqView {
+public class UnavailableItemReqView implements IReqObserver {
 	private Text EnterName;
 	private Text EnterLink;
 	private Text enterCost;
@@ -255,5 +262,22 @@ public class UnavailableItemReqView {
 
 	public void setShlEezon(Shell shlEezon) {
 		this.shlEezon = shlEezon;
+	}
+
+
+
+
+	@Override
+	public void updateDetailsTable(Request req) {
+		// TODO Auto-generated method stub
+		UnavailableItemRequest itemReq = (UnavailableItemRequest) req;
+		TableItem item = new TableItem(tblReqDetails, SWT.NULL);
+        item.setText(0, itemReq.getReqId()+"");
+        item.setText(1, itemReq.getReqStatus());
+        item.setText(2, itemReq.getUnavailableItem().getUnavailableItemType());
+        item.setText(3, itemReq.getUnavailableItem().getName());
+        item.setText(4, itemReq.getUnavailableItem().getNumComponents()+"");
+        item.setText(5, itemReq.getUnavailableItem().getCost()+"");
+        item.setText(6, itemReq.getUnavailableItem().getRequestForCourse().getCourseName());
 	}
 }

@@ -1,4 +1,4 @@
-package com.eezon.controllers;
+	package com.eezon.controllers;
 
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
@@ -6,6 +6,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
+import com.eezon.dialogs.ValidationDialog;
 import com.eezon.models.User;
 import com.eezon.views.LoginView;
 
@@ -65,10 +66,14 @@ public class LoginController implements MouseListener {
 							homeScreenController.displayView();
 						}else{
 							System.out.println("Unsuccessful login attempt");
+							ValidationDialog validationDialog = new ValidationDialog(loginView.getShell(), 0);
+							validationDialog.open();
 						}
 					}
 				}else{
 					System.out.println("User email id is not present");
+					ValidationDialog validationDialog = new ValidationDialog(loginView.getShell(), 0);
+					validationDialog.open();
 				}
 				
 				break;

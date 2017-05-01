@@ -5,6 +5,12 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
+
+import com.eezon.checkincheckout.strategy.BtnCheckInAction;
+import com.eezon.checkincheckout.strategy.BtnCheckOutAction;
+import com.eezon.checkincheckout.strategy.RadCheckInAction;
+import com.eezon.checkincheckout.strategy.RadCheckOutAction;
+
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -101,12 +107,12 @@ public class UpdateCheckInCheckOutView {
 		radCheckIn = new Button(group, SWT.RADIO);
 		radCheckIn.setBounds(10, 23, 133, 25);
 		radCheckIn.setText("Check IN");
-		radCheckIn.setData("radCheckIn");
+		radCheckIn.setData(new RadCheckInAction());
 		
 		radCheckOut = new Button(group, SWT.RADIO);
 		radCheckOut.setBounds(10, 54, 133, 25);
 		radCheckOut.setText("Check OUT");
-		radCheckOut.setData("radCheckOut");
+		radCheckOut.setData(new RadCheckOutAction());
 		
 		grpByCheckOut = new Group(shlEezonCheck, SWT.NONE);
 		grpByCheckOut.setBounds(409, 205, 234, 224);
@@ -129,7 +135,7 @@ public class UpdateCheckInCheckOutView {
 		btnCheckOut = new Button(grpByCheckOut, SWT.NONE);
 		btnCheckOut.setBounds(60, 186, 105, 35);
 		btnCheckOut.setText("Check OUT");
-		btnCheckOut.setData("btnCheckOut");
+		btnCheckOut.setData(new BtnCheckOutAction());
 		
 		grpByCheckIn = new Group(shlEezonCheck, SWT.NONE);
 		grpByCheckIn.setBounds(81, 439, 929, 218);
@@ -142,7 +148,7 @@ public class UpdateCheckInCheckOutView {
 		btnCheckIn = new Button(grpByCheckIn, SWT.NONE);
 		btnCheckIn.setBounds(392, 173, 105, 35);
 		btnCheckIn.setText("Check IN");
-		btnCheckIn.setData("btnCheckIn");
+		btnCheckIn.setData(new BtnCheckInAction());
 		
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
 		tblColumn.setWidth(106);

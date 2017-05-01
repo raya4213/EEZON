@@ -292,7 +292,8 @@ public class Kit {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		session.update(kitType); 
+		//session.save(kitType);
+		session.update(kitType);
 		session.getTransaction().commit();
 				
 		return true;

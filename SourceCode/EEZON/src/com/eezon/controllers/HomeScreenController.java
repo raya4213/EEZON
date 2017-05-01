@@ -135,6 +135,8 @@ public class HomeScreenController implements MouseListener {
 				
 				break;
 			case "btnCINCOUTUpdateView":
+				UpdateCheckInCheckOutController updateCheckInCheckOutController = new UpdateCheckInCheckOutController(userModel,homeScreenView.getShlHome());
+				updateCheckInCheckOutController.displayView();
 				
 				break;
 			case "btnInventory":

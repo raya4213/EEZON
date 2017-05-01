@@ -8,7 +8,6 @@ import org.eclipse.swt.widgets.Shell;
 
 import com.eezon.models.User;
 import com.eezon.views.HomeScreenView;
-import com.eezon.views.RequestsView;
 
 public class HomeScreenController implements MouseListener {
 	private HomeScreenView homeScreenView;
@@ -125,11 +124,11 @@ public class HomeScreenController implements MouseListener {
 		
 		switch(btnPressed.getData().toString()){
 			case "btnRequestsView":
-				RequestsController requestsController = new RequestsController(userModel,homeScreenView.getShlHome());
-				requestsController.displayView();
+				
 				break;
 			case "btnMyCINCOUTView":
-				
+				ViewMyCheckInCheckOutController viewCheckInCheckOutController = new ViewMyCheckInCheckOutController(userModel,homeScreenView.getShlHome());
+				viewCheckInCheckOutController.displayView();
 				break;
 			case "btnViewKitDetails":
 				ViewKitDetailsCoursewiseController viewController = new ViewKitDetailsCoursewiseController(userModel, homeScreenView.getShlHome());

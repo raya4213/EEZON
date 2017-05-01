@@ -14,19 +14,24 @@ import org.eclipse.swt.widgets.TableItem;
 
 import com.eezon.models.Course;
 import com.eezon.models.Kit;
+import com.eezon.models.User;
 import com.eezon.views.ViewMyCheckInCheckOut;
 
 public class ViewMyCheckInCheckOutController implements MouseListener, SelectionListener{
 	private ViewMyCheckInCheckOut viewMyCheckInCheckOut;
 	private Course courseModel;
 	private Kit kitModel;
+	private User userModel;
+	private Shell prevShell;
 	
 
 	// Constructor
-	public ViewMyCheckInCheckOutController() {
+	public ViewMyCheckInCheckOutController(User userModel,Shell prevShell) {
 		viewMyCheckInCheckOut = new ViewMyCheckInCheckOut();
 		courseModel = new Course();
 		kitModel = new Kit();
+		this.userModel =userModel;
+		this.prevShell = prevShell;
 		initializeListeners();
 	}
 	
@@ -43,6 +48,7 @@ public class ViewMyCheckInCheckOutController implements MouseListener, Selection
 	
 	// Displays the Screen
 	public void displayView(){
+		this.prevShell.setVisible(false);
 		Shell shell = viewMyCheckInCheckOut.getShlEezon();
 		Display display = viewMyCheckInCheckOut.getDisplay();
 		shell.open();

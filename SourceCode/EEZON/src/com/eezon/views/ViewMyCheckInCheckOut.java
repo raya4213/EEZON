@@ -49,12 +49,12 @@ public class ViewMyCheckInCheckOut {
 		
 		btnHome = new Button(shlEezon, SWT.NONE);
 		btnHome.setBounds(76, 23, 105, 35);
-		btnHome.setText("HOME");
+		btnHome.setText("Home");
 		btnHome.setData("btnHome");
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
 		btnBack.setBounds(375, 23, 105, 35);
-		btnBack.setText("BACK");
+		btnBack.setText("Back");
 		btnBack.setData("btnBack");
 		
 		cmbSelectCourse = new Combo(shlEezon, SWT.NONE);
@@ -115,7 +115,7 @@ public class ViewMyCheckInCheckOut {
 		tblColumn.setText("StudentName");
 		
 		btnLogout = new Button(shlEezon, SWT.NONE);
-		btnLogout.setText("LOGOUT");
+		btnLogout.setText("Logout");
 		btnLogout.setBounds(799, 23, 105, 35);
 
 	}	

@@ -24,7 +24,7 @@ public class BtnViewAction implements IViewKitDetailsBtnAction{
 			//courseView. (viewKitDetailsCoursewiseView.getCmbSelectYear().getText());
 			viewKitDetailsCoursewiseView.getTblViewDetails().removeAll();
 			ArrayList<Kit> kitsFoundView = kitModel.getKitSerialNums(viewKitDetailsCoursewiseView.getCmbSelectKitType().getText(),courseView);			
-			
+			   
 			
 			//viewKitDetailsCoursewiseView.getTblViewDetails().removeAll();
 			

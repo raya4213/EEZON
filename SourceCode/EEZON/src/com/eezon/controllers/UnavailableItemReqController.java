@@ -42,8 +42,8 @@ public class UnavailableItemReqController implements MouseListener {
 	
 	public void initializeListeners(){
 		unavailableItemReqView.getBtnRequest().addMouseListener(this);
-		unavailableItemReqView.getBtnHome().addMouseListener(this);
 		unavailableItemReqView.getBtnBack().addMouseListener(this);
+		unavailableItemReqView.getBtnLogout().addMouseListener(this);
 	}
 	
 	public void updateTblDetails(String email){
@@ -132,7 +132,7 @@ public class UnavailableItemReqController implements MouseListener {
 		Button btnPressed = (Button)arg0.widget;
 		
 		IUnavailableItemBtnAction btnAction = (IUnavailableItemBtnAction)btnPressed.getData();
-		btnAction.doAction(unavailableItemReqView, unavailableItemReqModel);
+		btnAction.doAction(this,unavailableItemReqView, unavailableItemReqModel);
 	
 	}
 

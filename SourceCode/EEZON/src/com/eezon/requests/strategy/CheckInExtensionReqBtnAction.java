@@ -2,6 +2,7 @@ package com.eezon.requests.strategy;
 
 import java.util.Date;
 
+import com.eezon.controllers.CheckInExtensionReqController;
 import com.eezon.models.CheckInExtensionRequest;
 import com.eezon.models.CourseToEmbed;
 import com.eezon.models.KitToEmbed;
@@ -10,7 +11,7 @@ import com.eezon.views.CheckInExtensionReqView;
 public class CheckInExtensionReqBtnAction implements ICheckInExtensionBtnAction{
 
 	@Override
-	public void doAction(CheckInExtensionReqView checkInExtensionReqView,
+	public void doAction(CheckInExtensionReqController checkInExtensionReqController, CheckInExtensionReqView checkInExtensionReqView,
 			CheckInExtensionRequest checkInExtensionReqModel) {
 		// TODO Auto-generated method stub
 		

@@ -47,8 +47,8 @@ public class CheckInExtensionReqController implements MouseListener {
 		
 		public void initializeListeners(){
 			checkInExtensionReqView.getBtnRequest().addMouseListener(this);
-			checkInExtensionReqView.getBtnHome().addMouseListener(this);
 			checkInExtensionReqView.getBtnBack().addMouseListener(this);
+			checkInExtensionReqView.getBtnLogout().addMouseListener(this);
 		}
 		
 		public void updateTblDetails(String email){
@@ -151,7 +151,7 @@ public class CheckInExtensionReqController implements MouseListener {
 			Button btnPressed = (Button)arg0.widget;
 			
 			ICheckInExtensionBtnAction btnAction = (ICheckInExtensionBtnAction)btnPressed.getData();
-			btnAction.doAction(checkInExtensionReqView, checkInExtensionReqModel);
+			btnAction.doAction(this,checkInExtensionReqView, checkInExtensionReqModel);
 			
 		}
 

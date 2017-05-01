@@ -13,7 +13,6 @@ import com.eezon.models.Request;
 import com.eezon.models.UnavailableItemRequest;
 import com.eezon.observer.IReqObserver;
 import com.eezon.requests.strategy.CheckInExtensionBackBtnAction;
-import com.eezon.requests.strategy.CheckInExtensionHomeBtnAction;
 import com.eezon.requests.strategy.CheckInExtensionLogoutBtnAction;
 import com.eezon.requests.strategy.CheckInExtensionReqBtnAction;
 
@@ -21,8 +20,6 @@ public class CheckInExtensionReqView implements IReqObserver{
 	
 	private Combo cmbSelectTimeFrame;
 	private Table tblReqDetails;
-
-	Button btnHome;
 	Button btnBack;
 	Combo cmbSelectKit;
 	Combo cmbSelectCourse;
@@ -42,14 +39,9 @@ public class CheckInExtensionReqView implements IReqObserver{
 		shlEezon.setText("EEZON - Request for Check IN Extension");
 		shlEezon.setLocation(450,200);
 		
-		btnHome = new Button(shlEezon, SWT.NONE);
-		btnHome.setText("Home");
-		btnHome.setBounds(10, 10, 75, 25);
-		btnHome.setData(new CheckInExtensionHomeBtnAction());
-		
 		btnBack = new Button(shlEezon, SWT.NONE);
 		btnBack.setText("Back");
-		btnBack.setBounds(369, 10, 75, 25);
+		btnBack.setBounds(10, 10, 75, 25);
 		btnBack.setData(new CheckInExtensionBackBtnAction());
 		
 		cmbSelectKit = new Combo(shlEezon, SWT.NONE);
@@ -151,14 +143,6 @@ public class CheckInExtensionReqView implements IReqObserver{
 
 	public void setTable(Table table) {
 		this.tblReqDetails = table;
-	}
-
-	public Button getBtnHome() {
-		return btnHome;
-	}
-
-	public void setBtnHome(Button btnHome) {
-		this.btnHome = btnHome;
 	}
 
 	public Button getBtnBack() {

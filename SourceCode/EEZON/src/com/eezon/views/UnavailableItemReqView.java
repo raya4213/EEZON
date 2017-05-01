@@ -13,7 +13,6 @@ import com.eezon.models.Request;
 import com.eezon.models.UnavailableItemRequest;
 import com.eezon.observer.IReqObserver;
 import com.eezon.requests.strategy.UnavailableItemBackBtnAction;
-import com.eezon.requests.strategy.UnavailableItemHomeBtnAction;
 import com.eezon.requests.strategy.UnavailableItemLogoutBtnAction;
 import com.eezon.requests.strategy.UnavailableItemReqBtnAction;
 
@@ -25,8 +24,6 @@ public class UnavailableItemReqView implements IReqObserver {
 	private Text EnterName;
 	private Text EnterLink;
 	private Text enterCost;
-
-	Button btnHome;
 	Button btnBack;
 	Combo cmbSelectCourse;
 	Combo cmbSelectItemType;
@@ -56,13 +53,8 @@ public class UnavailableItemReqView implements IReqObserver {
 		shlEezon.setLocation(450,200);
 		shlEezon.setText("EEZON - Request for Unavailable Items - Student  ");
 		
-		btnHome = new Button(shlEezon, SWT.NONE);
-		btnHome.setBounds(76, 36, 105, 35);
-		btnHome.setText("Home");
-		btnHome.setData(new UnavailableItemHomeBtnAction());
-		
 		btnBack = new Button(shlEezon, SWT.NONE);
-		btnBack.setBounds(471, 36, 105, 35);
+		btnBack.setBounds(39, 36, 105, 35);
 		btnBack.setText("Back");
 		btnBack.setData(new UnavailableItemBackBtnAction());
 		
@@ -219,17 +211,6 @@ public class UnavailableItemReqView implements IReqObserver {
 	public void setEnterCost(Text enterCost) {
 		this.enterCost = enterCost;
 	}
-
-
-	public Button getBtnHome() {
-		return btnHome;
-	}
-
-
-	public void setBtnHome(Button btnHome) {
-		this.btnHome = btnHome;
-	}
-
 
 	public Button getBtnBack() {
 		return btnBack;

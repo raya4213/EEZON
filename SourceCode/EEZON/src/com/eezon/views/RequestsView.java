@@ -15,6 +15,7 @@ public class RequestsView {
 	Button btnReqUnavailableItem;
 	Button btnReqCheckinExtension;
 	Display display;
+	Button btnLogout;
 	/**
 	 * Launch the application.
 	 * @param args
@@ -42,31 +43,33 @@ public class RequestsView {
 		btnHome = new Button(shlEezon, SWT.NONE);
 		btnHome.setBounds(25, 22, 90, 30);
 		btnHome.setText("Home");
+		btnHome.setData("btnHome");
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
-		btnBack.setBounds(314, 22, 90, 30);
+		btnBack.setBounds(161, 22, 90, 30);
 		btnBack.setText("Back");
+		btnBack.setData("btnBack");
 		
 		btnReqCourse = new Button(shlEezon, SWT.NONE);
 		btnReqCourse.setBounds(101, 81, 243, 30);
 		btnReqCourse.setText("Request to enroll into Course");
+		btnReqCourse.setData("btnReqCourse");
 		
 		btnReqUnavailableItem = new Button(shlEezon, SWT.NONE);
 		btnReqUnavailableItem.setBounds(101, 131, 243, 30);
 		btnReqUnavailableItem.setText("Request for Unavailable Item");
+		btnReqUnavailableItem.setData("btnReqUnavailableItem");
 		
 		btnReqCheckinExtension = new Button(shlEezon, SWT.NONE);
 		btnReqCheckinExtension.setText("Request Check IN Extension");
 		btnReqCheckinExtension.setBounds(101, 182, 243, 30);
-
-		shlEezon.open();
-		shlEezon.layout();
+		btnReqCheckinExtension.setData("btnReqCheckinExtension");
 		
-		while (!shlEezon.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
+		btnLogout = new Button(shlEezon, SWT.NONE);
+		btnLogout.setBounds(302, 22, 90, 30);
+		btnLogout.setText("Logout");
+		btnLogout.setData("btnLogout");
+
 	}
 
 	public Display getDisplay() {
@@ -123,5 +126,13 @@ public class RequestsView {
 
 	public void setBtnReqCheckinExtension(Button btnReqCheckinExtension) {
 		this.btnReqCheckinExtension = btnReqCheckinExtension;
+	}
+
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
+
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
 	}
 }

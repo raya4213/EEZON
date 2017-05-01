@@ -16,6 +16,7 @@ import com.eezon.models.CourseToEmbed;
 import com.eezon.models.Kit;
 import com.eezon.models.UnavailableItem;
 import com.eezon.models.UnavailableItemRequest;
+import com.eezon.models.User;
 import com.eezon.requests.strategy.IUnavailableItemBtnAction;
 import com.eezon.views.UnavailableItemReqView;
 
@@ -23,14 +24,18 @@ public class UnavailableItemReqController implements MouseListener {
 	private UnavailableItemReqView unavailableItemReqView;
 	private Course courseModel;
 	private UnavailableItemRequest unavailableItemReqModel;
+	private User userModel;
+	private Shell prevShell;
 	
-	public UnavailableItemReqController(){
+	public UnavailableItemReqController(User userModel, Shell prevShell){
 		this.unavailableItemReqView= new UnavailableItemReqView();
 		this.courseModel=new Course();
 		this.unavailableItemReqModel=new UnavailableItemRequest();
 		initializeListeners();
 		updateTblDetails("sharath.vontari@colorado.edu");
 		unavailableItemReqModel.attach(unavailableItemReqView);
+		this.userModel = userModel;
+		this.prevShell = prevShell;
 		
 	}
 	
@@ -59,6 +64,7 @@ public class UnavailableItemReqController implements MouseListener {
 	}
 	
 	public void displayView(){
+		this.prevShell.setVisible(false);
 		Shell shell= unavailableItemReqView.getShlEezon();
 		Display display= unavailableItemReqView.getDisplay();
 		shell.open();

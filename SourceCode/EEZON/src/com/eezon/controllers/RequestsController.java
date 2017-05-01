@@ -2,6 +2,7 @@ package com.eezon.controllers;
 
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
@@ -17,6 +18,16 @@ public class RequestsController implements MouseListener{
 		this.requestsView = new RequestsView();
 		this.userModel=userModel;
 		this.prevShell=prevShell;
+		initializeListeners();
+	}
+	
+	public void initializeListeners(){
+		requestsView.getBtnBack().addMouseListener(this);
+		requestsView.getBtnHome().addMouseListener(this);
+		requestsView.getBtnLogout().addMouseListener(this);
+		requestsView.getBtnReqCheckinExtension().addMouseListener(this);
+		requestsView.getBtnReqCourse().addMouseListener(this);
+		requestsView.getBtnReqUnavailableItem().addMouseListener(this);
 	}
 	
 
@@ -60,6 +71,27 @@ public class RequestsController implements MouseListener{
 	public void mouseDown(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
+		Button btnPressed = (Button)arg0.widget;
+		
+		switch(btnPressed.getData().toString()){
+			case "btnHome":
+				break;
+			case "btnBack":
+				break;
+			case "btnReqCourse":
+				break;
+			case "btnReqUnavailableItem":
+				UnavailableItemReqController unavailableItemReqController= new UnavailableItemReqController(userModel, requestsView.getShlEezon());
+				unavailableItemReqController.displayView();
+				break;
+			case "btnReqCheckinExtension":
+				CheckInExtensionReqController checkInExtensionReqController= new CheckInExtensionReqController(userModel, requestsView.getShlEezon());
+				checkInExtensionReqController.displayView();
+				break;
+			case "btnLogout":
+				break;
+			
+		}
 	}
 
 	@Override

@@ -11,6 +11,7 @@ import com.eezon.models.Kit;
 import com.eezon.models.KitToEmbed;
 import com.eezon.models.UnavailableItem;
 import com.eezon.models.UnavailableItemRequest;
+import com.eezon.models.User;
 import com.eezon.requests.strategy.ICheckInExtensionBtnAction;
 import com.eezon.views.CheckInExtensionReqView;
 
@@ -27,8 +28,10 @@ public class CheckInExtensionReqController implements MouseListener {
 		private Course courseModel;
 		private Kit kitModel;
 		private CheckInExtensionRequest checkInExtensionReqModel;
+		private User userModel;
+		private Shell prevShell;
 		
-		public CheckInExtensionReqController(){
+		public CheckInExtensionReqController(User userModel, Shell prevShell){
 			this.checkInExtensionReqView= new CheckInExtensionReqView();
 			this.courseModel= new Course();
 			this.kitModel= new Kit();
@@ -36,6 +39,8 @@ public class CheckInExtensionReqController implements MouseListener {
 			initializeListeners();
 			updateTblDetails("sharath.vontari@colorado.edu");
 			checkInExtensionReqModel.attach(checkInExtensionReqView);
+			this.userModel = userModel;
+			this.prevShell = prevShell;
 		}
 		
 		public void initializeListeners(){
@@ -63,6 +68,7 @@ public class CheckInExtensionReqController implements MouseListener {
 		}
 		
 		public void displayView(){
+			this.prevShell.setVisible(false);
 			Shell shell= checkInExtensionReqView.getShlEezon();
 			Display display= checkInExtensionReqView.getDisplay();
 			shell.open();

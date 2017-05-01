@@ -32,7 +32,22 @@ public class UnavailableItemReqView implements IReqObserver {
 	Shell shlEezon;
 	Table tblReqDetails;
 	TableColumn tblColumn;
+	Button btnLogout;
 	
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
+
+
+
+
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
+	}
+
+
+
+
 	/**
 	 * Open the window.
 	 */
@@ -41,6 +56,7 @@ public class UnavailableItemReqView implements IReqObserver {
 		shlEezon = new Shell();
 		shlEezon.setToolTipText("Enter Cost");
 		shlEezon.setSize(1094, 679);
+		shlEezon.setLocation(450,200);
 		shlEezon.setText("EEZON - Request for Unavailable Items - Student  ");
 		
 		btnHome = new Button(shlEezon, SWT.NONE);
@@ -50,7 +66,7 @@ public class UnavailableItemReqView implements IReqObserver {
 		
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
-		btnBack.setBounds(209, 36, 105, 35);
+		btnBack.setBounds(471, 36, 105, 35);
 		btnBack.setText("BACK");
 		btnBack.setData("btnBack");
 		
@@ -122,6 +138,10 @@ public class UnavailableItemReqView implements IReqObserver {
   		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
   		tblColumn.setWidth(125);
   		tblColumn.setText("Course Name");
+  		
+  		btnLogout = new Button(shlEezon, SWT.NONE);
+  		btnLogout.setText("LOGOUT");
+  		btnLogout.setBounds(944, 36, 105, 35);
 		
 	}
 

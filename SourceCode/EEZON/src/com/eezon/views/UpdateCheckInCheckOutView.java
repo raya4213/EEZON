@@ -40,6 +40,7 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 	private Group grpByCheckIn;
 	
 	TableColumn tblColumn;
+	private Button btnLogout;
 	
 	// Hello world
 
@@ -89,6 +90,7 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		display = Display.getDefault();
 		shlEezonCheck = new Shell();
 		shlEezonCheck.setSize(1132, 723);
+		shlEezonCheck.setLocation(450,200);
 		shlEezonCheck.setText("EEZON - Check IN/Check OUT");
 		shlEezonCheck.setLocation(450,200);
 		
@@ -97,7 +99,7 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		btnHome.setText("HOME");
 		
 		btnBack = new Button(shlEezonCheck, SWT.NONE);
-		btnBack.setBounds(943, 27, 105, 35);
+		btnBack.setBounds(469, 27, 105, 35);
 		btnBack.setText("BACK");
 		
 		txtEmail = new Text(shlEezonCheck, SWT.BORDER);
@@ -185,7 +187,19 @@ public class UpdateCheckInCheckOutView implements IKitObserver{
 		tblColumn = new TableColumn(tblCinCoutDetails, SWT.NULL);
 		tblColumn.setWidth(235);
 		tblColumn.setText("StudentName");
+		
+		btnLogout = new Button(shlEezonCheck, SWT.NONE);
+		btnLogout.setText("LOGOUT");
+		btnLogout.setBounds(976, 27, 105, 35);
 
+	}
+
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
+
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
 	}
 
 	public Button getRadCheckIn() {

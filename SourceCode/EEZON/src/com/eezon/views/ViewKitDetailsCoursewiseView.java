@@ -25,6 +25,7 @@ public class ViewKitDetailsCoursewiseView {
 	Button btnView;
 	Shell shlEezonView;
 	TableColumn tblColumn;
+	private Button btnLogout;
 	
 
 	/**
@@ -178,7 +179,7 @@ public class ViewKitDetailsCoursewiseView {
 		btnHome.setText("Home");
 		
 		btnBack = new Button(shlEezonView, SWT.NONE);
-		btnBack.setBounds(537, 10, 75, 25);
+		btnBack.setBounds(302, 10, 75, 25);
 		btnBack.setText("Back");
 		
 		cmbSelectSem = new Combo(shlEezonView, SWT.NONE);
@@ -239,6 +240,34 @@ public class ViewKitDetailsCoursewiseView {
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
 		tblColumn.setWidth(86);
 		tblColumn.setText("StudentName");
+		
+		btnLogout = new Button(shlEezonView, SWT.NONE);
+		btnLogout.setText("LogOut");
+		btnLogout.setBounds(544, 10, 75, 25);
 
+	}
+
+
+
+	public TableColumn getTblColumn() {
+		return tblColumn;
+	}
+
+
+
+	public void setTblColumn(TableColumn tblColumn) {
+		this.tblColumn = tblColumn;
+	}
+
+
+
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
+
+
+
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
 	}
 }

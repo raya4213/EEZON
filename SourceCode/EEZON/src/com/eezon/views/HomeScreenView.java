@@ -16,6 +16,7 @@ public class HomeScreenView {
 	Button btnInventory;
 	Button btnPenaltyManagement;
 	Button btnAddProfTA;
+	private Button btnLogout;
 	
 	/**
 	 * Launch the application.
@@ -75,6 +76,18 @@ public class HomeScreenView {
 		btnAddProfTA.setBounds(163, 211, 75, 25);
 		btnAddProfTA.setText("AddProfTA");
 		btnAddProfTA.setData("btnAddProfTA");
+		
+		btnLogout = new Button(shlHome, SWT.NONE);
+		btnLogout.setText("LOGOUT");
+		btnLogout.setBounds(349, 10, 75, 25);
+	}
+
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
+
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
 	}
 
 	public Display getDisplay() {

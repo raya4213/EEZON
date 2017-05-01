@@ -21,6 +21,7 @@ public class ViewMyCheckInCheckOut {
 	Button btnView;
 	private Table tblDetails;
 	TableColumn tblColumn;
+	private Button btnLogout;
 	
 	
 	/**
@@ -52,7 +53,7 @@ public class ViewMyCheckInCheckOut {
 		btnHome.setData("btnHome");
 		
 		btnBack = new Button(shlEezon, SWT.NONE);
-		btnBack.setBounds(224, 23, 105, 35);
+		btnBack.setBounds(375, 23, 105, 35);
 		btnBack.setText("BACK");
 		btnBack.setData("btnBack");
 		
@@ -112,9 +113,21 @@ public class ViewMyCheckInCheckOut {
 		tblColumn = new TableColumn(tblDetails, SWT.NULL);
 		tblColumn.setWidth(86);
 		tblColumn.setText("StudentName");
+		
+		btnLogout = new Button(shlEezon, SWT.NONE);
+		btnLogout.setText("LOGOUT");
+		btnLogout.setBounds(799, 23, 105, 35);
 
 	}	
 	
+	public Button getBtnLogout() {
+		return btnLogout;
+	}
+
+	public void setBtnLogout(Button btnLogout) {
+		this.btnLogout = btnLogout;
+	}
+
 	public TableColumn getTblColumn() {
 		return tblColumn;
 	}

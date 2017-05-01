@@ -125,9 +125,15 @@ public class ViewMyCheckInCheckOutController implements MouseListener, Selection
 		
 			// TODO: Will have to implement Home and Back buttons
 			case "btnHome":
-				break;
 			case "btnBack":
+				this.prevShell.setVisible(true);
+				viewMyCheckInCheckOut.getShlEezon().dispose();
 				break;
+				
+			case "btnLogout":
+				this.loginShell.setVisible(true);
+				this.prevShell.dispose();
+				viewMyCheckInCheckOut.getShlEezon().dispose();
 			case "btnView":
 				System.out.println("Inside btnView onClick");
 				Course course = new Course();

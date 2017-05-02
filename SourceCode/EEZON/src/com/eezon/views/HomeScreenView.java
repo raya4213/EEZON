@@ -49,7 +49,7 @@ public class HomeScreenView {
 		
 		btnMyCINCOUTView = new Button(shlHome, SWT.NONE);
 		btnMyCINCOUTView.setText("View my Check IN / Check OUT");
-		btnMyCINCOUTView.setBounds(64, 115, 223, 25);
+		btnMyCINCOUTView.setBounds(33, 115, 254, 25);
 		btnMyCINCOUTView.setData("btnMyCINCOUTView");
 		
 		btnViewKitDetails = new Button(shlHome, SWT.NONE);

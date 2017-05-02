@@ -64,8 +64,8 @@ public class CheckInExtensionReqController implements MouseListener {
 		        item.setText(2, reqFound.getRequestKit().getKitSerialNum());
 		        item.setText(3, reqFound.getRequestKit().getKitType());
 		        item.setText(4, reqFound.getNumDays()+"");
-		        item.setText(5, reqFound.getRequestKit().getKitCheckOutDate()+"");
-		        item.setText(6, reqFound.getRequestKit().getKitCourse().getCourseName());
+		        //item.setText(5, reqFound.getRequestKit().getKitCheckOutDate()+"");
+		        item.setText(5, reqFound.getRequestKit().getKitCourse().getCourseName());
 			}
 		}
 		

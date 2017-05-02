@@ -65,7 +65,7 @@ public class CheckInExtensionReqView implements IReqObserver{
 		btnRequest.setData(new CheckInExtensionReqBtnAction());
 		
 		tblReqDetails = new Table(shlEezon, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
-		tblReqDetails.setBounds(111, 58, 746, 130);
+		tblReqDetails.setBounds(163, 60, 619, 130);
 		tblReqDetails.setHeaderVisible(true);
 		tblReqDetails.setLinesVisible(true);
 		
@@ -90,9 +90,9 @@ public class CheckInExtensionReqView implements IReqObserver{
   		tblColumn.setWidth(105);
   		tblColumn.setText("Num of Days");
   		
-  		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
+  		/*tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
   		tblColumn.setWidth(149);
-  		tblColumn.setText("CheckOutDate");
+  		tblColumn.setText("CheckOutDate");*/
   		
   		tblColumn = new TableColumn(tblReqDetails, SWT.NULL);
   		tblColumn.setWidth(147);
@@ -203,8 +203,8 @@ public class CheckInExtensionReqView implements IReqObserver{
         item.setText(2, itemReq.getRequestKit().getKitSerialNum());
         item.setText(3, itemReq.getRequestKit().getKitType());
         item.setText(4, itemReq.getNumDays()+"");
-        item.setText(5, itemReq.getRequestKit().getKitCheckOutDate()+"");
-        item.setText(6, itemReq.getRequestKit().getKitCourse().getCourseName());
+        //item.setText(5, itemReq.getRequestKit().getKitCheckOutDate()+"");
+        item.setText(5, itemReq.getRequestKit().getKitCourse().getCourseName());
 	}
 }
 

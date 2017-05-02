@@ -219,9 +219,9 @@ public class ViewKitDetailsCoursewiseView {
 		tblColumn.setWidth(116);
 		tblColumn.setText("CourseName");
 		
-		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
+		/*tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
 		tblColumn.setWidth(93);
-		tblColumn.setText("KitPenalty");
+		tblColumn.setText("KitPenalty");*/
 		
 		tblColumn = new TableColumn(tblViewDetails, SWT.NULL);
 		tblColumn.setWidth(88);

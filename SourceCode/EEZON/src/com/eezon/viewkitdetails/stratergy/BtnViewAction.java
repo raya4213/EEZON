@@ -35,10 +35,10 @@ public class BtnViewAction implements IViewKitDetailsBtnAction{
 		        item.setText(1, kitFound.getKitCheckInDate().toString());
 		        item.setText(2, kitFound.getKitCheckOutDate().toString());
 		        item.setText(3, kitFound.getKitCourse().getCourseName());
-		        item.setText(4, kitFound.getKitPenalty()+"");
-		        item.setText(5, kitFound.getKitType());
-		        item.setText(6, kitFound.getStudentEmailKit());
-		        item.setText(7, kitFound.getStudentNameForKit());
+		        //item.setText(4, kitFound.getKitPenalty()+"");
+		        item.setText(4, kitFound.getKitType());
+		        item.setText(5, kitFound.getStudentEmailKit());
+		        item.setText(6, kitFound.getStudentNameForKit());
 
 			}
 
